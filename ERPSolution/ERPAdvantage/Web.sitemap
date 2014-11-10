@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="Home"  description="">
+    <siteMapNode url="~/ServiceMain.aspx" title="Service"  description="Service Module">
+      <siteMapNode url="~/Service/ServiceMaster/CustomerMaster.aspx" title="Custom Master" description="This is Customer Master" />
+      <siteMapNode url="~/Service/ServiceMaster/ApplianceMaster.aspx" title="Appliance Master" description="This is Appliance Master" />
+      <siteMapNode url="~/Service/ServiceMaster/AreaMaster.aspx" title="Area Master" description="This is Area Master" />
+      <siteMapNode url="~/Service/ServiceMaster/DomainMaster.aspx" title="Domain Master" description="This is Domain Master" />
+      <siteMapNode url="~/Service/ServiceTransaction/VisitingRequest.aspx" title="Visiting Request" description="This is Visiting Request" />
+    </siteMapNode>
+    <siteMapNode url="~/InventryMain.aspx" title="Inventry"  description="Inventry Module" />
+    <siteMapNode url="~/FinanceMain.aspx" title="Finance" description="Finance Module"/>
+    <siteMapNode url="~/CostingMain.aspx" title="CostingMain" description="CostingMain Module"/>
+  </siteMapNode>
+</siteMap>
