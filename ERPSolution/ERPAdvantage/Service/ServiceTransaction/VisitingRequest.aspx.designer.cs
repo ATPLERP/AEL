@@ -211,6 +211,15 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
+        /// btnsearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsearch;
+        
+        /// <summary>
         /// dgridvrlist control.
         /// </summary>
         /// <remarks>
@@ -587,6 +596,15 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsearchbwarrbytp;
+        
+        /// <summary>
+        /// btnsearch2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsearch2;
         
         /// <summary>
         /// dgriddeptorwarranty control.

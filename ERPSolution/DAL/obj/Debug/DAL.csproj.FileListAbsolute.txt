@@ -89,6 +89,5 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.EnterpriseLi
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
-G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
