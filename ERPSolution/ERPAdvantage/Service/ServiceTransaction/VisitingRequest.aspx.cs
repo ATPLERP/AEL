@@ -69,25 +69,25 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         private void GetCustomerList()
         {
-            UIControl uic = new UIControl();
-            ADTWebService ws = new ADTWebService();
-            CustomMaster objcus = new CustomMaster();
-            objcus.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-            objcus.pCustName = txtsearchcustomername.Text;
-            objcus.pCustPhone1 = txtsearchphoneno.Text;
-            objcus.pCustArea = txtsearchcustomerarea.Text;
-            objcus.pCustAdd = txtsearchcustomeraddress.Text;
-            DataSet ds = ws.gMsGetCustomerDetailList(objcus);
-            try
-            {
-                gvcustomerlist.DataSource = ds.Tables[0];
-                gvcustomerlist.DataBind();
-                gvcustomerlist.Caption = gvcustomerlist.Rows.Count.ToString() + "  " + "Record(s) found";
-            }
-            catch (Exception ex)
-            {
-                
-            }
+            //UIControl uic = new UIControl();
+            //ADTWebService ws = new ADTWebService();
+            //CustomMaster objcus = new CustomMaster();
+            //objcus.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            //objcus.pCustName = txtsearchcustomername.Text;
+            //objcus.pCustPhone1 = txtsearchphoneno.Text;
+            //objcus.pCustArea = txtsearchcustomerarea.Text;
+            //objcus.pCustAdd = txtsearchcustomeraddress.Text;
+            //DataSet ds = ws.gMsGetCustomerDetailList(objcus);
+            //try
+            //{
+            //    gvcustomerlist.DataSource = ds.Tables[0];
+            //    gvcustomerlist.DataBind();
+            //    gvcustomerlist.Caption = gvcustomerlist.Rows.Count.ToString() + "  " + "Record(s) found";
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}
                        
 
         }
