@@ -120,9 +120,6 @@
   <data name="msgAdeni" xml:space="preserve">
     <value>Access denied....</value>
   </data>
-  <data name="msgDeleteOk" xml:space="preserve">
-    <value>Successfully Deleted Data.</value>
-  </data>
   <data name="msgIsValiedEmail" xml:space="preserve">
     <value>Please insert a valid Email address.</value>
   </data>
@@ -135,9 +132,6 @@
   <data name="msgSelect" xml:space="preserve">
     <value>Please select the values.</value>
   </data>
-  <data name="msgupdateerror" xml:space="preserve">
-    <value>Unable to Update Data.</value>
-  </data>
   <data name="msgUpdateOk" xml:space="preserve">
     <value>Successfully updated Data.</value>
   </data>
@@ -145,9 +139,9 @@
     <value>Please insert a valid name.</value>
   </data>
   <data name="msgVPhoneno" xml:space="preserve">
-    <value>Please enter a valid Phone no.</value>
+    <value>Please enter a valid Phone no</value>
   </data>
-  <data name="msgDuplicateEntry" xml:space="preserve">
-    <value>Duplicate Data ,Data Already Exist.</value>
+  <data name="msgupdateerror" xml:space="preserve">
+    <value>Unable to Update Data</value>
   </data>
 </root>

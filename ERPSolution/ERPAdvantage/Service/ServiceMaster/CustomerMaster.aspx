@@ -447,6 +447,12 @@
                                       style="margin-right: 0px" Width="400px">
                                       <AlternatingRowStyle BackColor="White" />
                                       <Columns>
+                                          <asp:TemplateField HeaderText="#">   
+                                          <ItemTemplate>
+                                             <%# Container.DataItemIndex + 1 %>   
+                                         </ItemTemplate>
+                                         </asp:TemplateField>
+
                                           <asp:BoundField DataField="CUST_NO" HeaderText="Cust No" 
                                               SortExpression="CUST_NO" Visible="false" />
                                   <%--   <asp:BoundField DataField="OrgCode" HeaderText="OrgID" SortExpression="OrgCode" Visible="false" />

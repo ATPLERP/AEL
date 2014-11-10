@@ -509,9 +509,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style34">&nbsp;</td>
-                        <td class="auto-style36">
-                            <asp:Label ID="Label28" runat="server" Text="Saminda"></asp:Label>
-                            &nbsp;sumith</td>
+                        <td class="auto-style36">&nbsp;</td>
                         <td class="auto-style35">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>

@@ -75,20 +75,12 @@ public DataSet getCustDetails(Advantage.ERP.DAL.DataContract.CustomMaster objMst
    return bsOj.gMsCustDetails(objMst);
 }
  [WebMethod]
-
 public DataSet gMsGetCustomerList(Advantage.ERP.DAL.DataContract.CustomMaster objMst)
 {
     Advantage.ERP.BLL.ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
    return bsOj.gMsGetCustomerList(objMst);
 }
-
- [WebMethod]
- public DataSet gMsGetCustomerDetailList(Advantage.ERP.DAL.DataContract.CustomMaster objcus)
- {
-     Advantage.ERP.BLL.ServiceBusinessCalls objs = new Advantage.ERP.BLL.ServiceBusinessCalls();
-     return objs.gMsGetCustomerDetailList(objcus);
-
- }
+     
 
 #endregion
 
@@ -188,29 +180,30 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls obj = new ServiceBusinessCalls();
         obj.gMsCreateDomain(objdom);
     }
-    [WebMethod]
-    public DataSet gMsSearchDomain(Advantage.ERP.DAL.DataContract.Domainmst objdom)
-    {
-        ServiceBusinessCalls objs = new ServiceBusinessCalls();
-        return objs.gMsSearchDomain(objdom);                    
-
-    }
-    [WebMethod]
-    public bool gMsDeleteDomain(Advantage.ERP.DAL.DataContract.Domainmst objdom)
-    {
-        ServiceBusinessCalls objs = new ServiceBusinessCalls();
-        objs.gMsDeleteDomain(objdom);
-        return true;
-    }
-    [WebMethod]
-    public bool gMsAddDomainType(Advantage.ERP.DAL.DataContract.Domainmst objdom)
-    {
-        ServiceBusinessCalls obj = new ServiceBusinessCalls();
-        obj.gMsAddDomainType(objdom);
-        return true;
-    }
 
     #endregion DomainMaster
+
+    #region QuotationTrans.cs
+    [WebMethod]
+    public DataTable gMsItemDet(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+    {
+        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+        return bsOj.gMsItemDet(qutTrans);
+    }
+    [WebMethod]
+    public DataTable gMsQuotationList(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+    {
+        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+        return bsOj.gMsQuotationList(qutTrans);
+    }
+    [WebMethod]
+    public DataSet gMsQuotationDetails(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans, Advantage.ERP.DAL.DataContract.CustomMaster oblCustM)
+    {
+        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+        return bsOj.gMsQuotationDetails(qutTrans, oblCustM);
+    }
+
+    #endregion
 
     #region VisitingRequest
     [WebMethod]
@@ -218,7 +211,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     {
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
         return objs.gMsGetCategoryforVisitingReq(objvr);
-        
+
     }
 
     [WebMethod]
@@ -226,7 +219,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     {
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
         return objs.gMsGetPriorityforVisitingReq(objvr);
-        
+
     }
     [WebMethod]
     public List<gDropdownlist> gMsGetPrefixforVisitingRequest(Advantage.ERP.DAL.DataContract.VisitingReq objvr)

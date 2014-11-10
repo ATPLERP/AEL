@@ -18,8 +18,6 @@ using Advantage.ERP.DAL.DataContract;
 using Advantage.ERP.BLL;
 using ERPAdvantage;
 
-
-
 /// <summary>
 /// Summary description for UIvalidations
 /// </summary>
@@ -148,12 +146,6 @@ public class UIvalidations:Page
              }
              if (ctrl is HtmlTextArea)
                  ((HtmlTextArea)ctrl).Value = string.Empty;
-
-             if (ctrl is GridView)
-             {
-                 
-                 ctrl.DataBind();
-             }
                                    
             ClearInputs(ctrl.Controls);
         }
