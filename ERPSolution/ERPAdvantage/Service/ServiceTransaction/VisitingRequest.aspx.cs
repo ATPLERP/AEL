@@ -69,26 +69,40 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         private void GetCustomerList()
         {
-            //UIControl uic = new UIControl();
-            //ADTWebService ws = new ADTWebService();
-            //CustomMaster objcus = new CustomMaster();
-            //objcus.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-            //objcus.pCustName = txtsearchcustomername.Text;
-            //objcus.pCustPhone1 = txtsearchphoneno.Text;
-            //objcus.pCustArea = txtsearchcustomerarea.Text;
-            //objcus.pCustAdd = txtsearchcustomeraddress.Text;
-            //DataSet ds = ws.gMsGetCustomerDetailList(objcus);
-            //try
-            //{
-            //    gvcustomerlist.DataSource = ds.Tables[0];
-            //    gvcustomerlist.DataBind();
-            //    gvcustomerlist.Caption = gvcustomerlist.Rows.Count.ToString() + "  " + "Record(s) found";
-            //}
-            //catch (Exception ex)
-            //{
+            UIControl uic = new UIControl();
+            ADTWebService ws = new ADTWebService();
+            VisitingReq objvr = new VisitingReq();
+            objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objvr.pCustomerName = txtsearchcustomername.Text;
+            objvr.pCustPhone = txtsearchphoneno.Text;
+            objvr.pCustArea = txtsearchcustomerarea.Text;
+            objvr.pCustomerAddressInv = txtsearchcustomeraddress.Text;
+            DataSet ds = null;
+            ds=ws.gMsGetCustomerListForVisitingReguest(objvr);
+            gvcustomerlist.DataSource = ds;
+            gvcustomerlist.DataBind();
+        }
 
-            //}
-                       
+        private void GetCustomerDataByCustCode()
+        {
+            UIControl uic = new UIControl();
+            ADTWebService ws = new ADTWebService();
+            VisitingReq objvr = new VisitingReq();
+            objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objvr.pCustCode = Convert.ToInt32(txtcustomercode.Text);
+            SqlDataReader dr=ws.gMsGetCustomerDataByCustomerCode(objvr);
+            while (dr.Read())
+            {
+                txtcustomername.Text = dr["CustomerName"].ToString();
+                ddlprefix.SelectedItem.Text = dr["Prefix"].ToString();
+                txtinvoiceaddress.Text = dr["InvoiceAddress"].ToString();
+                txtserviceaddress.Text = dr["ServiceAddress"].ToString();
+                ddlarea.SelectedIndex = ddlarea.Items.IndexOf(ddlarea.Items.FindByValue(dr["Area"].ToString()));
+                txtvatno.Text = dr["VatNo"].ToString();
+                txtphoneno.Text = dr["ContactNo"].ToString();
+                txtmobileno.Text = dr["Mobile"].ToString();
+                               
+            }
 
         }
 
@@ -115,7 +129,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         private void changeGvoption(string Option)
         {
-            if (Option == "department")
+            if (ViewState["gvoption"].ToString() == "department")
             {
                 txtsearchbydeptname.Enabled = true;
                 txtsearchbywarrbyno.Enabled = false;
@@ -124,7 +138,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 txtsearchwarrbyserialno.Enabled = false;
                 txtserachwarrbyaddress.Enabled = false;
             }
-            else if (Option == "warranty")
+            else if (ViewState["gvoption"].ToString() == "warranty")
             {
                 txtsearchbydeptname.Enabled = false;
                 txtsearchbywarrbyno.Enabled = true;
@@ -139,7 +153,10 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetdeptlist_Click(object sender, EventArgs e)
         {
-            gvoption = "department";
+
+            ViewState["gvoption"] = "department";
+                
+           
 
             if (panelsearchappliance.Visible == true)
             {
@@ -154,7 +171,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetwarrantylist_Click(object sender, EventArgs e)
         {
-            gvoption = "warranty";
+            ViewState["gvoption"]="warranty";
 
             if (panelsearchappliance.Visible == true)
             {
@@ -194,7 +211,28 @@ namespace ERPAdvantage.Service.ServiceTransaction
         protected void gvcustomerlist_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtcustomercode.Text = gvcustomerlist.SelectedRow.Cells[1].Text;
+            GetCustomerDataByCustCode();
             panelsearchcustomer.Visible = false;
+        }
+
+        protected void btnsearch2_Click(object sender, EventArgs e)
+        {
+
+            if (ViewState["gvoption"].ToString() == "department")
+            {
+                UIControl uic = new UIControl();
+                ADTWebService ws = new ADTWebService();
+                VisitingReq objvr = new VisitingReq();
+                objvr.pDepatName = txtsearchbydeptname.Text;
+                DataSet ds = null;
+                ds = ws.gMsGetDepartmentForVisitingRequest(objvr);
+                dgriddeptorwarranty.DataSource = ds;
+                dgriddeptorwarranty.DataBind();
+            }
+            else if (ViewState["gvoption"].ToString() == "warranty")
+            {
+
+            }
         }
     }
 }

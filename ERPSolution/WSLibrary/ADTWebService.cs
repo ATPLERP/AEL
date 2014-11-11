@@ -234,6 +234,27 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objs.gMsGetAreaForVisitingRequest(objvr);
     }
 
+    [WebMethod]
+    public DataSet gMsGetCustomerListForVisitingReguest(Advantage.ERP.DAL.DataContract.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objs = new ServiceBusinessCalls();
+        return objs.gMsGetCustomerListForVisitingReguest(objvr);
+    }
+    [WebMethod]
+    public SqlDataReader gMsGetCustomerDataByCustomerCode(Advantage.ERP.DAL.DataContract.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsGetCustomerDataByCustomerCode(objvr);
+    }
+
+    [WebMethod]
+    public DataSet gMsGetDepartmentForVisitingRequest(Advantage.ERP.DAL.DataContract.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsGetDepartmentForVisitingRequest(objvr);
+    }
+
+
     #endregion VisitingRequest
 
 }

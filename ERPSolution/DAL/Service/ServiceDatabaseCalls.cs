@@ -522,6 +522,43 @@ namespace Advantage.ERP.DAL
 
         }
 
+        public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr)
+       {
+           Database db = DatabaseFactory.CreateDatabase();
+           string Sqlcommand = "GetCustomerDetails";
+           DbCommand dbcommand = db.GetStoredProcCommand(Sqlcommand);
+           db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objvr.pOrgcode);
+           db.AddInParameter(dbcommand, "@CustomerName", DbType.String, objvr.pCustomerName);
+           db.AddInParameter(dbcommand, "@TelephoneNo", DbType.String, objvr.pCustPhone);
+           db.AddInParameter(dbcommand, "@AreaName", DbType.String, objvr.pCustArea);
+           db.AddInParameter(dbcommand, "@InvoiceAddress", DbType.String, objvr.pCustomerAddressInv);
+           DataSet ds = null;
+           ds = db.ExecuteDataSet(dbcommand);
+           return ds;
+
+       }
+
+        public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetCustomerDataByCustno";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@Custcode", DbType.Int64, objvr.pCustCode);
+            IDataReader idr= db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+        }
+
+        public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetDepartmentData";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@Deptname",DbType.String, objvr.pDepatName);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+        }
+
         #endregion VisitingRequest
 
 

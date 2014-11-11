@@ -32,6 +32,9 @@ namespace Advantage.ERP.BLL
         List<gDropdownlist> gMsGetPriorityforVisitingReq(DAL.DataContract.VisitingReq objvr);
         List<gDropdownlist> gMsGetPrefixforVisitingRequest(DAL.DataContract.VisitingReq objvr);
         List<gDropdownlist> gMsGetAreaForVisitingRequest(DAL.DataContract.VisitingReq objvr);
+        DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr);
+        SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr);
+        DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr);
 
         #endregion VisitingRequest
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisitingRequest.aspx.cs" Inherits="ERPAdvantage.Service.ServiceTransaction.VisitingRequest" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisitingRequest.aspx.cs" Inherits="ERPAdvantage.Service.ServiceTransaction.VisitingRequest" EnableViewState="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -364,7 +364,7 @@
                         <tr>
                             <td class="auto-style46">&nbsp;</td>
                             <td class="auto-style47">
-                                <asp:Button ID="btnsearch2" runat="server" Text="Search" />
+                                <asp:Button ID="btnsearch2" runat="server" Text="Search" OnClick="btnsearch2_Click" />
                             </td>
                             <td class="auto-style48">&nbsp;</td>
                             <td class="auto-style49">&nbsp;</td>
