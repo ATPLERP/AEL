@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Advantage.ERP.DAL.DataContract.Inventory;
 
 namespace ERPAdvantage
 {
@@ -12,6 +13,12 @@ namespace ERPAdvantage
         public const string ModuleId = "19";// Stores module ID
         protected void Page_Load(object sender, EventArgs e)
         {
+            ADTWebService objWs = new ADTWebService();
+            I_ItemMaster objMst = new I_ItemMaster();
+        }
+
+        private void getStoreList()
+        { 
 
         }
     }

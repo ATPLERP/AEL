@@ -104,7 +104,6 @@ namespace Advantage.ERP.DAL
             db.ExecuteNonQuery(dbCommand);
         }
 
-
         public void gMsUpdateCust(DAL.DataContract.CustomMaster objMst)
         {
             // Create the Database object, using the default database service. The
@@ -142,6 +141,7 @@ namespace Advantage.ERP.DAL
                   
             db.ExecuteNonQuery(dbCommand);
         }
+
        public DataSet gMsCustDetails(DAL.DataContract.CustomMaster objMst)
         {
             // Create the Database object, using the default database service. The

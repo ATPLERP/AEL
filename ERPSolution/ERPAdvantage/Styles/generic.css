@@ -80,13 +80,10 @@ select {background-color: #F7F7F2; font-family:Arial, Helvetica, sans-serif; fon
 
 
 .title_heading{ font-family: Verdana, Geneva, sans-serif; font-size:12px; color: #069; font-weight:bold;}
-.textbox{font-family:Arial, Helvetica, sans-serif; font-size:12px; colo
-.textbox{font-family:Arial, Helvetica, sans-serif; font-size:12px; colo
-.textbox{font-family:Arial, Helvetica, sans-serif;
-    margin-left: 0px;
-    margin-right: 0px;
+.textbox{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; border:1px solid  #D8D7C7; background-color: #F7F7F2; padding:1px;
+    margin-top: 4px;
+    margin-bottom: 0px;
 }
-idth:80px; height:22px; color:#000; }
 .button_lg1{   font-family: Verdana, Geneva, sans-serif; font-size:10px; width:110px; height:22px; color:#000; }
 .title_bottom{color: #CFD0BB; height:1px; margin-top:7px;}
 

@@ -81,6 +81,12 @@
     <Content Include="Images\edit.gif" />
     <Content Include="Images\unassign.jpg" />
     <Content Include="Images\view.gif" />
+    <Content Include="Inventory\InventoryMaster\ItemMaster.aspx" />
+    <Content Include="Inventory\InventoryMaster\ItemMasterList.aspx" />
+    <Content Include="Inventory\InventoryMaster\SelectStore.aspx" />
+    <Content Include="Inventory\InventoryMaster\SupplierMaster.aspx" />
+    <Content Include="Inventory\InventoryMaster\SupplierMasterList.aspx" />
+    <Content Include="Inventory\InventoryMaster\TC_ORG_MST.aspx" />
     <Content Include="InventryMain.aspx" />
     <Content Include="Login\LogMeIn.aspx" />
     <Content Include="ServiceMain.aspx" />
@@ -173,6 +179,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\InventoryMaster\ItemMaster.aspx.cs">
+      <DependentUpon>ItemMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\ItemMaster.aspx.designer.cs">
+      <DependentUpon>ItemMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\ItemMasterList.aspx.cs">
+      <DependentUpon>ItemMasterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\ItemMasterList.aspx.designer.cs">
+      <DependentUpon>ItemMasterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\SelectStore.aspx.cs">
+      <DependentUpon>SelectStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\SelectStore.aspx.designer.cs">
+      <DependentUpon>SelectStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\SupplierMaster.aspx.cs">
+      <DependentUpon>SupplierMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\SupplierMaster.aspx.designer.cs">
+      <DependentUpon>SupplierMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\SupplierMasterList.aspx.cs">
+      <DependentUpon>SupplierMasterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\SupplierMasterList.aspx.designer.cs">
+      <DependentUpon>SupplierMasterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\TC_ORG_MST.aspx.cs">
+      <DependentUpon>TC_ORG_MST.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryMaster\TC_ORG_MST.aspx.designer.cs">
+      <DependentUpon>TC_ORG_MST.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InventryMain.aspx.cs">
       <DependentUpon>InventryMain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,7 +303,6 @@
     <Folder Include="Costing\CostingTransaction\" />
     <Folder Include="Finance\FinanceMaster\" />
     <Folder Include="Finance\FinanceTransaction\" />
-    <Folder Include="Inventory\InventoryMaster\" />
     <Folder Include="Inventory\InventoryTransaction\" />
   </ItemGroup>
   <ItemGroup>

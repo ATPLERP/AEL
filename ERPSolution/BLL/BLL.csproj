@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gDropdownlist.cs" />
+    <Compile Include="Inventory\IInventoryBusinessCall.cs" />
+    <Compile Include="Inventory\InventoryBusinessCalls.cs" />
     <Compile Include="Service\IServiceBusinessCalls.cs" />
     <Compile Include="Service\ServiceBusinessCalls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,7 +69,6 @@
   <ItemGroup>
     <Folder Include="Costing\" />
     <Folder Include="Finance\" />
-    <Folder Include="Inventory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
