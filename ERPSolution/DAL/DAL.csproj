@@ -83,6 +83,7 @@
     <Compile Include="DataContract\Service\Domainmst.cs" />
     <Compile Include="DataContract\Service\QuotationTrans.cs" />
     <Compile Include="DataContract\Service\VisitingRequest.cs" />
+    <Compile Include="DataContract\Service\WarrantyMaster.cs" />
     <Compile Include="DataContract\TSEC_USR_OBJData.cs" />
     <Compile Include="DataContract\UserSpecificData.cs" />
     <Compile Include="Service\IServiceDatabaseCalls.cs" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisitingRequest.aspx.cs" Inherits="ERPAdvantage.Service.ServiceTransaction.VisitingRequest" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisitingRequest.aspx.cs" Inherits="ERPAdvantage.Service.ServiceTransaction.VisitingRequest" EnableViewState="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -111,7 +111,7 @@
         }
         .auto-style35
         {
-            width: 154px;
+            width: 122px;
         }
         .auto-style36
         {
@@ -129,7 +129,7 @@
         }
         .auto-style39
         {
-            width: 154px;
+            width: 122px;
             height: 21px;
         }
         .auto-style44
@@ -140,7 +140,57 @@
         {
             width: 245px;
         }
-    </style>
+        .auto-style46
+        {
+            width: 104px;
+            height: 26px;
+        }
+        .auto-style47
+        {
+            width: 103px;
+            height: 26px;
+        }
+        .auto-style48
+        {
+            width: 117px;
+            height: 26px;
+        }
+        .auto-style49
+        {
+            height: 26px;
+        }
+        .auto-style51
+        {
+            width: 100px;
+            height: 21px;
+        }
+        .auto-style52
+        {
+            width: 47px;
+            height: 21px;
+        }
+        .auto-style53
+        {
+            height: 21px;
+            width: 120px;
+        }
+        .auto-style54
+        {
+            width: 97px;
+        }
+        .auto-style55
+        {
+            width: 205px;
+        }
+        .auto-style56
+        {
+            width: 108px;
+        }
+        .auto-style57
+        {
+            width: 223px;
+        }
+        </style>
     </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -161,7 +211,7 @@
     
     <ContentTemplate>
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="800px" Width="752px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="800" Width="752px">
         
         <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data">
             <ContentTemplate>
@@ -191,9 +241,11 @@
                     &nbsp;<asp:Label ID="Label3" runat="server" Text="To" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txttodate" Width="90px" />
                     <asp:Button runat="server" ID="cmdgettocal" Text="..." />
                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txttodate" PopupButtonID="cmdgettocal" PopupPosition="BottomRight" Enabled="True"></asp:CalendarExtender>
+                    &nbsp;
+                    <asp:Button ID="btnsearch" runat="server" Text="Search" />
                     <br />
                     <br />
-                    <asp:GridView runat="server" ID="dgridvrlist" Width="419px" />
+                    <asp:GridView runat="server" ID="dgridvrlist" Width="419px" Font-Size="X-Small" />
                     <br />                                                                                       
                                                           
                                  
@@ -281,20 +333,20 @@
                             <asp:Label ID="Label15" runat="server" Text="Department"></asp:Label>
                         </td>
                         <td class="auto-style15">
-                            <asp:TextBox ID="txtdepratment" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtdepratment" runat="server" Enabled="False"></asp:TextBox>
                             <asp:Button runat="server" Text=".." ID="cmdgetdeptlist" OnClick="cmdgetdeptlist_Click" />
                         </td>
                         <td class="auto-style16">
                             <asp:Label ID="Label16" runat="server" Text="Warranty No"></asp:Label>
                         </td>
                         <td class="auto-style17">
-                            <asp:TextBox ID="txtwarranttno" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtwarranttno" runat="server" Enabled="False"></asp:TextBox>
                             <asp:Button runat="server" ID="cmdgetwarrantylist" Text="..." OnClick="cmdgetwarrantylist_Click" />
                         </td>
                     </tr>
                 </table>
                 <br />
-                <asp:Panel runat="server"  ID="panelsearchappliance" Height="200px" Width="700px" style="overflow:auto" Visible="False" >
+                <asp:Panel runat="server"  ID="panelsearchappliance" Height="250px" Width="700px" style="overflow:auto" Visible="False" >
 
 
                     <table class="auto-style3">
@@ -327,27 +379,43 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style19">
+                            <td class="auto-style46">
                                 <asp:Label ID="lbladdress" runat="server" Text="Address"></asp:Label>
                             </td>
-                            <td class="auto-style22">
+                            <td class="auto-style47">
                                 <asp:TextBox ID="txtserachwarrbyaddress" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
                             </td>
-                            <td class="auto-style26">
+                            <td class="auto-style48">
                                 <asp:Label ID="lblphoneno" runat="server" Text="Phone No"></asp:Label>
                             </td>
-                            <td>
+                            <td class="auto-style49">
                                 <asp:TextBox ID="txtsearchbwarrbytp" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style46">
+                                <asp:TextBox ID="txtdeptcode" runat="server" Height="16px" Width="24px" style="visibility:hidden"></asp:TextBox>
+                            </td>
+                            <td class="auto-style47">
+                                <asp:Button ID="btnsearch2" runat="server" Text="Search" OnClick="btnsearch2_Click" />
+                            </td>
+                            <td class="auto-style48">
+                                <asp:Label ID="lblsalesorderno" runat="server" Text="Sales Order No"></asp:Label>
+                            </td>
+                            <td class="auto-style49">
+                                <asp:TextBox ID="txtsearchbwarrbusalesorder" runat="server" Width="200px">%</asp:TextBox>
                             </td>
                         </tr>
                     </table>
                     <br />
 
-                    <asp:GridView runat="server" ID="dgriddeptorwarranty" Width="600px" />
+                    <asp:GridView runat="server" ID="dgriddeptorwarranty" Width="499px" AutoGenerateSelectButton="True" Font-Size="X-Small" Height="104px" OnSelectedIndexChanged="dgriddeptorwarranty_SelectedIndexChanged" />
 
 
                     <br />
                     <br />
+                    <br />
+
 
 
 
@@ -357,6 +425,12 @@
 
 
             </ContentTemplate></asp:TabPanel><asp:TabPanel ID="tpcustomer" runat="server" HeaderText="Customer Data">
+
+
+
+            <HeaderTemplate>
+                Customer Data
+            </HeaderTemplate>
 
 
 
@@ -492,6 +566,91 @@
         </asp:TabPanel>
      
         <asp:TabPanel ID="tpitem" runat="server" HeaderText="Item Data">
+            
+            <HeaderTemplate>
+                Item Data
+            </HeaderTemplate>
+            
+            <ContentTemplate>
+                <table class="auto-style3">
+                    <tr>
+                        <td class="auto-style51">
+                            <asp:Label ID="Label28" runat="server" Text="Stock Code"></asp:Label>
+                        </td>
+                        <td class="auto-style52"></td>
+                        <td class="auto-style39">
+                            <asp:Label ID="Label29" runat="server" Text="Model No"></asp:Label>
+                        </td>
+                        <td class="auto-style53">
+                            <asp:Label ID="Label30" runat="server" Text="Serial No"></asp:Label>
+                        </td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style13"></td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style51">
+                            <asp:TextBox ID="txtstockcode" runat="server" Width="100px"></asp:TextBox>
+                        </td>
+                        <td class="auto-style52">
+                            <asp:Button ID="cmdgetitemlist" runat="server" Text="..." OnClick="cmdgetitemlist_Click" />
+                        </td>
+                        <td class="auto-style39">
+                            <asp:DropDownList ID="DropDownList1" runat="server" Width="120px">
+                            </asp:DropDownList>
+                        </td>
+                        <td class="auto-style53"></td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style13"></td>
+                    </tr>
+                </table>
+                <br />
+                <asp:Panel runat="server" ID="PanelSearchItem" style="overflow:auto" Height="200px">
+
+                    <table class="auto-style3">
+                        <tr>
+                            <td class="auto-style54">
+                                <asp:Label ID="Label31" runat="server" Text="Item Code"></asp:Label>
+                            </td>
+                            <td class="auto-style55">
+                                <asp:TextBox ID="txtsearchbyitemcode" runat="server" Width="200px"></asp:TextBox>
+                            </td>
+                            <td class="auto-style56">
+                                <asp:Label ID="Label33" runat="server" Text="Major Group"></asp:Label>
+                            </td>
+                            <td class="auto-style57">
+                                <asp:DropDownList ID="ddlsearchbymajorgroup" runat="server" Width="200px">
+                                </asp:DropDownList>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style54">
+                                <asp:Label ID="Label32" runat="server" Text="Item Name"></asp:Label>
+                            </td>
+                            <td class="auto-style55">
+                                <asp:TextBox ID="txtsearchbyitemname" runat="server" Width="200px"></asp:TextBox>
+                            </td>
+                            <td class="auto-style56">
+                                <asp:Label ID="Label34" runat="server" Text="Appliance"></asp:Label>
+                            </td>
+                            <td class="auto-style57">
+                                <asp:TextBox ID="txtsearchbyappliance" runat="server" Width="200px"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:Button ID="btnsearchitemcode" runat="server" Text="Search" />
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:GridView runat="server" ID="gvitem" Width="717px" />
+                </asp:Panel>
+
+
+
+            </ContentTemplate>
             
         </asp:TabPanel>
 

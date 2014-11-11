@@ -522,6 +522,59 @@ namespace Advantage.ERP.DAL
 
         }
 
+        public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr)
+       {
+           Database db = DatabaseFactory.CreateDatabase();
+           string Sqlcommand = "GetCustomerDetails";
+           DbCommand dbcommand = db.GetStoredProcCommand(Sqlcommand);
+           db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objvr.pOrgcode);
+           db.AddInParameter(dbcommand, "@CustomerName", DbType.String, objvr.pCustomerName);
+           db.AddInParameter(dbcommand, "@TelephoneNo", DbType.String, objvr.pCustPhone);
+           db.AddInParameter(dbcommand, "@AreaName", DbType.String, objvr.pCustArea);
+           db.AddInParameter(dbcommand, "@InvoiceAddress", DbType.String, objvr.pCustomerAddressInv);
+           DataSet ds = null;
+           ds = db.ExecuteDataSet(dbcommand);
+           return ds;
+
+       }
+
+        public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetCustomerDataByCustno";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@Custcode", DbType.Int64, objvr.pCustCode);
+            IDataReader idr= db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+        }
+
+        public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetDepartmentData";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@Deptname",DbType.String, objvr.pDepatName);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+        }
+
+        public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string Sqlcommand = "GetWarrantyData";
+            DbCommand dbcommand = db.GetStoredProcCommand(Sqlcommand);
+            db.AddInParameter(dbcommand, "@SerialNo", DbType.String, objwarr.pSerialNo);
+            db.AddInParameter(dbcommand, "@WarrantyNo", DbType.String, objwarr.pWarrantyNo);
+            db.AddInParameter(dbcommand, "@CustName", DbType.String, objwarr.pCustName);
+            db.AddInParameter(dbcommand, "@custAddInv", DbType.String, objwarr.pCustAddInv);
+            db.AddInParameter(dbcommand, "@CustPhoneno", DbType.String, objwarr.pCustPhoneNo);
+            db.AddInParameter(dbcommand, "@SalesOrderNo", DbType.String, objwarr.pSalesOrderNo);
+            DataSet ds = null;            
+            ds = db.ExecuteDataSet(dbcommand);
+            return ds;
+        }
+
         #endregion VisitingRequest
 
 

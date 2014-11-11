@@ -20,7 +20,8 @@ namespace ERPAdvantage.Service.ServiceMaster
             ADTWebService ws = new ADTWebService();
             Domainmst objdomain = new Domainmst();
             objdomain.pDomType = txtsearchbydomname.Text;
-            DataSet ds=ws.gMsGetDomainTypes(objdomain);
+            DataSet ds = null;
+            ds=ws.gMsGetDomainTypes(objdomain);
             GridVdomlist.DataSource = ds;
             GridVdomlist.DataBind();
         }
