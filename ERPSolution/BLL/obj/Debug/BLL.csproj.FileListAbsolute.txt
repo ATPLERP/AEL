@@ -111,3 +111,15 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.pdb
+D:\ERP\AEL\ERPSolution\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\ERP\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.dll
+D:\ERP\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.pdb
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.BLL.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.BLL.pdb
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Microsoft.Practices.Unity.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.pdb

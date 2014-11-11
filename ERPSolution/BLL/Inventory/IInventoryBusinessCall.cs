@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-namespace Advantage.ERP.BLL.Inventory
+namespace Advantage.ERP.BLL
 {
     public interface IInventoryBusinessCall
     {
