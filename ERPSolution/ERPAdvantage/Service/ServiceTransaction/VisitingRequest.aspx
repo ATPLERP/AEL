@@ -161,7 +161,7 @@
     
     <ContentTemplate>
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="1" Height="800px" Width="752px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="800px" Width="752px">
         
         <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data">
             <ContentTemplate>
@@ -478,9 +478,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style34">&nbsp;</td>
-                        <td class="auto-style36">
-                            <asp:Label ID="Label28" runat="server" Text="Saminda"></asp:Label>
-                            &nbsp;sumith</td>
+                        <td class="auto-style36">&nbsp;</td>
                         <td class="auto-style35">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>

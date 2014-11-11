@@ -19,13 +19,10 @@
                 <asp:MenuItem NavigateUrl="~/Service/ServiceMaster/CustomerMaster.aspx" Text="Customer Master" Value="Customer Master"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/Service/ServiceMaster/ApplianceMaster.aspx" Text="Appliance Master" Value="Appliance Master"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/Service/ServiceMaster/AreaMaster.aspx" Text="Area Master" Value="Area Master"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Service/ServiceMaster/DomainMaster.aspx" Text="Domain Master" Value="Domain Master"></asp:MenuItem>
             </asp:MenuItem>
             <asp:MenuItem Text="Transaction" Value="Transaction">
-                <asp:MenuItem NavigateUrl="~/Service/ServiceTransaction/VisitingRequest.aspx" Text="Visiting Request" Value="Visiting Request"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Service/ServiceTransaction/Quotation.aspx" Text="Quotation" Value="Quotation"></asp:MenuItem>
             </asp:MenuItem>
-
-
             <asp:MenuItem Text="Report" Value="Report"></asp:MenuItem>
         </Items>
         <StaticHoverStyle BackColor="#284E98" ForeColor="White" />

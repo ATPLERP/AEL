@@ -87,6 +87,7 @@ public partial class MST_CustomerMaster : System.Web.UI.Page
          UIvalidations uiv = new UIvalidations();
          UserSpecificData objumst = new UserSpecificData();
          objumst.pObjId = 4;
+         objumst.pModType=ServiceMain.ModuleId;
          if (uiv.CheckModuleAccess(objumst))
          {
              gMsCreateCustDetails(objumst);

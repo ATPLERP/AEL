@@ -177,14 +177,6 @@ namespace Advantage.ERP.BLL
             return ds;
         }
 
-        public DataSet gMsGetCustomerDetailList(DAL.DataContract.CustomMaster objcus)
-        {
-            ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
-            DataSet ds= obj.gMsGetCustomerDetailList(objcus);
-            return ds;
-        }
-
-
         #endregion
 
         #region User  definitions
@@ -342,92 +334,120 @@ namespace Advantage.ERP.BLL
             objser.gMsCreateDomain(objdom);
         }
 
-        public DataSet gMsSearchDomain(DAL.DataContract.Domainmst objdom)
-        {
-        ServiceDatabaseCalls obj=new ServiceDatabaseCalls();
-        DataSet dsdom= obj.gMsSearchDomain(objdom);
-        return dsdom;
-        }
-
-        public bool gMsDeleteDomain(DAL.DataContract.Domainmst objdom)
-        {
-            ServiceDatabaseCalls objs = new ServiceDatabaseCalls();
-            objs.gMsDeleteDomain(objdom);
-            return true;
-
-        }
-
-        public int gMsAddDomainType(DAL.DataContract.Domainmst objdom)
-        {
-            ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
-            return obj.gMsAddDomainType(objdom);
-            
-        }
-
         #endregion DomainMaster
 
-        
-        #region VisitingRequest
 
-        public List<gDropdownlist> gMsGetCategoryforVisitingReq(DAL.DataContract.VisitingReq objvr)
-        {
-
-            ServiceDatabaseCalls obj = new ServiceDatabaseCalls();          
-
-            List<gDropdownlist> droplist = new List<gDropdownlist>();
-            SqlDataReader sdr = obj.gMsGetCategoryforVisitingReq(objvr);
-            while (sdr.Read())
+   #region QuotationTrans.cs
+   
+     public DataTable gMsItemDet(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+     {
+      ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+      return obj.gMsItemDet(qutTrans);
+     }
+     public DataTable gMsQuotationList(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         return obj.gMsQuotationList(qutTrans);
+     }
+     public DataSet gMsQuotationDetails(DAL.DataContract.QuotationTrans qutTrans,DAL.DataContract.CustomMaster oblCustM )
+     {
+        DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
+        //CustomMaster oblCustM = new CustomMaster(); 
+        DataSet ds = obj.gMsQuotationDetails(qutTrans);
+        DataTableReader dr = ds.Tables[0].CreateDataReader();
+            while (dr.Read())
             {
-                gDropdownlist drl = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
-                droplist.Add(drl);
+                qutTrans.pQuoationDate = Convert.ToDateTime(dr.GetValue(1));
+                qutTrans.pJobCategory = dr.GetValue(2).ToString();
+                qutTrans.pCustomerOrderNo = dr.GetValue(3).ToString();
+                oblCustM.pCustCode = dr.GetValue(4).ToString();
+                oblCustM.pCustPrefix = dr.GetValue(5).ToString();
+                oblCustM.pCustName = dr.GetValue(6).ToString();
+                oblCustM.pCustAdd = dr.GetValue(7).ToString();
+                oblCustM.pCustServiceAddress = dr.GetValue(8).ToString();
+                oblCustM.pCustArea = dr.GetValue(9).ToString();
+                oblCustM.pCustPhone1 = dr.GetValue(10).ToString();
+                oblCustM.pCustFax = dr.GetValue(11).ToString();
+                oblCustM.pCustCellNo = dr.GetValue(12).ToString();
+                oblCustM.pCustEmail = dr.GetValue(13).ToString();
+                oblCustM.pCustVATNo = dr.GetValue(14).ToString();
+                oblCustM.pCustContactPerson_Invoice = dr.GetValue(15).ToString();
+                oblCustM.pCustContactPerson_Technical = dr.GetValue(16).ToString();
+                qutTrans.pQuotationRemarks = dr.GetValue(17).ToString();
+                qutTrans.pQuotationStatus = dr.GetValue(18).ToString();
+                qutTrans.pAmountPaidStatus = dr.GetValue(19).ToString();
+                qutTrans.pCreatedBy = dr.GetValue(20).ToString();
             }
-            return droplist;
-            
-        }
+            return ds;
+     }
+   #endregion
+
+     #region VisitingRequest
+
+     public List<gDropdownlist> gMsGetCategoryforVisitingReq(DAL.DataContract.VisitingReq objvr)
+     {
+
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+
+         List<gDropdownlist> droplist = new List<gDropdownlist>();
+         SqlDataReader sdr = obj.gMsGetCategoryforVisitingReq(objvr);
+         while (sdr.Read())
+         {
+             gDropdownlist drl = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
+             droplist.Add(drl);
+         }
+         return droplist;
+
+     }
 
 
 
-        public List<gDropdownlist> gMsGetPriorityforVisitingReq(DAL.DataContract.VisitingReq objvr)
-        {
+     public List<gDropdownlist> gMsGetPriorityforVisitingReq(DAL.DataContract.VisitingReq objvr)
+     {
 
-            ServiceDatabaseCalls obj = new ServiceDatabaseCalls();          
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
 
-            List<gDropdownlist> droplist = new List<gDropdownlist>();
-            SqlDataReader sdr = obj.gMsGetPriorityforVisitingReq(objvr);
-            while (sdr.Read())
-            {
-                gDropdownlist drl = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
-                droplist.Add(drl);
-            }
-            return droplist;
-            
-        }
-        public List<gDropdownlist> gMsGetPrefixforVisitingRequest(DAL.DataContract.VisitingReq objvr)
-        {
-            ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
-            List<gDropdownlist> droplist = new List<gDropdownlist>();
-            SqlDataReader sdr = obj.gMsGetPrefixforVisitingRequest(objvr);
-            while (sdr.Read())
-            {
-                gDropdownlist dr1 = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
-                droplist.Add(dr1);
-            }
-            return droplist;
-        }
+         List<gDropdownlist> droplist = new List<gDropdownlist>();
+         SqlDataReader sdr = obj.gMsGetPriorityforVisitingReq(objvr);
+         while (sdr.Read())
+         {
+             gDropdownlist drl = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
+             droplist.Add(drl);
+         }
+         return droplist;
 
-        public List<gDropdownlist> gMsGetAreaForVisitingRequest(DAL.DataContract.VisitingReq objvr)
-        {
-            ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
-            List<gDropdownlist> droplist = new List<gDropdownlist>();
-            SqlDataReader sdr = obj.gMsGetAreaForVisitingRequest(objvr);
-            while (sdr.Read())
-            {
-                gDropdownlist dr1 = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
-                droplist.Add(dr1);
-            }
-            return droplist;
-        }
+     }
+     public List<gDropdownlist> gMsGetPrefixforVisitingRequest(DAL.DataContract.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         List<gDropdownlist> droplist = new List<gDropdownlist>();
+         SqlDataReader sdr = obj.gMsGetPrefixforVisitingRequest(objvr);
+         while (sdr.Read())
+         {
+             gDropdownlist dr1 = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
+             droplist.Add(dr1);
+         }
+         return droplist;
+     }
 
-        #endregion VisitingRequest
+     public List<gDropdownlist> gMsGetAreaForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         List<gDropdownlist> droplist = new List<gDropdownlist>();
+         SqlDataReader sdr = obj.gMsGetAreaForVisitingRequest(objvr);
+         while (sdr.Read())
+         {
+             gDropdownlist dr1 = new gDropdownlist(sdr.GetString(0), sdr.GetString(1));
+             droplist.Add(dr1);
+         }
+         return droplist;
+     }
+
+     #endregion VisitingRequest
+
+
+
+
+
     }
 }

@@ -162,7 +162,8 @@ namespace Advantage.ERP.DAL
 
        public DataSet gMsGetCustomerList(DAL.DataContract.CustomMaster objMst)
        {
-           
+           //SqlDataAdapter da = null;
+          // DataSet ds = null;
 
            // Create the Database object, using the default database service. The
            // default database service is determined through configuration.
@@ -183,23 +184,6 @@ namespace Advantage.ERP.DAL
            da.Fill(ds, 0, 20, "table");
           // da.Fill(ds);
            return ds;
-       }
-
-       public DataSet gMsGetCustomerDetailList(DAL.DataContract.CustomMaster objcus)
-       {
-           Database db = DatabaseFactory.CreateDatabase();
-           string sqlcommand = "GetCustomerDetails";
-           DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-           db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objcus.pOrgCode);
-           db.AddInParameter(dbcommand, "@CustomerName", DbType.String, objcus.pCustName);
-           db.AddInParameter(dbcommand, "@TelephoneNo", DbType.String, objcus.pCustPhone1);
-           db.AddInParameter(dbcommand, "@AreaName", DbType.String, objcus.pCustArea);
-           db.AddInParameter(dbcommand, "@InvoiceAddress", DbType.String, objcus.pCustAdd);
-           DataSet ds = null;
-           ds = db.ExecuteDataSet(dbcommand);           
-           return ds;
-           
-
        }
       
 #endregion
@@ -383,8 +367,7 @@ namespace Advantage.ERP.DAL
             
         }
 
-
-        public DataSet gMsGetDomainDetails(DAL.DataContract.Domainmst objdomain)
+       public DataSet gMsGetDomainDetails(DAL.DataContract.Domainmst objdomain)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetDomainDetails";
@@ -394,20 +377,6 @@ namespace Advantage.ERP.DAL
             DataSet domdata =null;
             domdata = db.ExecuteDataSet(dbcommand);
             return domdata;
-        }
-
-        public DataSet gMsSearchDomain(DAL.DataContract.Domainmst objdom)
-        {
-            Database db = DatabaseFactory.CreateDatabase();
-            string sqlcmd = "SearchDomain";
-            DbCommand dbcommand = db.GetStoredProcCommand(sqlcmd);
-            db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objdom.pOrgCode);
-            db.AddInParameter(dbcommand, "@DomType", DbType.String, objdom.pDomType);
-            db.AddInParameter(dbcommand, "@DomCode", DbType.String, objdom.pDomCode);
-            db.AddInParameter(dbcommand, "@DomName", DbType.String, objdom.pDomName);
-            DataSet ds = null;
-            ds = db.ExecuteDataSet(dbcommand);
-            return ds;
         }
 
         public bool gMsCreateDomain(DAL.DataContract.Domainmst objdom)
@@ -434,47 +403,76 @@ namespace Advantage.ERP.DAL
                 return false;
             }
         }
-
-        public bool gMsDeleteDomain(DAL.DataContract.Domainmst objdom)
-        {
-            Database db = DatabaseFactory.CreateDatabase();
-            string sqlcommand = "DeleteDomain";
-            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-            db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objdom.pOrgCode);
-            db.AddInParameter(dbcommand, "@DomType", DbType.String, objdom.pDomType);
-            db.AddInParameter(dbcommand, "@DomCode", DbType.String, objdom.pDomCode);
-            int x=0;
-            x = db.ExecuteNonQuery(dbcommand);
-            if(x>0)
-            {
-            
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-                            
-        }
-
-        public int gMsAddDomainType(DAL.DataContract.Domainmst objdom)
-        {
-            Database db = DatabaseFactory.CreateDatabase();
-            string sqlcommand = "AddDomainType";
-            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-            db.AddInParameter(dbcommand, "@DomType", DbType.String, objdom.pDomType);
-            db.AddOutParameter(dbcommand, "@Rowcnt", DbType.Int16, 2);
-            return db.ExecuteNonQuery(dbcommand);
-
-        }
-
        #endregion DomainMaster
 
-       #region VisitingRequest
+
+  #region Quotation.aspx
+
+        public DataTable gMsItemDet(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsItemDet";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pQuotationNo", DbType.String, qutTrans.pQuotationNo);
+            db.AddInParameter(dbCommand, "@pBrnCd", DbType.String, qutTrans.pBrnCd);
+            // DataSet that will hold the returned results		
+            DataSet myDataSet = null;
+            myDataSet = db.ExecuteDataSet(dbCommand);
+            //  Note: connection was closed by ExecuteDataSet method call 
+            return myDataSet.Tables[0];
+        }
+
+        public DataTable gMsQuotationList(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsQuotationList";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pQuotationNo", DbType.String, qutTrans.pQuotationNo);
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pBrnCode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@pCusname", DbType.String, qutTrans.pCusname);
+            db.AddInParameter(dbCommand, "@pFromDate", DbType.String , qutTrans.pFromDate);
+            db.AddInParameter(dbCommand, "@pToDate", DbType.String, qutTrans.pToDate);
+            dbCommand.Connection = db.CreateConnection();
+            DbDataAdapter da = (SqlDataAdapter)db.GetDataAdapter();
+            da.SelectCommand = dbCommand;
+            DataSet ds = new DataSet();
+           // da.Fill(ds, 0, 20, "table");
+             da.Fill(ds);
+            return ds.Tables[0];
+        }
+
+        public DataSet gMsQuotationDetails(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsQuotationDetails";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@pQuotationNo", DbType.String, qutTrans.pQuotationNo);
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            // DataSet that will hold the returned results		
+            DataSet myDataSet = null;
+            myDataSet = db.ExecuteDataSet(dbCommand);
+            //  Note: connection was closed by ExecuteDataSet method call 
+            return myDataSet;
+
+        }
+
+   #endregion
+
+        #region VisitingRequest
 
         public SqlDataReader gMsGetCategoryforVisitingReq(DAL.DataContract.VisitingReq objvr)
         {
-            DAL.DataContract.Domainmst objdom=new DataContract.Domainmst();
+            DAL.DataContract.Domainmst objdom = new DataContract.Domainmst();
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "gMsGetDomainType";
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
@@ -482,7 +480,7 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbcommand, "@pDomType", DbType.String, objvr.pJobCategory);
             IDataReader idr = db.ExecuteReader(dbcommand);
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
-            
+
 
         }
 
@@ -519,11 +517,13 @@ namespace Advantage.ERP.DAL
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommmand);
             db.AddInParameter(dbcommand, "@pOrgCode", DbType.String, objvr.pOrgcode);
             db.AddInParameter(dbcommand, "@pDomType", DbType.String, objvr.pCustArea);
-            IDataReader idr = db.ExecuteReader(dbcommand);            
+            IDataReader idr = db.ExecuteReader(dbcommand);
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
-            
+
         }
 
-       #endregion VisitingRequest
+        #endregion VisitingRequest
+
+
    }
 }
