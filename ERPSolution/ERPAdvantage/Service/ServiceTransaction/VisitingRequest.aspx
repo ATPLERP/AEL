@@ -214,7 +214,7 @@
                     <asp:Button ID="btnsearch" runat="server" Text="Search" />
                     <br />
                     <br />
-                    <asp:GridView runat="server" ID="dgridvrlist" Width="419px" />
+                    <asp:GridView runat="server" ID="dgridvrlist" Width="419px" Font-Size="X-Small" />
                     <br />                                                                                       
                                                           
                                  
@@ -362,17 +362,23 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style46">&nbsp;</td>
+                            <td class="auto-style46">
+                                <asp:TextBox ID="txtdeptcode" runat="server" Height="16px" Width="24px" style="visibility:hidden"></asp:TextBox>
+                            </td>
                             <td class="auto-style47">
                                 <asp:Button ID="btnsearch2" runat="server" Text="Search" OnClick="btnsearch2_Click" />
                             </td>
-                            <td class="auto-style48">&nbsp;</td>
-                            <td class="auto-style49">&nbsp;</td>
+                            <td class="auto-style48">
+                                <asp:Label ID="lblphoneno0" runat="server" Text="Phone No"></asp:Label>
+                            </td>
+                            <td class="auto-style49">
+                                <asp:TextBox ID="txtsearchbwarrbusalesorder" runat="server" Enabled="False" Width="200px">%</asp:TextBox>
+                            </td>
                         </tr>
                     </table>
                     <br />
 
-                    <asp:GridView runat="server" ID="dgriddeptorwarranty" Width="600px" />
+                    <asp:GridView runat="server" ID="dgriddeptorwarranty" Width="499px" AutoGenerateSelectButton="True" Font-Size="X-Small" Height="104px" OnSelectedIndexChanged="dgriddeptorwarranty_SelectedIndexChanged" />
 
 
                     <br />

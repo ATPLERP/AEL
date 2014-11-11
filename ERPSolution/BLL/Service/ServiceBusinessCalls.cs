@@ -462,6 +462,13 @@ namespace Advantage.ERP.BLL
          return objdbcall.gMsGetDepartmentForVisitingRequest(objvr);
      }
 
+     public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr)
+     {
+         ServiceDatabaseCalls objsalldb = new ServiceDatabaseCalls();
+         return objsalldb.gMsGetWarrantyForVisitingRequest(objwarr);
+         
+     }
+
      #endregion VisitingRequest
 
 

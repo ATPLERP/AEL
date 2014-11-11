@@ -231,8 +231,27 @@ namespace ERPAdvantage.Service.ServiceTransaction
             }
             else if (ViewState["gvoption"].ToString() == "warranty")
             {
-
+                UIControl objui = new UIControl();
+                ADTWebService objws = new ADTWebService();
+                WarrantyMst objwarr = new WarrantyMst();
+                objwarr.pSerialNo = txtsearchwarrbyserialno.Text;
+                objwarr.pWarrantyNo = txtsearchbywarrbyno.Text;
+                objwarr.pCustName = txtsearchbwarrbyname.Text;
+                objwarr.pCustAddInv = txtserachwarrbyaddress.Text;
+                objwarr.pCustPhoneNo = txtsearchbwarrbytp.Text;
+                objwarr.pSalesOrderNo = txtsearchbwarrbusalesorder.Text;
+                DataSet ds = null;
+                ds=objws.gMsGetWarrantyForVisitingRequest(objwarr);
+                dgriddeptorwarranty.DataSource = ds;
+                dgriddeptorwarranty.DataBind();
             }
+        }
+
+        protected void dgriddeptorwarranty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtdeptcode.Text = dgriddeptorwarranty.SelectedRow.Cells[1].Text;
+            txtdepratment.Text = dgriddeptorwarranty.SelectedRow.Cells[2].Text;
+            panelsearchappliance.Visible = false;
         }
     }
 }

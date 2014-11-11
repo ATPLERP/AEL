@@ -254,6 +254,13 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objbscall.gMsGetDepartmentForVisitingRequest(objvr);
     }
 
+    [WebMethod]
+
+    public DataSet gMsGetWarrantyForVisitingRequest(Advantage.ERP.DAL.DataContract.WarrantyMst objwarr)
+    {
+        ServiceBusinessCalls objserbc = new ServiceBusinessCalls();
+        return objserbc.gMsGetWarrantyForVisitingRequest(objwarr);
+    }
 
     #endregion VisitingRequest
 
