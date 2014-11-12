@@ -153,6 +153,9 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetdeptlist_Click(object sender, EventArgs e)
         {
+            DataSet ds = null;
+            dgriddeptorwarranty.DataSource = ds;
+            dgriddeptorwarranty.DataBind();
 
             ViewState["gvoption"] = "department";
                 
@@ -171,6 +174,10 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetwarrantylist_Click(object sender, EventArgs e)
         {
+
+            DataSet ds = null;
+            dgriddeptorwarranty.DataSource = ds;
+            dgriddeptorwarranty.DataBind();
             ViewState["gvoption"]="warranty";
 
             if (panelsearchappliance.Visible == true)
@@ -249,9 +256,29 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void dgriddeptorwarranty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtdeptcode.Text = dgriddeptorwarranty.SelectedRow.Cells[1].Text;
-            txtdepratment.Text = dgriddeptorwarranty.SelectedRow.Cells[2].Text;
-            panelsearchappliance.Visible = false;
+            if (ViewState["gvoption"].ToString() == "department")
+            {
+                txtdeptcode.Text = dgriddeptorwarranty.SelectedRow.Cells[1].Text;
+                txtdepratment.Text = dgriddeptorwarranty.SelectedRow.Cells[2].Text;
+                panelsearchappliance.Visible = false;
+            }
+            else if (ViewState["gvoption"].ToString() == "warranty")
+            {
+                txtwarranttno.Text = dgriddeptorwarranty.SelectedRow.Cells[3].Text;                
+                panelsearchappliance.Visible = false;
+            }
+        }
+
+        protected void cmdgetitemlist_Click(object sender, EventArgs e)
+        {
+            if (PanelSearchItem.Visible == true)
+            {
+                PanelSearchItem.Visible = false;
+            }
+            else
+            {
+                PanelSearchItem.Visible = true;
+            }
         }
     }
 }
