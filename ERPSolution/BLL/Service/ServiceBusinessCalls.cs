@@ -443,6 +443,32 @@ namespace Advantage.ERP.BLL
          return droplist;
      }
 
+     public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         return obj.gMsGetCustomerListForVisitingReguest(objvr);
+     }
+
+     public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetCustomerDataByCustomerCode(objvr);
+
+     }
+
+     public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetDepartmentForVisitingRequest(objvr);
+     }
+
+     public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr)
+     {
+         ServiceDatabaseCalls objsalldb = new ServiceDatabaseCalls();
+         return objsalldb.gMsGetWarrantyForVisitingRequest(objwarr);
+         
+     }
+
      #endregion VisitingRequest
 
 

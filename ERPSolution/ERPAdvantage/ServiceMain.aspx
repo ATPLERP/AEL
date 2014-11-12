@@ -21,6 +21,7 @@
                 <asp:MenuItem NavigateUrl="~/Service/ServiceMaster/AreaMaster.aspx" Text="Area Master" Value="Area Master"></asp:MenuItem>
             </asp:MenuItem>
             <asp:MenuItem Text="Transaction" Value="Transaction">
+                <asp:MenuItem NavigateUrl="~/Service/ServiceTransaction/VisitingRequest.aspx" Text="Visiting Request" Value="VisitingReq"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/Service/ServiceTransaction/Quotation.aspx" Text="Quotation" Value="Quotation"></asp:MenuItem>
             </asp:MenuItem>
             <asp:MenuItem Text="Report" Value="Report"></asp:MenuItem>

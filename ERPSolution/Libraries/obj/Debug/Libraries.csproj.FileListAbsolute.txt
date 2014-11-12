@@ -26,4 +26,11 @@ E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache
+=======
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+>>>>>>> 8093b5ed6375e42f4cff34574d81db3902346b4d

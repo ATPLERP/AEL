@@ -26,14 +26,22 @@ namespace Advantage.ERP.DAL
         DataSet gMsGetDomainTypes(DAL.DataContract.Domainmst objdomain);
         DataSet gMsGetDomainDetails(DAL.DataContract.Domainmst objdomain);
         bool gMsCreateDomain(DAL.DataContract.Domainmst objdom);
+
         #region VisitingRequest
 
         SqlDataReader gMsGetCategoryforVisitingReq(DAL.DataContract.VisitingReq objvr);
         SqlDataReader gMsGetPriorityforVisitingReq(DAL.DataContract.VisitingReq objvr);
         SqlDataReader gMsGetPrefixforVisitingRequest(DAL.DataContract.VisitingReq objvr);
         SqlDataReader gMsGetAreaForVisitingRequest(DAL.DataContract.VisitingReq objvr);
+        DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr);
+        SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr);
+        DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr);
+        DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr);
+
 
         #endregion VisitingRequest
+
+       
 
     }
 }
