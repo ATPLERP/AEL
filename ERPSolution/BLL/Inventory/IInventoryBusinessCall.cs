@@ -13,7 +13,7 @@ namespace Advantage.ERP.BLL
 
         void Create_TC_ORG_MST(DAL.DataContract.Inventory.TC_ORG_MST objMst);
         void Create_TI_STORE_MST(DAL.DataContract.Inventory.TI_STORE_MST objMst);
-        void Create_I_ItemMaster(DAL.DataContract.Inventory.I_ItemMaster objMst);
+        void Create_I_ItemMaster(DAL.DataContract.Inventory.ItemMst objMst);
 
     }
 }

@@ -81,7 +81,7 @@
     <Content Include="Images\edit.gif" />
     <Content Include="Images\unassign.jpg" />
     <Content Include="Images\view.gif" />
-    <Content Include="Inventory\InventoryMaster\ItemMaster.aspx" />
+    <Content Include="Inventory\InventoryMaster\MstItemMaster.aspx" />
     <Content Include="Inventory\InventoryMaster\ItemMasterList.aspx" />
     <Content Include="Inventory\InventoryMaster\SelectStore.aspx" />
     <Content Include="Inventory\InventoryMaster\SupplierMaster.aspx" />
@@ -179,12 +179,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\InventoryMaster\ItemMaster.aspx.cs">
-      <DependentUpon>ItemMaster.aspx</DependentUpon>
+    <Compile Include="Inventory\InventoryMaster\MstItemMaster.aspx.cs">
+      <DependentUpon>MstItemMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inventory\InventoryMaster\ItemMaster.aspx.designer.cs">
-      <DependentUpon>ItemMaster.aspx</DependentUpon>
+    <Compile Include="Inventory\InventoryMaster\MstItemMaster.aspx.designer.cs">
+      <DependentUpon>MstItemMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory\InventoryMaster\ItemMasterList.aspx.cs">
       <DependentUpon>ItemMasterList.aspx</DependentUpon>

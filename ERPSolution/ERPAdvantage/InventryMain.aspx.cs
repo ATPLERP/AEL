@@ -14,7 +14,7 @@ namespace ERPAdvantage
         protected void Page_Load(object sender, EventArgs e)
         {
             ADTWebService objWs = new ADTWebService();
-            I_ItemMaster objMst = new I_ItemMaster();
+            ItemMst objMst = new ItemMst();
         }
 
         private void getStoreList()

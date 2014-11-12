@@ -133,17 +133,17 @@ namespace Advantage.ERP.DAL
         #endregion
 
         #region ItemMaster
-        public DataSet Grid_ItemMaster(DAL.DataContract.Inventory.I_ItemMaster objMst)
+        public DataSet Grid_ItemMaster(DAL.DataContract.Inventory.ItemMst objMst)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlCommand = "Select_ItemMasterGrid";
             DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
 
-            db.AddInParameter(dbCommand, "@MajorGroup", DbType.String, objMst.MajorGroup);
-            db.AddInParameter(dbCommand, "@StockCode", DbType.String, objMst.StockCode);
-            db.AddInParameter(dbCommand, "@ItemDescription", DbType.String, objMst.ItemDescription);
-            db.AddInParameter(dbCommand, "@ModelNo", DbType.String, objMst.ModelNo);
-            db.AddInParameter(dbCommand, "@ItemDescription", DbType.String, objMst.ItemDescription);
+            db.AddInParameter(dbCommand, "@MajorGroup", DbType.String, objMst.pMajorGroup);
+            db.AddInParameter(dbCommand, "@StockCode", DbType.String, objMst.pStockCode);
+            db.AddInParameter(dbCommand, "@ItemDescription", DbType.String, objMst.pItemDescription);
+            db.AddInParameter(dbCommand, "@ModelNo", DbType.String, objMst.pModelNo);
+            db.AddInParameter(dbCommand, "@ItemDescription", DbType.String, objMst.pItemDescription);
 
             DataSet myDataSet = null;
             myDataSet = db.ExecuteDataSet(dbCommand);
@@ -151,48 +151,48 @@ namespace Advantage.ERP.DAL
             return myDataSet;
         }
 
-        public void Create_ItemMaster(DataContract.Inventory.I_ItemMaster objMst)
+        public void Create_ItemMaster(DataContract.Inventory.ItemMst objMst)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlCommand = "SP_I_ItemMaster";
             DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
 
             db.AddInParameter(dbCommand, "@spType", DbType.String, "InShamee");
-            db.AddInParameter(dbCommand, "@OrgCode", DbType.String, objMst.OrgCode);
-            db.AddInParameter(dbCommand, "@StockCode", DbType.String, objMst.StockCode);
-            db.AddInParameter(dbCommand, "@ItemDescription", DbType.String, objMst.ItemDescription);
-            db.AddInParameter(dbCommand, "@MajorGroup", DbType.String, objMst.MajorGroup);
-            db.AddInParameter(dbCommand, "@Appliance", DbType.String, objMst.Appliance);
-            db.AddInParameter(dbCommand, "@Brand", DbType.String, objMst.Brand);
-            db.AddInParameter(dbCommand, "@ModelNo", DbType.String, objMst.ModelNo);
-            db.AddInParameter(dbCommand, "@Capacity", DbType.String, objMst.Capacity);
-            db.AddInParameter(dbCommand, "@PurchaseType", DbType.String, objMst.PurchaseType);
-            db.AddInParameter(dbCommand, "@FSN", DbType.String, objMst.FSN);
-            db.AddInParameter(dbCommand, "@VATPercentage", DbType.String, objMst.VATPercentage);
-            db.AddInParameter(dbCommand, "@UoM", DbType.String, objMst.UoM);
-            db.AddInParameter(dbCommand, "@LifeTime", DbType.String, objMst.LifeTime);
-            db.AddInParameter(dbCommand, "@Obsolete", DbType.String, objMst.Obsolete);
-            db.AddInParameter(dbCommand, "@HSCode", DbType.String, objMst.HSCode);
-            db.AddInParameter(dbCommand, "@LastGRNNo", DbType.String, objMst.LastGRNNo);
-            db.AddInParameter(dbCommand, "@LastInCost", DbType.String, objMst.LastInCost);
-            db.AddInParameter(dbCommand, "@AverageCost", DbType.String, objMst.AverageCost);
-            db.AddInParameter(dbCommand, "@StockApplicable", DbType.String, objMst.StockApplicable);
-            db.AddInParameter(dbCommand, "@LedgerCode", DbType.String, objMst.LedgerCode);
-            db.AddInParameter(dbCommand, "@CreatedBy", DbType.String, objMst.CreatedBy);
-            db.AddInParameter(dbCommand, "@CreateDate", DbType.String, objMst.CreateDate);
-            db.AddInParameter(dbCommand, "@UpDatedBy", DbType.String, objMst.UpDatedBy);
-            db.AddInParameter(dbCommand, "@UpDatedDate", DbType.String, objMst.UpDatedDate);
-            db.AddInParameter(dbCommand, "@InstllationAmt", DbType.String, objMst.InstllationAmt);
-            db.AddInParameter(dbCommand, "@PartNo", DbType.String, objMst.PartNo);
-            db.AddInParameter(dbCommand, "@ST", DbType.String, objMst.ST);
-            db.AddInParameter(dbCommand, "@NormCode", DbType.String, objMst.NormCode);
-            db.AddInParameter(dbCommand, "@RateCategory", DbType.String, objMst.RateCategory);
-            db.AddInParameter(dbCommand, "@JobType", DbType.String, objMst.JobType);
-            db.AddInParameter(dbCommand, "@Duration", DbType.String, objMst.Duration);
-            db.AddInParameter(dbCommand, "@Meterial", DbType.String, objMst.Meterial);
-            db.AddInParameter(dbCommand, "@Labour", DbType.String, objMst.Labour);
-            db.AddInParameter(dbCommand, "@Points", DbType.String, objMst.Points);
-            db.AddInParameter(dbCommand, "@CommonJob", DbType.String, objMst.CommonJob);
+            db.AddInParameter(dbCommand, "@OrgCode", DbType.String, objMst.pOrgCode);
+            db.AddInParameter(dbCommand, "@StockCode", DbType.String, objMst.pStockCode);
+            db.AddInParameter(dbCommand, "@ItemDescription", DbType.String, objMst.pItemDescription);
+            db.AddInParameter(dbCommand, "@MajorGroup", DbType.String, objMst.pMajorGroup);
+            db.AddInParameter(dbCommand, "@Appliance", DbType.String, objMst.pAppliance);
+            db.AddInParameter(dbCommand, "@Brand", DbType.String, objMst.pBrand);
+            db.AddInParameter(dbCommand, "@ModelNo", DbType.String, objMst.pModelNo);
+            db.AddInParameter(dbCommand, "@Capacity", DbType.String, objMst.pCapacity);
+            db.AddInParameter(dbCommand, "@PurchaseType", DbType.String, objMst.pPurchaseType);
+            db.AddInParameter(dbCommand, "@FSN", DbType.String, objMst.pFSN);
+            db.AddInParameter(dbCommand, "@VATPercentage", DbType.String, objMst.pVATPercentage);
+            db.AddInParameter(dbCommand, "@UoM", DbType.String, objMst.pUoM);
+            db.AddInParameter(dbCommand, "@LifeTime", DbType.String, objMst.pLifeTime);
+            db.AddInParameter(dbCommand, "@Obsolete", DbType.String, objMst.pObsolete);
+            db.AddInParameter(dbCommand, "@HSCode", DbType.String, objMst.pHSCode);
+            db.AddInParameter(dbCommand, "@LastGRNNo", DbType.String, objMst.pLastGRNNo);
+            db.AddInParameter(dbCommand, "@LastInCost", DbType.String, objMst.pLastInCost);
+            db.AddInParameter(dbCommand, "@AverageCost", DbType.String, objMst.pAverageCost);
+            db.AddInParameter(dbCommand, "@StockApplicable", DbType.String, objMst.pStockApplicable);
+            db.AddInParameter(dbCommand, "@LedgerCode", DbType.String, objMst.pLedgerCode);
+            db.AddInParameter(dbCommand, "@CreatedBy", DbType.String, objMst.pCreatedBy);
+            db.AddInParameter(dbCommand, "@CreateDate", DbType.String, objMst.pCreateDate);
+            db.AddInParameter(dbCommand, "@UpDatedBy", DbType.String, objMst.pUpDatedBy);
+            db.AddInParameter(dbCommand, "@UpDatedDate", DbType.String, objMst.pUpDatedDate);
+            db.AddInParameter(dbCommand, "@InstllationAmt", DbType.String, objMst.pInstllationAmt);
+            db.AddInParameter(dbCommand, "@PartNo", DbType.String, objMst.pPartNo);
+            db.AddInParameter(dbCommand, "@ST", DbType.String, objMst.pST);
+            db.AddInParameter(dbCommand, "@NormCode", DbType.String, objMst.pNormCode);
+            db.AddInParameter(dbCommand, "@RateCategory", DbType.String, objMst.pRateCategory);
+            db.AddInParameter(dbCommand, "@JobType", DbType.String, objMst.pJobType);
+            db.AddInParameter(dbCommand, "@Duration", DbType.String, objMst.pDuration);
+            db.AddInParameter(dbCommand, "@Meterial", DbType.String, objMst.pMeterial);
+            db.AddInParameter(dbCommand, "@Labour", DbType.String, objMst.pLabour);
+            db.AddInParameter(dbCommand, "@Points", DbType.String, objMst.pPoints);
+            db.AddInParameter(dbCommand, "@CommonJob", DbType.String, objMst.pCommonJob);
 
             db.ExecuteNonQuery(dbCommand);
 

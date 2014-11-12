@@ -18,7 +18,7 @@ namespace Advantage.ERP.BLL
     public class InventoryBusinessCalls
     {
         #region I_ItemMaster definitions
-        public void Create_I_ItemMaster(DAL.DataContract.Inventory.I_ItemMaster objMst)
+        public void Create_I_ItemMaster(DAL.DataContract.Inventory.ItemMst objMst)
         {
             InventoryDatabaseCalls obj = new InventoryDatabaseCalls();
             obj.Create_ItemMaster(objMst);

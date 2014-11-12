@@ -575,6 +575,15 @@ namespace Advantage.ERP.DAL
             return ds;
         }
 
+        public DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetItemData";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            //db.AddInParameter(dbcommand,"" ,DbType.String,objitem.p
+            return null;
+        }
+
         #endregion VisitingRequest
 
 

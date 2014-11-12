@@ -72,8 +72,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContract\Inventory\I_ItemMaster.cs" />
-    <Compile Include="DataContract\Inventory\I_SupplierMaster.cs" />
+    <Compile Include="DataContract\Inventory\ItemMaster.cs" />
+    <Compile Include="DataContract\Inventory\SupplierMaster.cs" />
     <Compile Include="DataContract\Inventory\TC_ORG_MST.cs" />
     <Compile Include="DataContract\Inventory\TI_STORE_MST.cs" />
     <Compile Include="Inventory\IInventoryDatabaseCalls.cs" />

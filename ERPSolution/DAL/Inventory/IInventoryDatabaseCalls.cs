@@ -16,8 +16,8 @@ namespace Advantage.ERP.DAL.Inventory
 
         void CreateTI_Store_Mst(DAL.DataContract.Inventory.TI_STORE_MST objMst);
 
-        void CreateI_ItemMaster(DAL.DataContract.Inventory.I_ItemMaster objMst);
-        DataSet Grid_ItemMasterGrid(DAL.DataContract.Inventory.I_ItemMaster objMst);
+        void CreateI_ItemMaster(DAL.DataContract.Inventory.ItemMst objMst);
+        DataSet Grid_ItemMasterGrid(DAL.DataContract.Inventory.ItemMst objMst);
 
     }
 }

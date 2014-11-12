@@ -267,7 +267,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
     #region I_ItemMaster.aspx definition
     [WebMethod]
-    public void Create_I_ItemMaster(Advantage.ERP.DAL.DataContract.Inventory.I_ItemMaster objMst)
+    public void Create_I_ItemMaster(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objMst)
     {
         InventoryBusinessCalls objBiz = new InventoryBusinessCalls();
         objBiz.Create_I_ItemMaster(objMst);
