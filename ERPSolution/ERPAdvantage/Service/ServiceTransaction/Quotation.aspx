@@ -620,8 +620,8 @@
                                      <asp:BoundField HeaderText="S" />
                                      <asp:BoundField HeaderText="X" />
                                      <asp:BoundField HeaderText="Stock" />
-                                     <asp:BoundField HeaderText="NBT Per" />
-                                     <asp:BoundField HeaderText="NBT Amount" />
+                                     <asp:BoundField DataField="NBTPer" HeaderText="NBT Per" />
+                                     <asp:BoundField  DataField="NBTAmt" HeaderText="NBT Amount" />
                                  </Columns>
                                  <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                  <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -635,8 +635,7 @@
                              </asp:GridView>
                       </asp:Panel>
                         </div>
-                      
-                </td>
+              </td>
             </tr>
           </table>
            </table>

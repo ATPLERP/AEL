@@ -14,6 +14,7 @@ using ERPAdvantage;
 using System.Drawing;
 //using ERPAdvantage.MST;
 using Advantage.ERP.BLL;
+using Microsoft.VisualBasic;
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -238,7 +239,87 @@ namespace ERPAdvantage.Service.ServiceTransaction
                gvItemDescription.DataSource = null;
                gvItemDescription.DataSource = dt;
                gvItemDescription.DataBind();
+               CalGridTotal();
             }
+        }
+
+        private void CalGridTotal()
+        {
+            QuotationTrans qutTrans = new QuotationTrans();
+            txtGrandTotal.Text = string.Empty ;
+            txtVATTotal.Text = string.Empty;
+           txtDiscountTotal.Text = string.Empty;
+           txtNetAmount.Text = string.Empty;
+           txtNBTAmt.Text = string.Empty;
+           double lVATAmtOld = 0;
+           double lNBTAmtold = 0;
+            
+           foreach(GridViewRow row in gvItemDescription.Rows)
+           {
+               for (int i = 0; i < gvItemDescription.Columns.Count; i++)
+               {
+                   string header = gvItemDescription.Columns[i].HeaderText;
+                   String cellText = row.Cells[i].Text;
+                   switch (i)
+                   {
+                       case 8:
+                           if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                           {qutTrans.lQty = Convert.ToDouble(row.Cells[i].Text);}//Quantity
+                           else { qutTrans.lQty = 0; }break;
+                       case 9:
+                           if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                           {qutTrans.lPrice = Convert.ToDouble(row.Cells[i].Text); }//Price
+                           else{qutTrans.lPrice = 0;}break;
+                       case 10:
+                           if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                           {qutTrans.lDisPer = Convert.ToDouble(row.Cells[i].Text); } //Dis Percentage
+                           else{qutTrans.lDisPer = 0;} break;
+                       case 11:
+                           if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                           {qutTrans.lDisAmt = Convert.ToDouble(row.Cells[i].Text); } //Dis Amount
+                           else{qutTrans.lDisAmt = 0;}break;
+                       case 12:
+                          if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                          {qutTrans.lVATPer = Convert.ToDouble(row.Cells[i].Text); }//VAT Percentage
+                          else{qutTrans.lVATPer = 0;}break;
+                       case 13:
+                          if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                          { qutTrans.lVATAmt = Convert.ToDouble(row.Cells[i].Text); }//VAT Amount
+                          else{qutTrans.lVATAmt = 0;}break;
+                       case 18:
+                           if (!string.IsNullOrEmpty(row.Cells[i].Text))
+                           { qutTrans.lNBTPer = Convert.ToDouble(row.Cells[i].Text); }//NBT Percentage
+                           else{qutTrans.lNBTPer = 0;}break;
+                       case 19:
+                           if (qutTrans.lNBTPer == 0) {row.Cells[i].Text = "0"; qutTrans.lNBTAmt = 0; }
+                           {qutTrans.lNBTAmt = ((qutTrans.lQty * qutTrans.lPrice) - qutTrans.lDisAmt) * qutTrans.lNBTPer / (100 - qutTrans.lNBTPer);
+                           row.Cells[i].Text = qutTrans.lNBTAmt.ToString();}
+                           txtNBTAmt.Text  = txtNBTAmt.Text  + qutTrans.lNBTAmt;
+                           lNBTAmtold = qutTrans.lNBTAmt;
+                           txtGrandTotal.Text = txtGrandTotal.Text + (qutTrans.lQty * qutTrans.lPrice);
+
+                           if (qutTrans.lDisAmt == 0)
+                           {
+                               qutTrans.lDisAmt=((qutTrans.lQty * qutTrans.lPrice) * qutTrans.lDisPer) / 100;
+                               row.Cells[11].Text =qutTrans.lDisAmt.ToString();
+                           }
+                            row.Cells[13].Text = Convert.ToString((((qutTrans.lQty * qutTrans.lPrice) - qutTrans.lDisAmt) + qutTrans.lNBTAmt) * qutTrans.lVATPer / 100); //VAT AMOUNT
+                            //qutTrans.lVATAmt = 0;
+                            qutTrans.lVATAmt = Convert.ToDouble(row.Cells[13].Text); //VAT Amount
+                            //double lVATAmtOld = 0;
+                            qutTrans.lVATAmt = lVATAmtOld + qutTrans.lVATAmt;
+                            lVATAmtOld = qutTrans.lVATAmt;
+                            txtVATTotal.Text = qutTrans.lVATAmt.ToString();
+                            row.Cells[14].Text =Convert.ToString(((qutTrans.lQty * qutTrans.lPrice) + qutTrans.lVATAmt) - qutTrans.lDisAmt + qutTrans.lNBTAmt);//Total Amount
+                            break;
+                           
+                   }
+
+               
+               }
+           }
+
+
         }
 
        

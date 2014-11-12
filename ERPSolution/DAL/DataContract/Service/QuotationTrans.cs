@@ -21,5 +21,16 @@ namespace Advantage.ERP.DAL.DataContract
        public string pAmountPaidStatus { get; set; }
        public string pCreatedBy { get; set; }
        
+       public double lQty{get; set;}
+       public double lPrice{get; set;}
+       public double lDisPer{get; set;}
+       public double lDisAmt{get; set;}
+       public double lVATPer{get; set;}
+       public double lVATAmt{get; set;}
+       public double lNBTPer{get; set;}
+       public double lNBTAmt{ get; set;}
+
+
+       
     }
 }
