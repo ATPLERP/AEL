@@ -190,6 +190,26 @@
         {
             width: 223px;
         }
+        .auto-style58
+        {
+            width: 82px;
+            height: 21px;
+        }
+        .auto-style59
+        {
+            height: 21px;
+            width: 86px;
+        }
+        .auto-style60
+        {
+            height: 21px;
+            width: 78px;
+        }
+        .auto-style61
+        {
+            height: 21px;
+            width: 60px;
+        }
         </style>
     </asp:Content>
 
@@ -584,9 +604,15 @@
                         <td class="auto-style53">
                             <asp:Label ID="Label30" runat="server" Text="Serial No"></asp:Label>
                         </td>
-                        <td class="auto-style13"></td>
-                        <td class="auto-style13"></td>
-                        <td class="auto-style13"></td>
+                        <td class="auto-style58">
+                            <asp:Label ID="Label35" runat="server" Text="Warranty No"></asp:Label>
+                        </td>
+                        <td class="auto-style61">
+                            <asp:Label ID="Label36" runat="server" Text="Appliance"></asp:Label>
+                        </td>
+                        <td class="auto-style60">
+                            <asp:Label ID="Label37" runat="server" Text="Capacity"></asp:Label>
+                        </td>
                         <td class="auto-style13"></td>
                     </tr>
                     <tr>
@@ -600,15 +626,25 @@
                             <asp:DropDownList ID="DropDownList1" runat="server" Width="120px">
                             </asp:DropDownList>
                         </td>
-                        <td class="auto-style53"></td>
-                        <td class="auto-style13"></td>
-                        <td class="auto-style13"></td>
-                        <td class="auto-style13"></td>
-                        <td class="auto-style13"></td>
+                        <td class="auto-style53">
+                            <asp:TextBox ID="txtitemserial" runat="server" Width="100px"></asp:TextBox>
+                        </td>
+                        <td class="auto-style58">
+                            <asp:TextBox ID="txtitemwarranty" runat="server" Width="100px"></asp:TextBox>
+                        </td>
+                        <td class="auto-style61">
+                            <asp:TextBox ID="txtitemappliance" runat="server" Width="70px"></asp:TextBox>
+                        </td>
+                        <td class="auto-style60">
+                            <asp:TextBox ID="txtitemcapacity" runat="server" Width="50px"></asp:TextBox>
+                        </td>
+                        <td class="auto-style13">
+                            <asp:Button ID="btnadditem" runat="server" Text="..." />
+                        </td>
                     </tr>
                 </table>
                 <br />
-                <asp:Panel runat="server" ID="PanelSearchItem" style="overflow:auto" Height="200px">
+                <asp:Panel runat="server" ID="PanelSearchItem" style="overflow:auto" Height="200px" Visible="False">
 
                     <table class="auto-style3">
                         <tr>

@@ -271,14 +271,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetitemlist_Click(object sender, EventArgs e)
         {
-            if (PanelSearchItem.Visible == true)
-            {
-                PanelSearchItem.Visible = false;
-            }
-            else
-            {
-                PanelSearchItem.Visible = true;
-            }
+           
         }
     }
 }
