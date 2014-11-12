@@ -940,6 +940,33 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         protected global::System.Web.UI.WebControls.Label Label30;
         
         /// <summary>
+        /// Label35 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label35;
+        
+        /// <summary>
+        /// Label36 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label36;
+        
+        /// <summary>
+        /// Label37 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label37;
+        
+        /// <summary>
         /// txtstockcode control.
         /// </summary>
         /// <remarks>
@@ -965,6 +992,51 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        
+        /// <summary>
+        /// txtitemserial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtitemserial;
+        
+        /// <summary>
+        /// txtitemwarranty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtitemwarranty;
+        
+        /// <summary>
+        /// txtitemappliance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtitemappliance;
+        
+        /// <summary>
+        /// txtitemcapacity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtitemcapacity;
+        
+        /// <summary>
+        /// btnadditem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnadditem;
         
         /// <summary>
         /// PanelSearchItem control.
