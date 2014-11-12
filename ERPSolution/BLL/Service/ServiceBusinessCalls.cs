@@ -469,6 +469,17 @@ namespace Advantage.ERP.BLL
          
      }
 
+     public DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objbcall = new ServiceDatabaseCalls();
+         return objbcall.gMsGetItemDataForVisitingRequest(objitem);
+     }
+     public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetItemDataForVisitRequestBySTCode(objitem);
+     }
+
      #endregion VisitingRequest
 
 
