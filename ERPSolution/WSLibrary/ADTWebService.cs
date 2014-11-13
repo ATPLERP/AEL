@@ -16,7 +16,6 @@ using Advantage.ERP.DAL.DataContract;
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 public class ADTWebService : WebServiceBase
 {
-
     #region AreaMaster.aspx definitions
 
     //[WebMethod]
@@ -254,7 +253,67 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objserbc.gMsGetWarrantyForVisitingRequest(objwarr);
     }
 
+    [WebMethod]
+    public DataSet gMsGetItemDataForVisitingRequest(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objitem)
+    {
+        ServiceBusinessCalls Objbcall = new ServiceBusinessCalls();
+        return Objbcall.gMsGetItemDataForVisitingRequest(objitem);
+    }
+
+    [WebMethod]
+    public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objitem)
+    {
+        ServiceBusinessCalls objbscall=new ServiceBusinessCalls();
+        return objbscall.gMsGetItemDataForVisitRequestBySTCode(objitem);
+    }
+
     #endregion VisitingRequest
+
+    //=================Inventory Area=======================//
+
+    #region I_ItemMaster.aspx definition
+    [WebMethod]
+    public void Create_I_ItemMaster(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objMst)
+    {
+        InventoryBusinessCalls objBiz = new InventoryBusinessCalls();
+        objBiz.Create_I_ItemMaster(objMst);
+    }
+    #endregion
+
+    #region SupplierMaster.aspx definition
+    [WebMethod]
+    public void Create_I_SupplierMaster(Advantage.ERP.DAL.DataContract.Inventory.I_SupplierMaster objMst)
+    {
+        Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
+        objBiz.Create_I_SupplierMaster(objMst);
+    }
+
+    public void List_I_SupplierMaster(Advantage.ERP.DAL.DataContract.Inventory.I_SupplierMaster objMst)
+    {
+        Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
+        objBiz.List_I_SupplierMaster(objMst);
+    }
+
+    #endregion
+
+    #region StoreMaster.aspx definition
+    [WebMethod]
+    public void Create_TI_STORE_MST(Advantage.ERP.DAL.DataContract.Inventory.TI_STORE_MST objMst)
+    {
+        Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
+        objBiz.Create_TI_STORE_MST(objMst);
+    }
+
+    #endregion
+
+    #region Organization.aspx definition
+    [WebMethod]
+    public void create_TC_ORG_MST(Advantage.ERP.DAL.DataContract.Inventory.TC_ORG_MST objMst)
+    {
+        Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
+        objBiz.Create_TC_ORG_MST(objMst);
+    }
+    #endregion
 
 }
 

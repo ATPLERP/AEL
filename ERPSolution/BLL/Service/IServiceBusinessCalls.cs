@@ -36,6 +36,8 @@ namespace Advantage.ERP.BLL
         SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr);
         DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr);
         DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr);
+        DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
+        SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem);
         #endregion VisitingRequest
 
 

@@ -11,6 +11,7 @@ using System.Drawing;
 using Advantage.ERP.BLL;
 using System.Data;
 using System.Data.SqlClient;
+using Advantage.ERP.DAL.DataContract.Inventory;
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -106,6 +107,18 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
+        private void GetItemDataByStockCode(string Stockcode)
+        {
+            ADTWebService ws = new ADTWebService();
+            ItemMst objitem = new ItemMst();
+            objitem.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objitem.pStockCode = Stockcode;
+            SqlDataReader sdr=ws.gMsGetItemDataForVisitRequestBySTCode(objitem);
+            while (sdr.Read())
+            {
+                txtitemappliance.Text = sdr["Appliance"].ToString();
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -153,6 +166,9 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetdeptlist_Click(object sender, EventArgs e)
         {
+            DataSet ds = null;
+            dgriddeptorwarranty.DataSource = ds;
+            dgriddeptorwarranty.DataBind();
 
             ViewState["gvoption"] = "department";
                 
@@ -171,6 +187,10 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetwarrantylist_Click(object sender, EventArgs e)
         {
+
+            DataSet ds = null;
+            dgriddeptorwarranty.DataSource = ds;
+            dgriddeptorwarranty.DataBind();
             ViewState["gvoption"]="warranty";
 
             if (panelsearchappliance.Visible == true)
@@ -249,9 +269,53 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void dgriddeptorwarranty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtdeptcode.Text = dgriddeptorwarranty.SelectedRow.Cells[1].Text;
-            txtdepratment.Text = dgriddeptorwarranty.SelectedRow.Cells[2].Text;
-            panelsearchappliance.Visible = false;
+            if (ViewState["gvoption"].ToString() == "department")
+            {
+                txtdeptcode.Text = dgriddeptorwarranty.SelectedRow.Cells[1].Text;
+                txtdepratment.Text = dgriddeptorwarranty.SelectedRow.Cells[2].Text;
+                panelsearchappliance.Visible = false;
+            }
+            else if (ViewState["gvoption"].ToString() == "warranty")
+            {
+                txtwarranttno.Text = dgriddeptorwarranty.SelectedRow.Cells[3].Text;                
+                panelsearchappliance.Visible = false;
+            }
+        }
+
+        protected void cmdgetitemlist_Click(object sender, EventArgs e)
+        {
+            if (PanelSearchItem.Visible == false)
+            {
+                PanelSearchItem.Visible = true;
+            }
+            else
+            {
+                PanelSearchItem.Visible = false;
+            }
+        }
+
+        protected void btnsearchitemcode_Click(object sender, EventArgs e)
+        {
+            UIControl uic = new UIControl();
+            ADTWebService ws = new ADTWebService();
+            ItemMst objitem = new ItemMst();
+            objitem.pStockCode=txtsearchbyitemcode.Text;
+            objitem.pItemDescription=txtsearchbyitemname.Text;
+            objitem.pMajorGroup=ddlsearchbymajorgroup.SelectedValue;
+            objitem.pAppliance=txtsearchbyappliance.Text;
+            DataSet ds = null;
+            ds=ws.gMsGetItemDataForVisitingRequest(objitem);
+            gvitem.DataSource = ds;
+            gvitem.DataBind();
+        }
+
+        protected void gvitem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtitemcd.Text = gvitem.SelectedRow.Cells[1].Text;
+            txtstockcode.Text = gvitem.SelectedRow.Cells[2].Text;
+            GetItemDataByStockCode(txtstockcode.Text.Trim());
+            PanelSearchItem.Visible = false;
+
         }
     }
 }

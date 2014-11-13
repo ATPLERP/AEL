@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContract\Inventory\ItemMaster.cs" />
+    <Compile Include="DataContract\Inventory\SupplierMaster.cs" />
+    <Compile Include="DataContract\Inventory\TC_ORG_MST.cs" />
+    <Compile Include="DataContract\Inventory\TI_STORE_MST.cs" />
+    <Compile Include="Inventory\IInventoryDatabaseCalls.cs" />
+    <Compile Include="Inventory\InventoryDatabaseCalls.cs" />
     <Compile Include="DataContract\Service\Appliancemst.cs" />
     <Compile Include="DataContract\Service\CustomMaster.cs" />
     <Compile Include="DataContract\Service\Domainmst.cs" />
@@ -88,9 +94,7 @@
     <Folder Include="Costing\" />
     <Folder Include="DataContract\Costing\" />
     <Folder Include="DataContract\Finance\" />
-    <Folder Include="DataContract\Inventory\" />
     <Folder Include="Finance\" />
-    <Folder Include="Inventory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

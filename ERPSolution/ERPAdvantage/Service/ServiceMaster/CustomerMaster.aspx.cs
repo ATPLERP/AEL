@@ -45,9 +45,6 @@ public partial class MST_CustomerMaster : System.Web.UI.Page
        
     }
 
-    /// <summary>
-    /// Get the Salutation 
-    /// </summary>
    private void getPrefix()
     {
        UIControl uicon = new UIControl();
@@ -83,7 +80,6 @@ public partial class MST_CustomerMaster : System.Web.UI.Page
 
   protected void btnSave_Click(object sender, EventArgs e)
      {
-        //  Page.Validate();
          UIvalidations uiv = new UIvalidations();
          UserSpecificData objumst = new UserSpecificData();
          objumst.pObjId = 4;

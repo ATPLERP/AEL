@@ -74,7 +74,7 @@ namespace Advantage.ERP.BLL
         {
             DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
             DataSet dt = obj.gMsCustDetails(objMst);
-            //DataTable dt = new DataTable();
+            // DataTable dt = new DataTable();
             // call load method of datatable to copy content of reader 
             // SqlCommand cmd = new SqlCommand();
             // dt.Load(cmd.ExecuteReader()); // Load method does not close the connnection. In this case, the using statement does.
@@ -467,6 +467,17 @@ namespace Advantage.ERP.BLL
          ServiceDatabaseCalls objsalldb = new ServiceDatabaseCalls();
          return objsalldb.gMsGetWarrantyForVisitingRequest(objwarr);
          
+     }
+
+     public DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objbcall = new ServiceDatabaseCalls();
+         return objbcall.gMsGetItemDataForVisitingRequest(objitem);
+     }
+     public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetItemDataForVisitRequestBySTCode(objitem);
      }
 
      #endregion VisitingRequest

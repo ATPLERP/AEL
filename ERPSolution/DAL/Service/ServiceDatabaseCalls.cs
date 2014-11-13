@@ -104,7 +104,6 @@ namespace Advantage.ERP.DAL
             db.ExecuteNonQuery(dbCommand);
         }
 
-
         public void gMsUpdateCust(DAL.DataContract.CustomMaster objMst)
         {
             // Create the Database object, using the default database service. The
@@ -142,6 +141,7 @@ namespace Advantage.ERP.DAL
                   
             db.ExecuteNonQuery(dbCommand);
         }
+
        public DataSet gMsCustDetails(DAL.DataContract.CustomMaster objMst)
         {
             // Create the Database object, using the default database service. The
@@ -579,6 +579,34 @@ namespace Advantage.ERP.DAL
             ds = db.ExecuteDataSet(dbcommand);
             return ds;
         }
+
+        public DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetItemData";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            db.AddInParameter(dbcommand, "@ItemDesc", DbType.String, objitem.pItemDescription);
+            db.AddInParameter(dbcommand, "@MajorGroup", DbType.String, objitem.pMajorGroup);
+            db.AddInParameter(dbcommand, "@Appliance", DbType.String, objitem.pAppliance);
+            DataSet ds = null;
+            ds = db.ExecuteDataSet(dbcommand);
+            return ds;
+            
+        }
+
+        public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();            
+            string sqlcommand = "SearchItemCode";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@vOrgCode", DbType.String, objitem.pOrgCode);
+            db.AddInParameter(dbcommand, "@vStockCode", DbType.String, objitem.pStockCode);
+            IDataReader idr= db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+        }
+
+
 
         #endregion VisitingRequest
 

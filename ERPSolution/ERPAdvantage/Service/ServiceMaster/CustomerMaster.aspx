@@ -56,7 +56,7 @@
                 </asp:UpdatePanel>
                      <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                          <ContentTemplate>
-                             <asp:TextBox ID="txtFname" runat="server"  CssClass="textbox" Width="123px"></asp:TextBox>
+                             <asp:TextBox ID="txtFname" runat="server"  CssClass="textbox" Width="123px" OnTextChanged="txtFname_TextChanged"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" id="reqName" 
                         controltovalidate="txtFname" errormessage="Please enter your name!"  
                         ForeColor="Red" Enabled="true"/>
