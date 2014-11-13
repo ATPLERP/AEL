@@ -90,15 +90,12 @@ public bool gMsGetUserPermissioncheck(Advantage.ERP.DAL.DataContract.UserSpecifi
     Advantage.ERP.BLL.ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
     return bsOj.gMsGetUserPermissioncheck(objuMst);
 }
-
-
 [WebMethod]
 public bool gMsCheckPassword(Advantage.ERP.DAL.DataContract.UserSpecificData objuMst)
 {
    Advantage.ERP.BLL.ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
    return bsOj.gMsCheckPassword(objuMst);
 }
-
 
 #region Login.aspx definitions
 [WebMethod]
@@ -213,7 +210,6 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objs.gMsGetCategoryforVisitingReq(objvr);
 
     }
-
     [WebMethod]
     public List<gDropdownlist> gMsGetPriorityforVisitingReq(Advantage.ERP.DAL.DataContract.VisitingReq objvr)
     {
@@ -233,8 +229,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
         return objs.gMsGetAreaForVisitingRequest(objvr);
     }
-
-    [WebMethod]
+   [WebMethod]
     public DataSet gMsGetCustomerListForVisitingReguest(Advantage.ERP.DAL.DataContract.VisitingReq objvr)
     {
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
@@ -246,16 +241,13 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetCustomerDataByCustomerCode(objvr);
     }
-
     [WebMethod]
     public DataSet gMsGetDepartmentForVisitingRequest(Advantage.ERP.DAL.DataContract.VisitingReq objvr)
     {
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetDepartmentForVisitingRequest(objvr);
     }
-
     [WebMethod]
-
     public DataSet gMsGetWarrantyForVisitingRequest(Advantage.ERP.DAL.DataContract.WarrantyMst objwarr)
     {
         ServiceBusinessCalls objserbc = new ServiceBusinessCalls();

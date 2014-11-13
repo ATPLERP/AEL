@@ -85,12 +85,12 @@
         {
            background-color: #ddd;
            margin: 0px auto;
-           width: 519px;
+           width: 401px;
            position: relative;
            border: Gray 2px inset;
              top: 0px;
              left: 0px;
-             height: 268px;
+             height: 54px;
          }
          .auto-style20
          {
@@ -116,7 +116,7 @@
          .auto-style30
          {
              width: 601px;
-             height: 204px;
+             height: 52px;
          }
          .auto-style37
          {
@@ -163,11 +163,6 @@
              width: 134%;
              height: 3px;
          }
-         .auto-style53
-         {
-             width: 36px;
-             height: 21px;
-         }
          .auto-style54
          {
              width: 36px;
@@ -177,13 +172,8 @@
          {
              height: 11px;
          }
-         .auto-style56
-         {
-             height: 21px;
-         }
          .auto-style60
          {
-             height: 21px;
              width: 42px;
          }
          .auto-style61
@@ -204,7 +194,6 @@
          }
          .auto-style64
          {
-             height: 21px;
              width: 51px;
          }
          .auto-style65
@@ -214,7 +203,6 @@
          }
          .auto-style67
          {
-             height: 21px;
              width: 44px;
          }
          .auto-style68
@@ -224,7 +212,6 @@
          }
          .auto-style74
          {
-             height: 21px;
              width: 64px;
          }
          .auto-style75
@@ -239,8 +226,11 @@
          }
          .auto-style81
          {
-             height: 21px;
              width: 70px;
+         }
+         .auto-style82
+         {
+             width: 36px;
          }
          </style>
 
@@ -282,10 +272,8 @@
                 <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
                 <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
                 <div>
-                <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid"   Height="200px" Width="600px" CssClass="popup">
-
+             <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">
              <table class="auto-style30">
-
                 <tr>
                     <td class="auto-style19">
                         <asp:Label ID="lblQuatationmodal" runat="server" Text="Quotation Number"></asp:Label>
@@ -376,7 +364,6 @@
                     
                 <asp:ModalPopupExtender ID="btnQuotNoSearch_ModalPopupExtender" runat="server" DropShadow="true" TargetControlID="btnQuotNoSearch"  Drag="true"  
                   PopupControlID="pnModelPopup" OnOkScript="btnSearch" CancelControlID="btnCancel"  PopupDragHandleControlID="pnModelPopup"  RepositionMode="RepositionOnWindowResizeAndScroll" BackgroundCssClass="modalBackground">
-                
                 </asp:ModalPopupExtender>
                 </div>
                
@@ -498,14 +485,16 @@
             </td>
         </tr>
     </table>
-
+            
         <table class="auto-style49">
             <table>
             <tr>
-                <td class="auto-style53">
+                <td class="auto-style82">
                     <asp:Label ID="Label20" runat="server" Text="Appliance Code"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td class="auto-style82">
+                    </td>
+                <td>
                     <asp:Label ID="Label21" runat="server" Text="Description"></asp:Label>
                 </td>
                 <td class="auto-style64">
@@ -520,31 +509,102 @@
                 <td class="auto-style74">
                     <asp:Label ID="Label25" runat="server" Text="Type"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label27" runat="server" Text="Quantity"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label28" runat="server" Text="Price"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label29" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td class="auto-style60">
                     <asp:Label ID="Label30" runat="server" Text="NBT"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label31" runat="server" Text="VAT"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label32" runat="server" Text="Total"></asp:Label>
                 </td>
-                <td class="auto-style56"></td>
-                <td class="auto-style56"></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td class="auto-style54">
-                    <asp:TextBox ID="txtAppliaenceCode" runat="server" CssClass="textbox" Height="16px" Width="109px"></asp:TextBox>
+                    <asp:TextBox ID="txtAppliaenceCode" runat="server" CssClass="textbox" Height="16px" Width="97px"></asp:TextBox>
                 </td>
+               <td class="auto-style54">
+                <div>
+                 <asp:Panel ID="pnModelPopupitem" runat="server" BorderStyle="Solid" CssClass="popup" Height="200px" Width="600px">
+                     <table class="auto-style30">
+                          <tr>
+                    <td class="auto-style19">
+                        <asp:Label ID="Label37" runat="server" Text="Quotation Number"></asp:Label>
+                    </td>
+                                    
+                </tr>
+                <tr>
+                    <td class="auto-style19"> 
+                        <asp:Label ID="Label40" runat="server" Text="Customer Name"></asp:Label>
+                    </td>
+                    <td class="auto-style25" colspan="2">
+                        <asp:TextBox ID="TextBox4" runat="server" CssClass="textbox" Height="16px" Width="240px"></asp:TextBox>
+                    </td>
+                    <td class="auto-style42">
+                        &nbsp;</td>
+                    <td class="auto-style48">
+                         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                             <ContentTemplate>
+                                 <asp:Button ID="Button1" runat="server" CssClass="textbox" OnClick="btnSearch_Click" Text="Search" />
+                             </ContentTemplate>
+                         </asp:UpdatePanel>
+                    </td>
+                     <td class="auto-style37">
+                        <asp:Button ID="Button2" runat="server" CssClass="textbox" Text="Cancel" />
+                    </td>
+            </tr>
+                          <caption>
+                              <tr>
+                                  <td class="auto-style20" colspan="6">
+                                      <div id="div1" runat="server">
+                                          <asp:Panel ID="Panel3" runat="server" Height="112px" ScrollBars="Both" Width="575px">
+                                              <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
+                                                  <ContentTemplate>
+                                                      <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateSelectButton="true" AutoPostBack="True" CellPadding="4" CssClass="textbox" DataKeyNames="QuoationNo" EmptyDataText="No data available" ForeColor="#333333" GridLines="None" Height="22px" OnPageIndexChanging="gvQuotationDetails_PageIndexChanging" OnSelectedIndexChanged="gvQuotationDetails_SelectedIndexChanged" PageSize="5" Width="559px">
+                                                          <AlternatingRowStyle BackColor="White" />
+                                                          <Columns>
+                                                              <asp:BoundField DataField="QuoationNo" HeaderText="Quoation No" />
+                                                              <asp:BoundField DataField="CustomerName" HeaderText="Customer Name" />
+                                                              <asp:BoundField DataField="QuoationDate" HeaderText="Date" />
+                                                          </Columns>
+                                                          <EditRowStyle BackColor="#2461BF" />
+                                                          <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                          <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                          <PagerSettings FirstPageText="First" LastPageText="Last" PageButtonCount="4" />
+                                                          <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                                          <RowStyle BackColor="#EFF3FB" />
+                                                          <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                          <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                                          <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                                          <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                                          <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                                      </asp:GridView>
+                                                  </ContentTemplate>
+                                              </asp:UpdatePanel>
+                                          </asp:Panel>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </caption>
+                    </table>
+                 </asp:Panel>
+                <asp:ModalPopupExtender ID="btnApplianceList_ModalPopupExtender" Enabled="True" Drag="true" runat="server" DropShadow="true"  OnOkScript="Button1" CancelControlID="Button2" PopupControlID="pnModelPopupitem"  PopupDragHandleControlID="pnModelPopupitem"  RepositionMode="RepositionOnWindowResizeAndScroll" BackgroundCssClass="modalBackground" TargetControlID="btnApplianceList">
+               </asp:ModalPopupExtender>  
+               </div>
+               <asp:Button ID="btnApplianceList" CssClass="textbox" runat="server" Height="21px" Text="..." Width="24px" OnClick="btnApplianceList_Click" />
+             </td>
+
                 <td class="auto-style55">
                     <asp:TextBox ID="txtDescription" runat="server" CssClass="textbox" Width="94px"></asp:TextBox>
                 </td>
@@ -552,13 +612,16 @@
                     <asp:TextBox ID="txtItemModal" runat="server" CssClass="textbox" Height="16px" Width="83px"></asp:TextBox>
                 </td>
                 <td class="auto-style68">
-                    <asp:TextBox ID="txtItemSerial" runat="server" CssClass="textbox" Height="19px" Width="46px"></asp:TextBox>
+                    <asp:TextBox ID="txtItemSerial" runat="server" CssClass="textbox" Height="16px" Width="46px"></asp:TextBox>
                 </td>
                 <td class="auto-style79">
                     <asp:TextBox ID="txtItemCapacity" runat="server" CssClass="textbox" Width="53px"></asp:TextBox>
                 </td>
                 <td class="auto-style75">
                     <asp:DropDownList ID="ddlType" runat="server" CssClass="textbox" Width="57px">
+                        <asp:ListItem>OG</asp:ListItem>
+                        <asp:ListItem>UG</asp:ListItem>
+                        <asp:ListItem>NA</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style55">
@@ -580,7 +643,7 @@
                     <asp:TextBox ID="txtTotal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
                 <td class="auto-style55">
-                    <asp:Button ID="cmdAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" />
+                    <asp:Button ID="btnAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" />
                 </td>
                 <td class="auto-style55"></td>
             </tr>
@@ -592,7 +655,7 @@
                          <asp:Panel ID="Panel2" ScrollBars="Both" Height="168px" Width="927px" runat="server">
                     <asp:UpdatePanel ID="UpplgvItemDescr" runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
-                      <%--  <asp:DropDownList ID="DropDownList1" runat="server">
+                      <%--<asp:DropDownList ID="DropDownList1" runat="server">
                         </asp:DropDownList>--%>
                      </ContentTemplate>
                       </asp:UpdatePanel>

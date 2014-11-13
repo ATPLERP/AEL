@@ -80,7 +80,6 @@ E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Enterpri
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
-E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.dll
@@ -92,3 +91,4 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
+E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

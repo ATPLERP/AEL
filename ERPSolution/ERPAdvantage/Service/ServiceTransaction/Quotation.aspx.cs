@@ -48,8 +48,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             uicon.FillDropdownList(ddlPrefix, drplist, "COM_DOM_CODE", "COM_DOM_DESC");
 
         }
-
-        private void getArea()
+       private void getArea()
         {
             UIControl uicon = new UIControl();
             ADTWebService wsoj = new ADTWebService();
@@ -245,14 +244,16 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         private void CalGridTotal()
         {
-            QuotationTrans qutTrans = new QuotationTrans();
-            txtGrandTotal.Text = string.Empty ;
-            txtVATTotal.Text = string.Empty;
+           QuotationTrans qutTrans = new QuotationTrans();
+           txtGrandTotal.Text = string.Empty ;
+           txtVATTotal.Text = string.Empty;
            txtDiscountTotal.Text = string.Empty;
            txtNetAmount.Text = string.Empty;
            txtNBTAmt.Text = string.Empty;
            double lVATAmtOld = 0;
            double lNBTAmtold = 0;
+           double lDisAmtold = 0;
+           double lGrandTotold = 0; 
             
            foreach(GridViewRow row in gvItemDescription.Rows)
            {
@@ -294,14 +295,22 @@ namespace ERPAdvantage.Service.ServiceTransaction
                            if (qutTrans.lNBTPer == 0) {row.Cells[i].Text = "0"; qutTrans.lNBTAmt = 0; }
                            {qutTrans.lNBTAmt = ((qutTrans.lQty * qutTrans.lPrice) - qutTrans.lDisAmt) * qutTrans.lNBTPer / (100 - qutTrans.lNBTPer);
                            row.Cells[i].Text = qutTrans.lNBTAmt.ToString();}
-                           txtNBTAmt.Text  = txtNBTAmt.Text  + qutTrans.lNBTAmt;
+                           qutTrans.lNBTAmt = lNBTAmtold + qutTrans.lNBTAmt;
                            lNBTAmtold = qutTrans.lNBTAmt;
-                           txtGrandTotal.Text = txtGrandTotal.Text + (qutTrans.lQty * qutTrans.lPrice);
-
+                           txtNBTAmt.Text = qutTrans.lNBTAmt.ToString();
+                           qutTrans.lGrandTot = (qutTrans.lQty * qutTrans.lPrice);
+                          // lGrandTotold = qutTrans.lGrandTot;
+                           qutTrans.lGrandTot = lGrandTotold + qutTrans.lGrandTot;
+                           lGrandTotold = qutTrans.lGrandTot;
+                           txtGrandTotal.Text = qutTrans.lGrandTot.ToString(); 
+                           //txtGrandTotal.Text = txtGrandTotal.Text + (qutTrans.lQty * qutTrans.lPrice);
                            if (qutTrans.lDisAmt == 0)
                            {
-                               qutTrans.lDisAmt=((qutTrans.lQty * qutTrans.lPrice) * qutTrans.lDisPer) / 100;
-                               row.Cells[11].Text =qutTrans.lDisAmt.ToString();
+                               row.Cells[11].Text = Convert.ToString(((qutTrans.lQty * qutTrans.lPrice) * qutTrans.lDisPer)/ 100);
+                               qutTrans.lDisAmt = Convert.ToDouble(row.Cells[11].Text);
+                               qutTrans.lDisAmt = lDisAmtold + qutTrans.lDisAmt;
+                               lDisAmtold = qutTrans.lDisAmt;
+                               txtDiscountTotal.Text = qutTrans.lDisAmt.ToString();                             
                            }
                             row.Cells[13].Text = Convert.ToString((((qutTrans.lQty * qutTrans.lPrice) - qutTrans.lDisAmt) + qutTrans.lNBTAmt) * qutTrans.lVATPer / 100); //VAT AMOUNT
                             //qutTrans.lVATAmt = 0;
@@ -311,8 +320,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
                             lVATAmtOld = qutTrans.lVATAmt;
                             txtVATTotal.Text = qutTrans.lVATAmt.ToString();
                             row.Cells[14].Text =Convert.ToString(((qutTrans.lQty * qutTrans.lPrice) + qutTrans.lVATAmt) - qutTrans.lDisAmt + qutTrans.lNBTAmt);//Total Amount
+                            qutTrans.lNetAmount = ((qutTrans.lGrandTot + qutTrans.lVATAmt) - qutTrans.lDisAmt) + qutTrans.lNBTAmt;
+                            txtNetAmount.Text = qutTrans.lNetAmount.ToString();
                             break;
-                           
+                         // txtNetAmount.Text =txtGrandTotal.Text.Trim() + txtVATTotal.Text.Trim() - txtDiscountTotal.Text.Trim() + txtNBTAmt.Text.Trim() ;
+                          
                    }
 
                
@@ -320,6 +332,13 @@ namespace ERPAdvantage.Service.ServiceTransaction
            }
 
 
+        }
+
+        protected void btnApplianceList_Click(object sender, EventArgs e)
+        {
+           // pnModelPopupitem.Visible = true;
+            //btnApplianceList_ModalPopupExtender.Show();
+            // pMsItmLst();
         }
 
        

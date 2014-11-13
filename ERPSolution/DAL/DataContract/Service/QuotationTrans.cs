@@ -28,7 +28,9 @@ namespace Advantage.ERP.DAL.DataContract
        public double lVATPer{get; set;}
        public double lVATAmt{get; set;}
        public double lNBTPer{get; set;}
-       public double lNBTAmt{ get; set;}
+       public double lNBTAmt{get; set;}
+       public double lGrandTot{get; set;}
+       public double lNetAmount { get; set; }
 
 
        

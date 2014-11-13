@@ -466,6 +466,11 @@ namespace Advantage.ERP.DAL
 
         }
 
+        //public DataTable gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+        //{
+
+        //}
+
    #endregion
 
         #region VisitingRequest
