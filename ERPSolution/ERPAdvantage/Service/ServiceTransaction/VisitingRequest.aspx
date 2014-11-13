@@ -216,7 +216,7 @@
     
     <ContentTemplate>
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="800" Width="900px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="800" Width="900px">
         
         <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data">
             <ContentTemplate>
@@ -608,7 +608,7 @@
                             <asp:Button ID="cmdgetitemlist" runat="server" Text="..." OnClick="cmdgetitemlist_Click" />
                         </td>
                         <td class="auto-style39">
-                            <asp:DropDownList ID="DropDownList1" runat="server" Width="120px">
+                            <asp:DropDownList ID="ddlmodel" runat="server" Width="120px">
                             </asp:DropDownList>
                         </td>
                         <td class="auto-style53">
