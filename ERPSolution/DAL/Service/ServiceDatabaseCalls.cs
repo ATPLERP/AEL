@@ -619,6 +619,16 @@ namespace Advantage.ERP.DAL
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
         }
 
+        public SqlDataReader gMsGetModelByappliance(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetModelDataByAppliance";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@AppCode", DbType.String, objitem.pAppliance);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+
+        }
 
 
         #endregion VisitingRequest

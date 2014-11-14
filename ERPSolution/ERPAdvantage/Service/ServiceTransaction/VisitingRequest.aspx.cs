@@ -46,6 +46,16 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
+        private void GetModelByAppliance(string Appcode)
+        {
+            UIControl uic = new UIControl();
+            ADTWebService ws = new ADTWebService();
+            ItemMst objitem=new ItemMst();
+            objitem.pAppliance = Appcode;
+            List<gDropdownlist> droplist = ws.gMsGetModelByappliance(objitem);
+            uic.FillDropdownList(ddlmodel, droplist, "COM_DOM_DESC", "COM_DOM_DESC");
+        }
+
         private void LoadPrefix()
         {
             UIControl uic = new UIControl();
@@ -314,6 +324,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             txtitemcd.Text = gvitem.SelectedRow.Cells[1].Text;
             txtstockcode.Text = gvitem.SelectedRow.Cells[2].Text;
             GetItemDataByStockCode(txtstockcode.Text.Trim());
+            GetModelByAppliance(txtitemappliance.Text);
             PanelSearchItem.Visible = false;
 
         }

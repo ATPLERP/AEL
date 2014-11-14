@@ -273,6 +273,14 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objbscall.gMsGetItemDataForVisitRequestBySTCode(objitem);
     }
 
+    [WebMethod]
+    public List<gDropdownlist> gMsGetModelByappliance(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objitem)
+    {
+    ServiceBusinessCalls sbscall=new ServiceBusinessCalls();
+    return sbscall.gMsGetModelByappliance(objitem);
+
+    }
+
     #endregion VisitingRequest
 
     //=================Inventory Area=======================//
