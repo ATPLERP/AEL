@@ -198,6 +198,12 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
         return bsOj.gMsQuotationDetails(qutTrans, oblCustM);
     }
+    [WebMethod]
+    public SqlDataReader gMsOrgItemList(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+    {
+        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+        return bsOj.gMsOrgItemList(qutTrans);
+    }
 
     #endregion
 

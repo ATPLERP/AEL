@@ -466,10 +466,23 @@ namespace Advantage.ERP.DAL
 
         }
 
-        //public DataTable gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
-        //{
-
-        //}
+        public SqlDataReader gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsOrgItemList";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pItemName", DbType.String, qutTrans.pItemName);
+            db.AddInParameter(dbCommand, "@pMajorCode", DbType.String, qutTrans.pMajorCode);
+            db.AddInParameter(dbCommand, "@pAppCode", DbType.String, qutTrans.pAppCode);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
 
    #endregion
 

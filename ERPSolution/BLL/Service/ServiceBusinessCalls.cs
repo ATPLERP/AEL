@@ -380,6 +380,13 @@ namespace Advantage.ERP.BLL
             }
             return ds;
      }
+
+     public SqlDataReader gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         return obj.gMsOrgItemList(qutTrans); 
+     }
+   
    #endregion
 
      #region VisitingRequest

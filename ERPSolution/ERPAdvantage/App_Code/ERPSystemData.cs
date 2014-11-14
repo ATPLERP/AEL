@@ -36,8 +36,7 @@ public class ERPSystemData
         COSTING,
         STORE,
         ACCOUNTS
-
-    }
+   }
     public enum Status
     {
         New,
@@ -45,5 +44,16 @@ public class ERPSystemData
         View,
         Update,
         Delete
+    }
+    public enum lMajorGroup
+    {
+        S,// Service
+        I,//Inventory
+        A,//ALL TYPE
+        C,//ONLY COMPLETE UNIT
+        R,//Accessories
+        V,//SERVICE
+        T,//Tools
+        Y//Stationery
     }
 }
