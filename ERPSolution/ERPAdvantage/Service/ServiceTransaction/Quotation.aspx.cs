@@ -349,7 +349,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
         protected void btnItemSearch_Click(object sender, EventArgs e)
         {
             pMsItmLst();
-            btnApplianceList_ModalPopupExtender.Show();
+           // btnApplianceList_ModalPopupExtender.Show();
         }
 
         private void GetAppliance()
@@ -377,18 +377,41 @@ namespace ERPAdvantage.Service.ServiceTransaction
            qutTrans.pMajorCode =ddlMajorGroup.SelectedItem.Text ;
            DataTable dt =wsoj.gMsOrgItemList(qutTrans);
            gvOrgItemList.DataSource = dt;
-           gvOrgItemList.DataBind(); 
+           gvOrgItemList.DataBind();
+           btnApplianceList_ModalPopupExtender.Show(); 
 
         }
           
         protected void gvOrgItemList_SelectedIndexChanged(object sender, EventArgs e)
         {
             QuotationTrans qutTrans = new QuotationTrans();
-            qutTrans.pStockCode = gvQuotationDetails.SelectedRow.Cells[1].Text;
-            txtAppliaenceCode.Text = qutTrans.pStockCode;
-            if (txtAppliaenceCode.Text != string.Empty)
+             ADTWebService wsoj = new ADTWebService();
+             UIvalidations uiv = new UIvalidations();
+            UserSpecificData objumst = new UserSpecificData();
+            objumst.pObjId = 28;
+            objumst.pModType = ServiceMain.ModuleId;
+
+            if (uiv.CheckModuleAccess(objumst))
             {
-              pMsItmLst(); 
+                qutTrans.pBrnCd = objumst.pBrnCode;
+                qutTrans.pStockCode = gvOrgItemList.SelectedRow.Cells[2].Text;
+                qutTrans.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+                qutTrans.pPriceType = ERPSystemData.PriceType.S.ToString();   
+               // qutTrans.pGroupType = ERPSystemData.GroupType.General.ToString();
+                txtAppliaenceCode.Text = qutTrans.pStockCode;
+                wsoj.gMsGetStockCode(qutTrans);
+                wsoj.gMsGetStockPrice(qutTrans);
+                txtDescription.Text = qutTrans.pItemName;
+                txtVAT.Text = qutTrans.lVATPer.ToString(); 
+                if (txtAppliaenceCode.Text != string.Empty)
+                {
+                    pMsItmLst();
+                }
+            }
+            else
+            {
+                lblStates.Text = Resources.UIMessege.msgAdeni;
+                lblStates.ForeColor = Color.Red;
             }
         }
 

@@ -614,10 +614,10 @@
                               <tr>
                                   <td class="auto-style20" colspan="6">
                                       <div id="div1" runat="server">
-                                          <asp:Panel ID="Panel3" runat="server" Height="106px" ScrollBars="Both" Width="590px">
+                                          <asp:Panel ID="Panel3" runat="server" Height="121px" ScrollBars="Both" Width="590px">
                                               <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
                                                   <ContentTemplate>
-                                                      <asp:GridView ID="gvOrgItemList" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateSelectButton="true" AutoPostBack="True" CellPadding="4" CssClass="textbox" DataKeyNames="ItemCode,StockCode" EmptyDataText="No data available" ForeColor="#333333" GridLines="None" Height="35px" OnPageIndexChanging="gvOrgItemList_PageIndexChanging" OnSelectedIndexChanged="gvOrgItemList_SelectedIndexChanged" PageSize="5" Width="562px" OnPageIndexChanged="gvOrgItemList_PageIndexChanged">
+                                                      <asp:GridView ID="gvOrgItemList" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateSelectButton="true" AutoPostBack="True" CellPadding="4" CssClass="textbox" DataKeyNames="StockCode" EmptyDataText="No data available" ForeColor="#333333" GridLines="None" Height="35px" OnPageIndexChanging="gvOrgItemList_PageIndexChanging" OnSelectedIndexChanged="gvOrgItemList_SelectedIndexChanged" PageSize="5" Width="562px" OnPageIndexChanged="gvOrgItemList_PageIndexChanged">
                                                           <AlternatingRowStyle BackColor="White" />
                                                           <Columns>
                                                               <asp:BoundField DataField="ItemCode" HeaderText="Item ID"/>

@@ -22,11 +22,14 @@ namespace Advantage.ERP.DAL.DataContract
        public string pCreatedBy { get; set; }
        
        public string pStockCode { get; set; }
+       public int pItemCode { get; set; }
        public string pItemName { get; set; }
        public string pMajorCode { get; set; }
        public string pAppCode { get; set; }
-
-       
+       public string pGroupType { get; set; }
+       public string pPriceType { get; set; }
+       public double pPrice { get; set; }
+              
        public double lQty{get; set;}
        public double lPrice{get; set;}
        public double lDisPer{get; set;}

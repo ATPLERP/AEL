@@ -390,6 +390,34 @@ namespace Advantage.ERP.BLL
          dt.Load(dr);
          return dt;
      }
+     public void gMsGetStockCode(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetStockCode(qutTrans);
+         while (dr.Read())
+         {
+             qutTrans.pItemCode =Convert.ToInt32(dr.GetValue(0).ToString());  
+             qutTrans.pStockCode = dr.GetValue(1).ToString();
+             qutTrans.pItemName = dr.GetValue(2).ToString();
+             qutTrans.lVATPer = Convert.ToDouble(dr.GetValue(5).ToString()); 
+         }
+
+     }
+     public void gMsGetStockPrice(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetStockPrice(qutTrans);
+         while (dr.Read())
+         {
+             qutTrans.pItemCode = Convert.ToInt32(dr.GetValue(0).ToString());
+             qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());   
+         }
+
+
+     }
+
+
+
    
    #endregion
 

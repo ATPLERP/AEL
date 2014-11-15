@@ -56,4 +56,13 @@ public class ERPSystemData
         T,//Tools
         Y//Stationery
     }
+    public enum GroupType
+    {
+        General
+    }
+    public enum PriceType
+    {
+        S,
+        W
+    }
 }
