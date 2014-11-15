@@ -199,7 +199,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return bsOj.gMsQuotationDetails(qutTrans, oblCustM);
     }
     [WebMethod]
-    public SqlDataReader gMsOrgItemList(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+    public DataTable gMsOrgItemList(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
     {
         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
         return bsOj.gMsOrgItemList(qutTrans);

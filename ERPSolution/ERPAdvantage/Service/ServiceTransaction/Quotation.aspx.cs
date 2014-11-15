@@ -12,6 +12,7 @@ using System.Web.UI.HtmlControls;
 using Advantage.ERP.DAL.DataContract;
 using ERPAdvantage;
 using System.Drawing;
+
 //using ERPAdvantage.MST;
 using Advantage.ERP.BLL;
 using Microsoft.VisualBasic;
@@ -27,10 +28,10 @@ namespace ERPAdvantage.Service.ServiceTransaction
             {
                 getPrefix();
                 getArea();
-                GetAppliancecategory();
+                GetAppliance();
                 pMsGetQuotationCategory();
                 uicon.filllMajorGroup(ddlMajorGroup, ERPSystemData.lMajorGroup.S.ToString());
-                pMsItmLst();
+               // pMsItmLst();
             }
         }
 
@@ -347,19 +348,23 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void btnItemSearch_Click(object sender, EventArgs e)
         {
-
+            pMsItmLst();
+            btnApplianceList_ModalPopupExtender.Show();
         }
 
-        private void GetAppliancecategory()
+        private void GetAppliance()
         {
-            UIControl uic = new UIControl();
+            UIControl ui = new UIControl();
             ADTWebService wser = new ADTWebService();
-            Appliancemst objapp = new Appliancemst();
-            objapp.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-            objapp.pAppCategory = ERPSystemData.COM_DOM_TYPE.APPLIANCE_CATEGORY.ToString();
-            List<gDropdownlist> droplist = wser.pMsGetAppliancecategory(objapp);
-            uic.FillDropdownList(ddlApplianceCode, droplist, "COM_DOM_CODE", "COM_DOM_DESC");
-
+            Appliancemst app = new Appliancemst();
+            app.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            app.pApplianceCode = string.Empty;
+            app.pApplianceName = string.Empty;
+            DataSet ds = wser.GetApplianceList(app);
+            ddlApplianceCode.DataValueField = "ApplianceCode";
+            ddlApplianceCode.DataTextField = "ApplianceCode";
+            ddlApplianceCode.DataSource = ds;
+           ddlApplianceCode.DataBind();
         }
         private void pMsItmLst()
         {
@@ -368,12 +373,62 @@ namespace ERPAdvantage.Service.ServiceTransaction
            qutTrans.pOrgCode=ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
            qutTrans.pStockCode =txtItemCode.Text;
            qutTrans.pItemName =txttItemname.Text;
-           //qutTrans.pMajorCode =;
-          // qutTrans.pAppCode =;
-          SqlDataReader dr =wsoj.gMsOrgItemList(qutTrans);
+           qutTrans.pAppCode = ddlApplianceCode.SelectedValue ;  
+           qutTrans.pMajorCode =ddlMajorGroup.SelectedItem.Text ;
+           DataTable dt =wsoj.gMsOrgItemList(qutTrans);
+           gvOrgItemList.DataSource = dt;
+           gvOrgItemList.DataBind(); 
 
         }
-        
+          
+        protected void gvOrgItemList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            QuotationTrans qutTrans = new QuotationTrans();
+            qutTrans.pStockCode = gvQuotationDetails.SelectedRow.Cells[1].Text;
+            txtAppliaenceCode.Text = qutTrans.pStockCode;
+            if (txtAppliaenceCode.Text != string.Empty)
+            {
+              pMsItmLst(); 
+            }
+        }
+
+        protected void gvOrgItemList_PageIndexChanged(object sender, EventArgs e)
+        {
+           //deselect the prior selected index after paging
+            gvOrgItemList.SelectedIndex = -1;
+            btnApplianceList_ModalPopupExtender.Show();
+        }
+
+        protected void gvOrgItemList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ADTWebService wsoj = new ADTWebService();
+            QuotationTrans qutTrans = new QuotationTrans();
+            qutTrans.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            //Page.Validate();
+            UIvalidations uiv = new UIvalidations();
+            UserSpecificData objumst = new UserSpecificData();
+            objumst.pObjId = 28;
+            objumst.pModType = ServiceMain.ModuleId;
+
+            if (uiv.CheckModuleAccess(objumst))
+            {
+                qutTrans.pStockCode = txtItemCode.Text;
+                qutTrans.pItemName = txttItemname.Text;
+                qutTrans.pAppCode = ddlApplianceCode.SelectedValue;
+                qutTrans.pMajorCode = ddlMajorGroup.SelectedItem.Text;
+                DataTable dt = wsoj.gMsOrgItemList(qutTrans);
+                gvOrgItemList.PageIndex = e.NewPageIndex;//
+                gvOrgItemList.DataSource = null;
+                gvOrgItemList.DataSource = dt;
+                gvOrgItemList.DataBind();
+                btnApplianceList_ModalPopupExtender.Show();
+            }
+            else
+            {
+                lblStates.Text = Resources.UIMessege.msgAdeni;
+                lblStates.ForeColor = Color.Red;
+            }
+        }
         
     }
 }

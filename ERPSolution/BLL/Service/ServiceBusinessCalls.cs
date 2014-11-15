@@ -381,10 +381,14 @@ namespace Advantage.ERP.BLL
             return ds;
      }
 
-     public SqlDataReader gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+     public DataTable gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
-         return obj.gMsOrgItemList(qutTrans); 
+         SqlDataReader dr= obj.gMsOrgItemList(qutTrans); 
+        // DataTable dtSchema = dr.GetSchemaTable();
+         DataTable dt = new DataTable(); 
+         dt.Load(dr);
+         return dt;
      }
    
    #endregion
