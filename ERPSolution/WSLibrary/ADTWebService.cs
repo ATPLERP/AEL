@@ -211,10 +211,10 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         bsOj.gMsGetStockCode(qutTrans);
     }
     [WebMethod]
-    public void gMsGetStockPrice(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+    public bool gMsGetStockPrice(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
     {
         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
-        bsOj.gMsGetStockPrice(qutTrans);
+       return bsOj.gMsGetStockPrice(qutTrans);
     }
     #endregion
 

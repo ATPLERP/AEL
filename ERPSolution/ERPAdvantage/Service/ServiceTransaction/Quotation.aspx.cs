@@ -12,6 +12,7 @@ using System.Web.UI.HtmlControls;
 using Advantage.ERP.DAL.DataContract;
 using ERPAdvantage;
 using System.Drawing;
+using System.Windows.Forms; 
 
 //using ERPAdvantage.MST;
 using Advantage.ERP.BLL;
@@ -348,8 +349,9 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void btnItemSearch_Click(object sender, EventArgs e)
         {
+            btnApplianceList_ModalPopupExtender.Show();
             pMsItmLst();
-           // btnApplianceList_ModalPopupExtender.Show();
+          
         }
 
         private void GetAppliance()
@@ -385,8 +387,8 @@ namespace ERPAdvantage.Service.ServiceTransaction
         protected void gvOrgItemList_SelectedIndexChanged(object sender, EventArgs e)
         {
             QuotationTrans qutTrans = new QuotationTrans();
-             ADTWebService wsoj = new ADTWebService();
-             UIvalidations uiv = new UIvalidations();
+            ADTWebService wsoj = new ADTWebService();
+            UIvalidations uiv = new UIvalidations();
             UserSpecificData objumst = new UserSpecificData();
             objumst.pObjId = 28;
             objumst.pModType = ServiceMain.ModuleId;
@@ -400,19 +402,23 @@ namespace ERPAdvantage.Service.ServiceTransaction
                // qutTrans.pGroupType = ERPSystemData.GroupType.General.ToString();
                 txtAppliaenceCode.Text = qutTrans.pStockCode;
                 wsoj.gMsGetStockCode(qutTrans);
-                wsoj.gMsGetStockPrice(qutTrans);
-                txtDescription.Text = qutTrans.pItemName;
-                txtVAT.Text = qutTrans.lVATPer.ToString(); 
-                if (txtAppliaenceCode.Text != string.Empty)
-                {
-                    pMsItmLst();
-                }
+               
+                   txtDescription.Text = qutTrans.pItemName;
+                    txtVAT.Text = qutTrans.lVATPer.ToString();
+                    if (txtAppliaenceCode.Text != string.Empty)
+                    {
+                     pMsItmLst();
+                    }
+
+                    bool success = wsoj.gMsGetStockPrice(qutTrans);
+                    //lblStates.Text = Resources.UIMessege.msgPriceCheck;
+                    txtPrice.Text = qutTrans.pPrice.ToString();
             }
             else
-            {
+              {
                 lblStates.Text = Resources.UIMessege.msgAdeni;
                 lblStates.ForeColor = Color.Red;
-            }
+             }
         }
 
         protected void gvOrgItemList_PageIndexChanged(object sender, EventArgs e)
@@ -452,6 +458,72 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 lblStates.ForeColor = Color.Red;
             }
         }
-        
-    }
+
+        protected void btnAddList_Click(object sender, EventArgs e)
+        {
+         Addata();
+        }
+
+        protected void Addata()
+        {
+            QuotationTrans qutTrans = new QuotationTrans();
+            if (txtPrice.Text == "0")
+            {MessageBox.Show(Resources.UIMessege.msgPriceCheck); }
+           // if (qutTrans.pItemCode == 0)
+           // {MessageBox.Show(Resources.UIMessege.msgCheckItemode);}
+            if (txtAppliaenceCode.Text.Trim() == "0")
+            {MessageBox.Show(Resources.UIMessege.msgCheckStockCode);}
+            if (txtQuontaty.Text == "0")
+            {MessageBox.Show(Resources.UIMessege.msgCheckQuontity);}
+            if (txtTotal.Text == "0")
+            {MessageBox.Show(Resources.UIMessege.msgCheckTotalQuontity); }
+
+            foreach (GridViewRow row in gvItemDescription.Rows)
+            {
+                for (int i = 0; i < gvItemDescription.Columns.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 2://Check Item is already is Exist in GRID
+                            if (txtAppliaenceCode.Text.Trim() == row.Cells[i].Text)
+                            {
+                                //message
+                                MessageBox.Show(Resources.UIMessege.msgCheckItemSelected);
+                                txtAppliaenceCode.Focus();
+                            }
+                            break;
+                        case 1:
+                            row.Cells[i].Text = qutTrans.pItemCode.ToString();
+                            break;
+                        case 3:
+                            row.Cells[i].Text = txtDescription.Text;
+                            break;
+                        case 7:
+                            row.Cells[i].Text = ddlType.SelectedValue;
+                            break; 
+                        case 8:
+                            row.Cells[i].Text = txtQuontaty.Text;
+                            break;
+                        case 9:
+                            row.Cells[i].Text = txtPrice.Text;
+                            break;
+                        case 10:
+                            row.Cells[i].Text = txtDiscounnt.Text;
+                            break;
+
+                   
+                    }
+                }
+                //Add Items to Grid
+
+            }
+
+          
+
+
+       }
+    
+    
+  }
+
 }

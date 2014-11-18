@@ -258,6 +258,20 @@
              height: 22px;
              width: 12px;
          }
+         .auto-style96
+         {
+             width: 54px;
+         }
+         .auto-style97
+         {
+             height: 11px;
+             width: 54px;
+         }
+         .auto-style99
+         {
+             height: 11px;
+             width: 30px;
+         }
          </style>
 
  <%--<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" TagPrefix="cc1" %>--%>
@@ -542,15 +556,15 @@
                     <asp:Label ID="Label28" runat="server" Text="Price"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="Label29" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label29" runat="server" Text="Discount"></asp:Label>
                 </td>
                 <td class="auto-style60">
                     <asp:Label ID="Label30" runat="server" Text="NBT"></asp:Label>
                 </td>
-                <td>
+                <td class="auto-style92">
                     <asp:Label ID="Label31" runat="server" Text="VAT"></asp:Label>
                 </td>
-                <td>
+                <td class="auto-style96">
                     <asp:Label ID="Label32" runat="server" Text="Total"></asp:Label>
                 </td>
                 <td></td>
@@ -659,7 +673,7 @@
                     <asp:TextBox ID="txtDescription" runat="server" CssClass="textbox" Width="94px"></asp:TextBox>
                 </td>
                 <td class="auto-style65">
-                    <asp:TextBox ID="txtItemModal" runat="server" CssClass="textbox" Height="16px" Width="83px"></asp:TextBox>
+                    <asp:TextBox ID="txtItemModal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
                 <td class="auto-style68">
                     <asp:TextBox ID="txtItemSerial" runat="server" CssClass="textbox" Height="16px" Width="46px"></asp:TextBox>
@@ -675,27 +689,35 @@
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style55">
-                    <asp:TextBox ID="txtQuontaty" runat="server" CssClass="textbox" Width="38px"></asp:TextBox>
+                    <asp:TextBox ID="txtQuontaty" runat="server" CssClass="textbox" Width="38px">0</asp:TextBox>
                 </td>
                 <td class="auto-style55">
+                  <asp:UpdatePanel ID="updpnlPrice" runat="server">
+                  <ContentTemplate>
                     <asp:TextBox ID="txtPrice" runat="server" CssClass="textbox" Height="16px" Width="56px"></asp:TextBox>
-                </td>
+                 <%--   <asp:RequiredFieldValidator ID="requPrice" runat="server" ControlToValidate="txtPrice"  ForeColor="Red" ErrorMessage="Please enter a valid Phone no"></asp:RequiredFieldValidator>--%>
+                        
+                  </ContentTemplate>
+                  </asp:UpdatePanel>
+                 </td>
                 <td class="auto-style55">
                     <asp:TextBox ID="txtDiscounnt" runat="server" CssClass="textbox" Height="16px" Width="35px"></asp:TextBox>
                 </td>
                 <td class="auto-style61">
                     <asp:TextBox ID="txtNBT" runat="server" CssClass="textbox" Height="16px" Width="23px"></asp:TextBox>
                 </td>
-                <td class="auto-style55">
-                    <asp:TextBox ID="txtVAT" runat="server" CssClass="textbox" Height="16px" Width="42px"></asp:TextBox>
+                <td class="auto-style99">
+                    <asp:TextBox ID="txtVAT" runat="server" CssClass="textbox" Height="16px" Width="16px"></asp:TextBox>
                 </td>
-                <td class="auto-style55">
+                <td class="auto-style97">
                     <asp:TextBox ID="txtTotal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
                 <td class="auto-style55">
-                    <asp:Button ID="btnAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" />
+                    <asp:Button ID="btnAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" OnClick="btnAddList_Click" />
                 </td>
-                <td class="auto-style55"></td>
+                <td class="auto-style55">
+                    <%--<asp:Label ID="lblPricecheck" runat="server" CssClass="textbox"></asp:Label>--%>
+                </td>
             </tr>
            </table>
             <table>
