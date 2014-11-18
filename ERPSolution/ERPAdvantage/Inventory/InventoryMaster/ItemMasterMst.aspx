@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MstItemMaster.aspx.cs" Inherits="ERPAdvantage.Inventory.InventoryMaster.ItemMaster" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemMasterMst.aspx.cs" Inherits="ERPAdvantage.Inventory.InventoryMaster.ItemMaster" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
 

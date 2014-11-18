@@ -12,13 +12,14 @@
     </asp:SiteMapPath>
 &nbsp;<br />
     <br />
+
 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
     <Items>
-        <asp:MenuItem Text="Maser" Value="Maser">
-            <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/SupplierMaster.aspx" Text="Supplier" Value="New Item"></asp:MenuItem>
+        <asp:MenuItem Text="Master" Value="Master">
+            <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/SupplierMasterList.aspx" Text="Supplier" Value="New Item"></asp:MenuItem>
             <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/TC_ORG_MST.aspx" Text="Organization" Value="Organization"></asp:MenuItem>
-            <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/TI_STORE_MST.aspx" Text="Store" Value="Store"></asp:MenuItem>
-            <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/ItemMaster.aspx" Text="Item Master" Value="Item Master"></asp:MenuItem>
+            <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/SelectStore.aspx" Text="Store" Value="Store"></asp:MenuItem>
+            <asp:MenuItem NavigateUrl="~/Inventory/InventoryMaster/ItemMasterList.aspx" Text="Item Master" Value="Item Master"></asp:MenuItem>
         </asp:MenuItem>
     </Items>
 </asp:Menu>

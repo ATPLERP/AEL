@@ -12,47 +12,65 @@ using System.Data.Common;
 using System.Configuration;
 using Advantage.ERP.DAL.DataContract;
 using Advantage.ERP.DAL;
+using Advantage.ERP.DAL.DataContract.Inventory;
 
 namespace Advantage.ERP.BLL
 {
     public class InventoryBusinessCalls
     {
         #region I_ItemMaster definitions
-        public void Create_I_ItemMaster(DAL.DataContract.Inventory.ItemMst objMst)
+        public void Create_I_ItemMaster(ItemMst objMst)
         {
             InventoryDatabaseCalls obj = new InventoryDatabaseCalls();
             obj.Create_ItemMaster(objMst);
         }
 
-        //public DataSet Grid_ItemMaster(DAL.DataContract.Inventory.I_ItemMaster objMst)
-        //{
-        //    InventoryDatabaseCalls objDbc = new DAL.InventoryDatabaseCalls();
-        //    DataSet ds = objDbc.Grid_ItemMaster(objMst);
-        //    DataTableReader dr = ds.Tables[0].CreateDataReader();
-        //    while (dr.Read())
-        //    {
+        public DataSet bSel_ItemMaser(DAL.DataContract.Inventory.ItemMst objMst)
+        {
+            DAL.InventoryDatabaseCalls objSel = new DAL.InventoryDatabaseCalls();
+            DataSet ds = objSel.dSel_ItemMaster(objMst);
 
+            DataTableReader dtr = ds.Tables[0].CreateDataReader();
+            while (dtr.Read())
+            {
+                objMst.pStockCode = dtr.GetValue(1).ToString();
+                objMst.pItemDescription = dtr.GetValue(2).ToString();
+                objMst.pAppliance = dtr.GetValue(3).ToString();
+                objMst.pBrand = dtr.GetValue(4).ToString();
+                objMst.pCapacity = dtr.GetValue(5).ToString();
+                objMst.pMajorGroup = dtr.GetValue(6).ToString();
+                objMst.pPartNo = dtr.GetValue(7).ToString();
+            }
+            return ds;
+        }
 
-        //    }
-        //}
         #endregion
 
         #region I_SupplierMaster definitions
-        public void Create_I_SupplierMaster(DAL.DataContract.Inventory.I_SupplierMaster objMst)
+        public void Create_I_SupplierMaster(DAL.DataContract.Inventory.SupplierMst objMst)
         {
             InventoryDatabaseCalls obj = new InventoryDatabaseCalls();
             obj.Create_I_SupplierMaster(objMst);
         }
 
-        public void List_I_SupplierMaster(DAL.DataContract.Inventory.I_SupplierMaster objMst)
+        public DataSet bizListSupplier(DAL.DataContract.Inventory.SupplierMst objMst)
         {
-            InventoryBusinessCalls obj = new InventoryBusinessCalls();
-            obj.List_I_SupplierMaster(objMst);
+            InventoryDatabaseCalls objList = new InventoryDatabaseCalls();
+            DataSet ds = objList.dcListSupplierMaster(objMst);
+            DataTableReader dtr = ds.Tables[0].CreateDataReader();
+            while (dtr.Read())
+            { 
+                objMst.pSupplierCode = dtr.GetValue(1).ToString();
+                objMst.pSupplierName = dtr.GetValue(2).ToString();
+                objMst.pCountry = dtr.GetValue(3).ToString();
+                objMst.pTypeOfSupplier = dtr.GetValue(4).ToString();
+            }
+            return ds;
         }
         #endregion
 
         #region TC_ORG_MST definitions
-        public void Create_TC_ORG_MST(DAL.DataContract.Inventory.TC_ORG_MST objMst)
+        public void Create_TC_ORG_MST(DAL.DataContract.Inventory.OrgMst objMst)
         {
             InventoryDatabaseCalls obj = new InventoryDatabaseCalls();
             obj.Create_TC_ORG_MST(objMst);
@@ -60,7 +78,7 @@ namespace Advantage.ERP.BLL
         #endregion
 
         #region TI_Store_Mst definitions
-        public void Create_TI_STORE_MST(DAL.DataContract.Inventory.TI_STORE_MST objMst)
+        public void Create_TI_STORE_MST(DAL.DataContract.Inventory.StoreMst objMst)
         {
             InventoryDatabaseCalls obj = new InventoryDatabaseCalls();
             obj.CreateTI_Store_Mst(objMst);
@@ -68,7 +86,7 @@ namespace Advantage.ERP.BLL
         #endregion
 
         #region sel_StoreList definitions
-                public void Sel_StoreList(DAL.DataContract.Inventory.TI_STORE_MST objMst)
+                public void Sel_StoreList(DAL.DataContract.Inventory.StoreMst objMst)
                 {
                     InventoryDatabaseCalls obj = new InventoryDatabaseCalls();
                     obj.CreateTI_Store_Mst(objMst);

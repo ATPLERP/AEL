@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Advantage.ERP.DAL.DataContract.Inventory
 {
-    public partial class ItemMst
+    public class ItemMst
     {
         public int pItemCode { get; set; }
         public string pOrgCode { get; set; }
