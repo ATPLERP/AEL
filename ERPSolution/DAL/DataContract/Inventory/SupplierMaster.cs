@@ -5,33 +5,33 @@ using System.Text;
 
 namespace Advantage.ERP.DAL.DataContract.Inventory
 {
-    public partial class I_SupplierMaster
+    public partial class SupplierMst
     {
-        public string OrgCode { get; set; }
-        public string SupplierCode { get; set; }
-        public string Prefix { get; set; }
-        public string SupplierName { get; set; }
-        public string Address { get; set; }
-        public string Country { get; set; }
-        public string ContactPerson { get; set; }
-        public string MobileNo { get; set; }
-        public string PhoneNo1 { get; set; }
-        public string PhoneNo2 { get; set; }
-        public string Fax { get; set; }
-        public string Email { get; set; }
-        public string VATNo { get; set; }
-        public string TypeOfSupplier { get; set; }
-        public string PurchaseType { get; set; }
-        public Nullable<int> LeadTime { get; set; }
-        public Nullable<decimal> CreditLimit { get; set; }
-        public Nullable<int> CreditLimitTime { get; set; }
-        public Nullable<System.DateTime> LastPurchaseDate { get; set; }
-        public Nullable<decimal> CurrentCreditAmount { get; set; }
-        public string VATApplicable { get; set; }
-        public string Category { get; set; }
-        public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public string UpDatedBy { get; set; }
-        public Nullable<System.DateTime> UpDatedDate { get; set; }
+        public string pOrgCode { get; set; }
+        public string pSupplierCode { get; set; }
+        public string pPrefix { get; set; }
+        public string pSupplierName { get; set; }
+        public string pAddress { get; set; }
+        public string pCountry { get; set; }
+        public string pContactPerson { get; set; }
+        public string pMobileNo { get; set; }
+        public string pPhoneNo1 { get; set; }
+        public string pPhoneNo2 { get; set; }
+        public string pFax { get; set; }
+        public string pEmail { get; set; }
+        public string pVATNo { get; set; }
+        public string pTypeOfSupplier { get; set; }
+        public string pPurchaseType { get; set; }
+        public Nullable<int> pLeadTime { get; set; }
+        public Nullable<decimal> pCreditLimit { get; set; }
+        public Nullable<int> pCreditLimitTime { get; set; }
+        public Nullable<System.DateTime> pLastPurchaseDate { get; set; }
+        public Nullable<decimal> pCurrentCreditAmount { get; set; }
+        public string pVATApplicable { get; set; }
+        public string pCategory { get; set; }
+        public string pCreatedBy { get; set; }
+        public Nullable<System.DateTime> pCreateDate { get; set; }
+        public string pUpDatedBy { get; set; }
+        public Nullable<System.DateTime> pUpDatedDate { get; set; }
     }
 }

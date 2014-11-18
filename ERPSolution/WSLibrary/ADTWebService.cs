@@ -90,7 +90,6 @@ public bool gMsGetUserPermissioncheck(Advantage.ERP.DAL.DataContract.UserSpecifi
     return bsOj.gMsGetUserPermissioncheck(objuMst);
 }
 
-
 [WebMethod]
 public bool gMsCheckPassword(Advantage.ERP.DAL.DataContract.UserSpecificData objuMst)
 {
@@ -99,7 +98,8 @@ public bool gMsCheckPassword(Advantage.ERP.DAL.DataContract.UserSpecificData obj
 }
 
 
-#region Login.aspx definitions
+
+    #region Login.aspx definitions
 [WebMethod]
 public List<gDropdownlist> gMsGetBranchData(Advantage.ERP.DAL.DataContract.UserSpecificData objMst)
 {
@@ -264,8 +264,14 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     #endregion VisitingRequest
 
     //=================Inventory Area=======================//
-
     #region I_ItemMaster.aspx definition
+    [WebMethod]
+    public DataSet wSel_ItemMaster(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objMst)
+    {
+        Advantage.ERP.BLL.InventoryBusinessCalls bsObj = new Advantage.ERP.BLL.InventoryBusinessCalls();
+        return bsObj.bSel_ItemMaser(objMst);
+    }
+
     [WebMethod]
     public void Create_I_ItemMaster(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objMst)
     {
@@ -276,23 +282,24 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
     #region SupplierMaster.aspx definition
     [WebMethod]
-    public void Create_I_SupplierMaster(Advantage.ERP.DAL.DataContract.Inventory.I_SupplierMaster objMst)
+    public void Create_I_SupplierMaster(Advantage.ERP.DAL.DataContract.Inventory.SupplierMst objMst)
     {
         Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
         objBiz.Create_I_SupplierMaster(objMst);
     }
 
-    public void List_I_SupplierMaster(Advantage.ERP.DAL.DataContract.Inventory.I_SupplierMaster objMst)
+    [WebMethod]
+    public DataSet wsListSupplier(Advantage.ERP.DAL.DataContract.Inventory.SupplierMst objMst)
     {
         Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
-        objBiz.List_I_SupplierMaster(objMst);
+        return objBiz.bizListSupplier(objMst);
     }
 
     #endregion
 
     #region StoreMaster.aspx definition
     [WebMethod]
-    public void Create_TI_STORE_MST(Advantage.ERP.DAL.DataContract.Inventory.TI_STORE_MST objMst)
+    public void Create_TI_STORE_MST(Advantage.ERP.DAL.DataContract.Inventory.StoreMst objMst)
     {
         Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
         objBiz.Create_TI_STORE_MST(objMst);
@@ -302,7 +309,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
     #region Organization.aspx definition
     [WebMethod]
-    public void create_TC_ORG_MST(Advantage.ERP.DAL.DataContract.Inventory.TC_ORG_MST objMst)
+    public void create_TC_ORG_MST(Advantage.ERP.DAL.DataContract.Inventory.OrgMst objMst)
     {
         Advantage.ERP.BLL.InventoryBusinessCalls objBiz = new Advantage.ERP.BLL.InventoryBusinessCalls();
         objBiz.Create_TC_ORG_MST(objMst);

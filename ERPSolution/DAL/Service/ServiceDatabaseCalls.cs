@@ -575,7 +575,7 @@ namespace Advantage.ERP.DAL
             return ds;
         }
 
-        public DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.I_ItemMaster objitem)
+        public DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetItemData";

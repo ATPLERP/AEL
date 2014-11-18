@@ -183,7 +183,7 @@
                     <asp:Button ID="cmdSave" runat="server" OnClick="cmdSave_Click" Text="SAVE" Width="101px" />
                 </td>
                 <td height="20">
-                    <asp:Button ID="cmdUpdate" runat="server" Text="UPDATE" Width="101px" />
+                    <asp:Button ID="cmdUpdate" runat="server" Text="UPDATE" Width="101px" OnClick="cmdUpdate_Click" />
                 </td>
             </tr>
         </table>

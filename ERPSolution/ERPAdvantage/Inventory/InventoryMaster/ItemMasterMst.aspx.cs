@@ -1,5 +1,4 @@
-﻿using Advantage.ERP.DAL.DataContract;
-using Advantage.ERP.DAL.DataContract.Inventory;
+﻿using Advantage.ERP.DAL.DataContract.Inventory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,7 @@ namespace ERPAdvantage.Inventory.InventoryMaster
 
         private void Create_I_ItemMaster()
         {
-            UserSpecificData objUsd = new UserSpecificData();
+            Advantage.ERP.DAL.DataContract.UserSpecificData objUsd = new Advantage.ERP.DAL.DataContract.UserSpecificData();
             ItemMst objMst = new ItemMst();
             ADTWebService objWs = new ADTWebService();
 

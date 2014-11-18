@@ -5,43 +5,58 @@
         .auto-style2 {
             text-align: center;
         }
-        .auto-style1 {
-            width: 913px;
-            height: 234px;
-        }
-        .auto-style6 {
-            width: 542px;
-        }
-        .auto-style7 {
-            width: 543px;
+        .auto-style11 {
+            width: 100%;
         }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="auto-style2">
-        Supplier Master</div>
-    <table class="auto-style1">
+        Supplier List</div>
+    <br />
+    <table class="auto-style11">
         <tr>
-            <td></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style6">Supplier ID&nbsp;
-                <asp:TextBox ID="SupplierCodeTextBox" runat="server"></asp:TextBox>
+            <td>
+                <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New" Width="93px" />
             </td>
-            <td class="auto-style7">Supplier Type&nbsp;
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <td>
+                <asp:Button ID="btnView0" runat="server" Text="View" Width="86px" OnClick="btnView_Click" />
             </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style7">
-                <asp:Button ID="cmdButton" runat="server" OnClick="cmdButton_Click" Text="View" Width="79px" />
+            <td>Supplier Code</td>
+            <td>
+                <asp:TextBox ID="txtSupplierCode" runat="server"></asp:TextBox>
             </td>
+            <td>Supplier Name</td>
+            <td><asp:TextBox ID="txtSupplierName" runat="server"></asp:TextBox>
+            </td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style3" colspan="2">
-                <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="403px">
+            <td>Type Of Supplier&nbsp;&nbsp;</td>
+            <td>
+                <asp:TextBox ID="txtTypeOfSuppler" runat="server"></asp:TextBox>
+            </td>
+            <td>Country&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <asp:GridView ID="gvSupplierList" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="403px" style="margin-bottom: 0px">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
@@ -60,7 +75,5 @@
             </td>
         </tr>
     </table>
-    <p>
-    </p>
     <br />
 </asp:Content>
