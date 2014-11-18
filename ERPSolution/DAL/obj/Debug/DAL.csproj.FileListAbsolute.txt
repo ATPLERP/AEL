@@ -102,3 +102,12 @@ D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 D:\ERP\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 D:\ERP\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.dll
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.pdb
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
+E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
