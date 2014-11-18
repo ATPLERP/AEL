@@ -26,13 +26,16 @@ E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
-G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
-G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
-G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
-G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
 D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache
 D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache
+=======
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+>>>>>>> d27ab53c73b6f7beacf749a0a603ac074849f9b2
