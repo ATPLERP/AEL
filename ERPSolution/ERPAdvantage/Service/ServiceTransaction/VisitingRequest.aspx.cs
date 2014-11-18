@@ -11,7 +11,6 @@ using System.Drawing;
 using Advantage.ERP.BLL;
 using System.Data;
 using System.Data.SqlClient;
-using Advantage.ERP.DAL.DataContract.Inventory;
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -44,16 +43,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
             uic.FillDropdownList(ddlpriority, drplist, "COM_DOM_CODE", "COM_DOM_CODE");
 
 
-        }
-
-        private void GetModelByAppliance(string Appcode)
-        {
-            UIControl uic = new UIControl();
-            ADTWebService ws = new ADTWebService();
-            ItemMst objitem=new ItemMst();
-            objitem.pAppliance = Appcode;
-            List<gDropdownlist> droplist = ws.gMsGetModelByappliance(objitem);
-            uic.FillDropdownList(ddlmodel, droplist, "COM_DOM_DESC", "COM_DOM_DESC");
         }
 
         private void LoadPrefix()
@@ -117,18 +106,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
-        private void GetItemDataByStockCode(string Stockcode)
-        {
-            ADTWebService ws = new ADTWebService();
-            ItemMst objitem = new ItemMst();
-            objitem.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-            objitem.pStockCode = Stockcode;
-            SqlDataReader sdr=ws.gMsGetItemDataForVisitRequestBySTCode(objitem);
-            while (sdr.Read())
-            {
-                txtitemappliance.Text = sdr["Appliance"].ToString();
-            }
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -294,39 +271,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetitemlist_Click(object sender, EventArgs e)
         {
-            if (PanelSearchItem.Visible == false)
-            {
-                PanelSearchItem.Visible = true;
-            }
-            else
-            {
-                PanelSearchItem.Visible = false;
-            }
-        }
-
-        protected void btnsearchitemcode_Click(object sender, EventArgs e)
-        {
-            UIControl uic = new UIControl();
-            ADTWebService ws = new ADTWebService();
-            ItemMst objitem = new ItemMst();
-            objitem.pStockCode=txtsearchbyitemcode.Text;
-            objitem.pItemDescription=txtsearchbyitemname.Text;
-            objitem.pMajorGroup=ddlsearchbymajorgroup.SelectedValue;
-            objitem.pAppliance=txtsearchbyappliance.Text;
-            DataSet ds = null;
-            ds=ws.gMsGetItemDataForVisitingRequest(objitem);
-            gvitem.DataSource = ds;
-            gvitem.DataBind();
-        }
-
-        protected void gvitem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtitemcd.Text = gvitem.SelectedRow.Cells[1].Text;
-            txtstockcode.Text = gvitem.SelectedRow.Cells[2].Text;
-            GetItemDataByStockCode(txtstockcode.Text.Trim());
-            GetModelByAppliance(txtitemappliance.Text);
-            PanelSearchItem.Visible = false;
-
+           
         }
     }
 }
