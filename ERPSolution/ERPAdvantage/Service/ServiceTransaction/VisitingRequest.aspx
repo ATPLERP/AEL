@@ -216,7 +216,7 @@
     
     <ContentTemplate>
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="800" Width="900px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="800" Width="900px">
         
         <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data">
             <ContentTemplate>
@@ -630,7 +630,7 @@
                     </tr>
                 </table>
                 <br />
-                <asp:Panel runat="server" ID="PanelSearchItem" style="overflow:auto" Height="200px" Visible="False">
+                <asp:Panel runat="server" ID="PanelSearchItem" style="overflow:auto" Height="150px" Visible="False">
 
                     <table class="auto-style3">
                         <tr>
@@ -670,7 +670,8 @@
                     <asp:GridView runat="server" ID="gvitem" Width="717px" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvitem_SelectedIndexChanged" Font-Size="X-Small">
                     </asp:GridView>
                 </asp:Panel>
-
+                <br />
+                <asp:GridView runat="server" ID="gvaddeditem" Font-Size="Small" Width="722px" />
 
 
             </ContentTemplate>

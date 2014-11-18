@@ -29,7 +29,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             objvr.pJobCategory = ERPSystemData.COM_DOM_TYPE.JOB_CATEGORY.ToString();
             List<gDropdownlist> drplist = ws.gMsGetCategoryforVisitingReq(objvr);
             uic.FillDropdownList(ddlcategory, drplist, "COM_DOM_CODE", "COM_DOM_CODE");                     
-                                    
+                                   
             
         }
 
@@ -128,6 +128,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             {
                 txtitemappliance.Text = sdr["Appliance"].ToString();
             }
+            
         }
 
         protected void Page_Load(object sender, EventArgs e)
