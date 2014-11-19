@@ -18,6 +18,6 @@ namespace Advantage.ERP.DAL.Inventory
 
         void CreateI_ItemMaster(DAL.DataContract.Inventory.ItemMst objMst);
         DataSet Grid_ItemMasterGrid(DAL.DataContract.Inventory.ItemMst objMst);
-
+        
     }
 }

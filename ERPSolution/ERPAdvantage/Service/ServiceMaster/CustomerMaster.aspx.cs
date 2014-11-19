@@ -12,8 +12,9 @@ using System.Web.UI.HtmlControls;
 using Advantage.ERP.DAL.DataContract;
 using ERPAdvantage;
 using System.Drawing;
-//using ERPAdvantage.MST;
 using Advantage.ERP.BLL;
+using Advantage.ERP.DAL.DataContract.Service;
+using Advantage.ERP.DAL.DataContract.Inventory;
 
 public partial class MST_CustomerMaster : System.Web.UI.Page
 {
@@ -59,7 +60,7 @@ public partial class MST_CustomerMaster : System.Web.UI.Page
     {
        UIControl uicon = new UIControl();
        ADTWebService wsoj = new ADTWebService();
-       Advantage.ERP.DAL.DataContract.CustomMaster objMst = new Advantage.ERP.DAL.DataContract.CustomMaster();
+       Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst = new Advantage.ERP.DAL.DataContract.Service.CustomMaster();
        objMst.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
        objMst.pDomType = ERPSystemData.COM_DOM_TYPE.CUSTOMER_CATEGORY.ToString();
        List<gDropdownlist> drplist = wsoj.pMsGetCategory(objMst);

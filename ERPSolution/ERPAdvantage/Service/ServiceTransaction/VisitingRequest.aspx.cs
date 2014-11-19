@@ -11,6 +11,8 @@ using System.Drawing;
 using Advantage.ERP.BLL;
 using System.Data;
 using System.Data.SqlClient;
+using Advantage.ERP.DAL.DataContract.Inventory;
+using Advantage.ERP.DAL.DataContract.Service;
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -106,10 +108,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
-<<<<<<< HEAD
+
         private void GetItemDataByStockCode(string Stockcode)
         {
             ADTWebService ws = new ADTWebService();
+            
             ItemMst objitem = new ItemMst();
             objitem.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
             objitem.pStockCode = Stockcode;
@@ -120,8 +123,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             }
             
         }
-=======
->>>>>>> eaa41d93486bec2c0e344355e11ba266839dde02
+
 
         protected void Page_Load(object sender, EventArgs e)
         {

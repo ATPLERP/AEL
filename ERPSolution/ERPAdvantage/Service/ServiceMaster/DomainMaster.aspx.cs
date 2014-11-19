@@ -8,6 +8,8 @@ using Advantage.ERP.BLL;
 using Advantage.ERP.DAL.DataContract;
 using System.Data;
 using System.Data.SqlClient;
+using Advantage.ERP.DAL.DataContract.Service;
+using Advantage.ERP.DAL.DataContract.Inventory;
 
 namespace ERPAdvantage.Service.ServiceMaster
 {

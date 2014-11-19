@@ -231,11 +231,11 @@
     
     <ContentTemplate>
 
-<<<<<<< HEAD
+
     <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="800" Width="900px">
-=======
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="800" Width="752px">
->>>>>>> eaa41d93486bec2c0e344355e11ba266839dde02
+
+    
+
         
         <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data">
             <ContentTemplate>
