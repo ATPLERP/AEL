@@ -514,7 +514,18 @@ namespace Advantage.ERP.DAL
             // Note: connection was closed by ExecuteDataSet method call 
             return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
         }
-
+        public SqlDataReader gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+           Database db = DatabaseFactory.CreateDatabase();
+           string sqlCommand = "gMsGetTaxPercentage";
+           DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+           db.AddInParameter(dbCommand, "@pTax", DbType.String, qutTrans.pTax);
+           //db.AddInParameter(dbCommand, "@pDate", DbType.String, qutTrans.pDate);
+           IDataReader iDR = db.ExecuteReader(dbCommand);
+           return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
 
    #endregion
 

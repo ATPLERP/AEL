@@ -216,6 +216,12 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
        return bsOj.gMsGetStockPrice(qutTrans);
     }
+     [WebMethod]
+    public void gMsGetTaxPercentage(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+    {
+        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+        bsOj.gMsGetTaxPercentage(qutTrans);
+    }
     #endregion
 
     #region VisitingRequest

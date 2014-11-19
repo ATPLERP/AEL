@@ -455,8 +455,13 @@ namespace Advantage.ERP.BLL
 
          return success;
      }
-
-
+     public void gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetTaxPercentage(qutTrans);
+         while (dr.Read())
+         {qutTrans.lNBTPer = Convert.ToDouble(dr.GetValue(0).ToString());}
+     }
 
    
    #endregion

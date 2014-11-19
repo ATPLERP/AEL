@@ -13,23 +13,26 @@ namespace Advantage.ERP.DAL.DataContract
        public string pCusname { get; set; }
        public string pFromDate { get; set; }
        public string pToDate { get; set; }
-       public DateTime pQuoationDate { get; set; }
        public string pJobCategory { get; set; }
        public string pCustomerOrderNo { get; set; }
        public string pQuotationRemarks { get; set; }
        public string pQuotationStatus { get; set; }
        public string pAmountPaidStatus { get; set; }
        public string pCreatedBy { get; set; }
-       
+       public string pTax { get; set; }
        public string pStockCode { get; set; }
-       public int pItemCode { get; set; }
        public string pItemName { get; set; }
        public string pMajorCode { get; set; }
        public string pAppCode { get; set; }
        public string pGroupType { get; set; }
        public string pPriceType { get; set; }
+       
+       public int pItemCode { get; set; }
+      
+       public DateTime pQuoationDate { get; set; }
+       public DateTime pDate { get; set; }
+      
        public double pPrice { get; set; }
-              
        public double lQty{get; set;}
        public double lPrice{get; set;}
        public double lDisPer{get; set;}
