@@ -348,5 +348,12 @@ namespace ERPAdvantage.Service.ServiceTransaction
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            DataSet ds = null;
+            gvaddeditemdata.DataSource = ds;
+            gvaddeditemdata.DataBind();
+        }
     }
 }

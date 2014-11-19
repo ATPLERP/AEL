@@ -34,4 +34,3 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
-G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache

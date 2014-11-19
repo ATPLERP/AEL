@@ -684,12 +684,12 @@
                 </asp:Panel>
                 <br />
                 
-                <asp:GridView ID="gvaddeditem" runat="server" AutoGenerateColumns="False" Caption="Item Details" Font-Bold="True" Font-Size="X-Small" OnSelectedIndexChanged="gvitem_SelectedIndexChanged" ShowHeaderWhenEmpty="True" Width="717px">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                
+                <asp:GridView ID="gvaddeditemdata" runat="server" Caption="Item Details" Font-Bold="True" OnSelectedIndexChanged="gvitem_SelectedIndexChanged" ShowHeaderWhenEmpty="True" Width="717px" Height="100px" CaptionAlign="Top" EmptyDataText="No Data Available">
                         <Columns>
-                            <asp:CheckBoxField />
-                            <asp:BoundField HeaderText="Item code" />
+                            <asp:BoundField DataField="ItemCode" HeaderText="ItemCode" />
                         </Columns>
-                        <HeaderStyle BackColor="#CCCCFF" />
                     </asp:GridView>
 
             </ContentTemplate>
