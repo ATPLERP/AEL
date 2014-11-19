@@ -260,11 +260,23 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objserbc = new ServiceBusinessCalls();
         return objserbc.gMsGetWarrantyForVisitingRequest(objwarr);
     }
-
+    [WebMethod]
     public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objitem)
     {
         ServiceBusinessCalls objserbc = new ServiceBusinessCalls();
         return objserbc.gMsGetItemDataForVisitRequestBySTCode(objitem);
+    }
+    [WebMethod]
+    public DataSet gMsSerachItemDetailsForVisitingRequest(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objitem)
+    {
+        ServiceBusinessCalls objbs = new ServiceBusinessCalls();
+        return objbs.gMsSerachItemDetailsForVisitingRequest(objitem);
+    }
+    [WebMethod]
+    public List<gDropdownlist> gMsGetModelListByappliance(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objitem)
+    {
+        ServiceBusinessCalls objbcall = new ServiceBusinessCalls();
+        return objbcall.gMsGetModelListByappliance(objitem);
     }
 
     #endregion VisitingRequest

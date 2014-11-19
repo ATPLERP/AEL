@@ -46,4 +46,13 @@ public class ERPSystemData
         Update,
         Delete
     }
+
+    public enum MajorGroupTypes
+    {
+        Service,
+        Inventory,
+        Tools,
+        Stationery,
+        Accessories
+     }
 }

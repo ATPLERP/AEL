@@ -195,11 +195,6 @@
             width: 82px;
             height: 21px;
         }
-        .auto-style59
-        {
-            height: 21px;
-            width: 86px;
-        }
         .auto-style60
         {
             height: 21px;
@@ -232,7 +227,7 @@
     <ContentTemplate>
 
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="800" Width="900px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="500" Width="900px">
 
     
 
@@ -627,7 +622,7 @@
                             <asp:Button ID="cmdgetitemlist" runat="server" Text="..." OnClick="cmdgetitemlist_Click" />
                         </td>
                         <td class="auto-style39">
-                            <asp:DropDownList ID="DropDownList1" runat="server" Width="120px">
+                            <asp:DropDownList ID="ddlmodelnos" runat="server" Width="120px">
                             </asp:DropDownList>
                         </td>
                         <td class="auto-style53">
@@ -643,7 +638,7 @@
                             <asp:TextBox ID="txtitemcapacity" runat="server" Width="50px"></asp:TextBox>
                         </td>
                         <td class="auto-style13">
-                            <asp:Button ID="btnadditem" runat="server" Text="..." />
+                            <asp:Button ID="btnadditem" runat="server" Text="..." OnClick="btnadditem_Click" />
                         </td>
                     </tr>
                 </table>
@@ -653,10 +648,10 @@
                     <table class="auto-style3">
                         <tr>
                             <td class="auto-style54">
-                                <asp:Label ID="Label31" runat="server" Text="Item Code"></asp:Label>
+                                <asp:Label ID="Label31" runat="server" Text="Stock Code"></asp:Label>
                             </td>
                             <td class="auto-style55">
-                                <asp:TextBox ID="txtsearchbyitemcode" runat="server" Width="200px"></asp:TextBox>
+                                <asp:TextBox ID="txtsearchbystockcode" runat="server" Width="200px"></asp:TextBox>
                             </td>
                             <td class="auto-style56">
                                 <asp:Label ID="Label33" runat="server" Text="Major Group"></asp:Label>
@@ -681,24 +676,33 @@
                                 <asp:TextBox ID="txtsearchbyappliance" runat="server" Width="200px"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:Button ID="btnsearchitemcode" runat="server" Text="Search" />
+                                <asp:Button ID="btnsearchitemcode" runat="server" Text="Search" OnClick="btnsearchitemcode_Click" />
                             </td>
                         </tr>
                     </table>
-                    <asp:GridView runat="server" ID="gvitem" Width="717px" />
+                    <asp:GridView runat="server" ID="gvitem" Width="717px" AutoGenerateSelectButton="True" Font-Size="X-Small" OnSelectedIndexChanged="gvitem_SelectedIndexChanged" />
                 </asp:Panel>
                 <br />
-                <asp:GridView runat="server" ID="gvaddeditem" Font-Size="Small" Width="722px" />
-
+                
+                <asp:GridView ID="gvaddeditem" runat="server" AutoGenerateColumns="False" Caption="Item Details" Font-Bold="True" Font-Size="X-Small" OnSelectedIndexChanged="gvitem_SelectedIndexChanged" ShowHeaderWhenEmpty="True" Width="717px">
+                        <Columns>
+                            <asp:CheckBoxField />
+                            <asp:BoundField HeaderText="Item code" />
+                        </Columns>
+                        <HeaderStyle BackColor="#CCCCFF" />
+                    </asp:GridView>
 
             </ContentTemplate>
+
+
             
         </asp:TabPanel>
+
 
      </asp:TabContainer>
      
     </ContentTemplate>
+
     </asp:UpdatePanel>
-        
-    
-</asp:Content>
+
+    </asp:Content>

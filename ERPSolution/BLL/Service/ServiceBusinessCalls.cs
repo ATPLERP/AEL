@@ -478,6 +478,25 @@ namespace Advantage.ERP.BLL
          return objsalldb.gMsGetItemDataForVisitRequestBySTCode(objitem);
      }
 
+     public DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbc = new ServiceDatabaseCalls();
+         return objsbc.gMsSerachItemDetailsForVisitingRequest(objitem);
+     }
+     public List<gDropdownlist> gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbc = new ServiceDatabaseCalls();
+         List<gDropdownlist> droplist=new List<gDropdownlist>();
+         SqlDataReader sdr= objsbc.gMsGetModelListByappliance(objitem);
+         while (sdr.Read())
+         {
+             gDropdownlist gdropitem = new gDropdownlist(sdr.GetString(0),sdr.GetString(1));
+             droplist.Add(gdropitem);
+         }
+         return droplist;
+     }
+
+
      #endregion VisitingRequest
 
 
