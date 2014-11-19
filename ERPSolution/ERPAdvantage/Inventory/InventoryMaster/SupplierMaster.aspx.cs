@@ -21,33 +21,33 @@ namespace ERPAdvantage.Inventory.InventoryMaster
         private void Create_SupplierMaster()
         {
             UserSpecificData objUsd = new UserSpecificData();
-            I_SupplierMaster objMst = new I_SupplierMaster();
+            SupplierMst objMst = new SupplierMst();
             ADTWebService objWs = new ADTWebService();
 
-            objMst.OrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString(); ;
-            objMst.SupplierCode = txtSupplierCode.Text;
-            objMst.Prefix = txtPrefix.Text;
-            objMst.SupplierName = txtSupplierName.Text;
-            objMst.Address = txtAddress.Text;
-            objMst.Country = txtCountry.Text;
-            objMst.ContactPerson = txtContactPerson.Text;
-            objMst.MobileNo = txtMobileNo.Text;
-            objMst.PhoneNo1 = txtPhoneNo1.Text;
-            objMst.PhoneNo2 = txtPhoneNo2.Text;
-            objMst.Fax = txtFax.Text;
-            objMst.Email = txtEmail.Text;
-            objMst.VATNo = txtVATNo.Text;
-            objMst.TypeOfSupplier = txtTypeOfSupplier.Text;
-            objMst.PurchaseType = txtPurchaseType.Text;
-            objMst.LeadTime = Convert.ToInt32(txtLeadTime.Text);
-            objMst.CreditLimit = Convert.ToDecimal(txtCreditLimit.Text);
-            objMst.CreditLimitTime = Convert.ToInt32(txtCreditLimitTime.Text);
-            objMst.LastPurchaseDate = Convert.ToDateTime(txtLastPurchaseDate.Text);
-            objMst.CurrentCreditAmount = Convert.ToDecimal(txtCurrentCreditAmount.Text);
-            objMst.VATApplicable = txtVATApplicable.Text;
-            objMst.Category = txtCategory.Text;
-            objMst.CreatedBy = "Saminda";
-            objMst.CreateDate = DateTime.Now;
+            objMst.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString(); ;
+            objMst.pSupplierCode = txtSupplierCode.Text;
+            objMst.pPrefix = txtPrefix.Text;
+            objMst.pSupplierName = txtSupplierName.Text;
+            objMst.pAddress = txtAddress.Text;
+            objMst.pCountry = txtCountry.Text;
+            objMst.pContactPerson = txtContactPerson.Text;
+            objMst.pMobileNo = txtMobileNo.Text;
+            objMst.pPhoneNo1 = txtPhoneNo1.Text;
+            objMst.pPhoneNo2 = txtPhoneNo2.Text;
+            objMst.pFax = txtFax.Text;
+            objMst.pEmail = txtEmail.Text;
+            objMst.pVATNo = txtVATNo.Text;
+            objMst.pTypeOfSupplier = txtTypeOfSupplier.Text;
+            objMst.pPurchaseType = txtPurchaseType.Text;
+            objMst.pLeadTime = Convert.ToInt32(txtLeadTime.Text);
+            objMst.pCreditLimit = Convert.ToDecimal(txtCreditLimit.Text);
+            objMst.pCreditLimitTime = Convert.ToInt32(txtCreditLimitTime.Text);
+            objMst.pLastPurchaseDate = Convert.ToDateTime(txtLastPurchaseDate.Text);
+            objMst.pCurrentCreditAmount = Convert.ToDecimal(txtCurrentCreditAmount.Text);
+            objMst.pVATApplicable = txtVATApplicable.Text;
+            objMst.pCategory = txtCategory.Text;
+            objMst.pCreatedBy = "Saminda";
+            objMst.pCreateDate = DateTime.Now;
 
             objWs.Create_I_SupplierMaster(objMst);
         }

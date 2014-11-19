@@ -641,38 +641,9 @@ namespace Advantage.ERP.DAL
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetItemData";
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
-            db.AddInParameter(dbcommand, "@ItemDesc", DbType.String, objitem.pItemDescription);
-            db.AddInParameter(dbcommand, "@MajorGroup", DbType.String, objitem.pMajorGroup);
-            db.AddInParameter(dbcommand, "@Appliance", DbType.String, objitem.pAppliance);
-            DataSet ds = null;
-            ds = db.ExecuteDataSet(dbcommand);
-            return ds;
-            
+            //db.AddInParameter(dbcommand,"" ,DbType.String,objitem.p
+            return null;
         }
-
-        public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
-        {
-            Database db = DatabaseFactory.CreateDatabase();            
-            string sqlcommand = "SearchItemCode";
-            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-            db.AddInParameter(dbcommand, "@vOrgCode", DbType.String, objitem.pOrgCode);
-            db.AddInParameter(dbcommand, "@vStockCode", DbType.String, objitem.pStockCode);
-            IDataReader idr= db.ExecuteReader(dbcommand);
-            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
-        }
-
-        public SqlDataReader gMsGetModelByappliance(DAL.DataContract.Inventory.ItemMst objitem)
-        {
-            Database db = DatabaseFactory.CreateDatabase();
-            string sqlcommand = "GetModelDataByAppliance";
-            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-            db.AddInParameter(dbcommand, "@AppCode", DbType.String, objitem.pAppliance);
-            IDataReader idr = db.ExecuteReader(dbcommand);
-            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
-
-        }
-
 
         #endregion VisitingRequest
 
