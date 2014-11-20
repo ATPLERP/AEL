@@ -12,6 +12,7 @@ using System.Web.UI.HtmlControls;
 using Advantage.ERP.DAL.DataContract;
 using ERPAdvantage;
 using System.Drawing;
+using Advantage.ERP.DAL.DataContract.Service;
 <<<<<<< HEAD
 using System.Windows.Forms; 
 //using ERPAdvantage.MST;
