@@ -466,6 +466,67 @@ namespace Advantage.ERP.DAL
 
         }
 
+        public SqlDataReader gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsOrgItemList";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pItemName", DbType.String, qutTrans.pItemName);
+            db.AddInParameter(dbCommand, "@pMajorCode", DbType.String, qutTrans.pMajorCode);
+            db.AddInParameter(dbCommand, "@pAppCode", DbType.String, qutTrans.pAppCode);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+
+        public SqlDataReader gMsGetStockCode(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsGetStockCode";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pBranchCode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pGroupType", DbType.String, qutTrans.pGroupType);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+        public SqlDataReader gMsGetStockPrice(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsGetStockPrice";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pPriceType", DbType.String, qutTrans.pPriceType);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+        public SqlDataReader gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+           Database db = DatabaseFactory.CreateDatabase();
+           string sqlCommand = "gMsGetTaxPercentage";
+           DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+           db.AddInParameter(dbCommand, "@pTax", DbType.String, qutTrans.pTax);
+           //db.AddInParameter(dbCommand, "@pDate", DbType.String, qutTrans.pDate);
+           IDataReader iDR = db.ExecuteReader(dbCommand);
+           return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+
    #endregion
 
         #region VisitingRequest

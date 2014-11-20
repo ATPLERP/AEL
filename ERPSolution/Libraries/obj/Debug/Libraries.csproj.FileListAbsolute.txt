@@ -26,11 +26,53 @@ E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
-D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
-D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
-D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
-D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+E:\LatestERPAdvantage\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache
+=======
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
+>>>>>>> 8093b5ed6375e42f4cff34574d81db3902346b4d
+=======
+=======
+>>>>>>> d27ab53c73b6f7beacf749a0a603ac074849f9b2
+D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
+>>>>>>> 5ea1d48163dd022a3360c0b0ef803c93a1e9141a
+=======
+=======
+>>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
+>>>>>>> d27ab53c73b6f7beacf749a0a603ac074849f9b2
+=======
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache
+=======
+>>>>>>> 9448027d02381d679bf555fce2be0fe0803b5bb4
+D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+<<<<<<< HEAD
+E:\ERPNET\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+E:\ERPNET\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+E:\ERPNET\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+E:\ERPNET\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+>>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1
+=======
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
+G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+>>>>>>> 9448027d02381d679bf555fce2be0fe0803b5bb4

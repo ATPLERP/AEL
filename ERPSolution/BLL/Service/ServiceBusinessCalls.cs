@@ -383,6 +383,90 @@ namespace Advantage.ERP.BLL
             }
             return ds;
      }
+
+     public DataTable gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr= obj.gMsOrgItemList(qutTrans); 
+        // DataTable dtSchema = dr.GetSchemaTable();
+         DataTable dt = new DataTable(); 
+         dt.Load(dr);
+         return dt;
+     }
+     public void gMsGetStockCode(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetStockCode(qutTrans);
+         while (dr.Read())
+         {
+             if (!string.IsNullOrEmpty(dr.GetValue(0).ToString()))
+             {
+                 qutTrans.pItemCode = Convert.ToInt32(dr.GetValue(0).ToString());
+             }
+             else
+             {
+                 qutTrans.pItemCode = 0;
+             }
+             if (!string.IsNullOrEmpty(dr.GetValue(1).ToString()))
+             {
+                 qutTrans.pStockCode = dr.GetValue(1).ToString();
+             }
+             else
+             {
+                 qutTrans.pStockCode ="0";
+
+             }
+             if (!string.IsNullOrEmpty(dr.GetValue(2).ToString()))
+             {
+                 qutTrans.pItemName = dr.GetValue(2).ToString();
+             }
+             else
+             {
+                 qutTrans.pItemName = string.Empty;
+             }
+             if (!string.IsNullOrEmpty(dr.GetValue(5).ToString()))
+             {
+                 qutTrans.lVATPer = Convert.ToDouble(dr.GetValue(5).ToString());
+             }
+             else
+             {
+                 qutTrans.lVATPer = 0;
+             }
+         }
+
+     }
+     public bool  gMsGetStockPrice(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         bool success = false; 
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetStockPrice(qutTrans);
+         while (dr.Read())
+         {
+             qutTrans.pItemCode = Convert.ToInt32(dr.GetValue(0).ToString());
+            // qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
+             if (!string.IsNullOrEmpty(dr.GetValue(1).ToString()))
+             {
+                qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
+               success=true;
+             }
+             else
+             {
+                  qutTrans.pPrice= 0;
+                  success = false;  
+             }
+         }
+
+         return success;
+     }
+     public void gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetTaxPercentage(qutTrans);
+         while (dr.Read())
+         {qutTrans.lNBTPer = Convert.ToDouble(dr.GetValue(0).ToString());}
+     }
+
+   
    #endregion
 
      #region VisitingRequest

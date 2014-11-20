@@ -2,7 +2,7 @@
 <%--<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" TagPrefix="cc1" %>--%>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-       
+  
     <style type="text/css">
         .auto-style1
         {
@@ -85,12 +85,12 @@
         {
            background-color: #ddd;
            margin: 0px auto;
-           width: 519px;
+           width: 401px;
            position: relative;
            border: Gray 2px inset;
              top: 0px;
              left: 0px;
-             height: 268px;
+             height: 54px;
          }
          .auto-style20
          {
@@ -115,8 +115,8 @@
              }
          .auto-style30
          {
-             width: 601px;
-             height: 204px;
+             width: 609px;
+             height: 186px;
          }
          .auto-style37
          {
@@ -163,32 +163,13 @@
              width: 134%;
              height: 3px;
          }
-         .auto-style53
-         {
-             width: 36px;
-             height: 21px;
-         }
-         .auto-style54
-         {
-             width: 36px;
-             height: 11px;
-         }
-         .auto-style55
-         {
-             height: 11px;
-         }
-         .auto-style56
-         {
-             height: 21px;
-         }
          .auto-style60
          {
-             height: 21px;
              width: 42px;
          }
          .auto-style61
          {
-             height: 11px;
+             height: 9px;
              width: 42px;
          }
          #div2
@@ -204,43 +185,109 @@
          }
          .auto-style64
          {
-             height: 21px;
              width: 51px;
          }
          .auto-style65
          {
-             height: 11px;
+             height: 9px;
              width: 51px;
          }
          .auto-style67
          {
-             height: 21px;
              width: 44px;
          }
          .auto-style68
          {
-             height: 11px;
+             height: 9px;
              width: 44px;
-         }
-         .auto-style74
-         {
-             height: 21px;
-             width: 64px;
-         }
-         .auto-style75
-         {
-             height: 11px;
-             width: 64px;
          }
          .auto-style79
          {
-             height: 11px;
-             width: 70px;
+             height: 9px;
+             width: 67px;
          }
          .auto-style81
          {
-             height: 21px;
-             width: 70px;
+             width: 67px;
+         }
+         .auto-style82
+         {
+             width: 36px;
+         }
+         .textbox
+         {
+             margin-bottom: 0px;
+         }
+         .auto-style86
+         {
+             width: 12px;
+         }
+         .auto-style92
+         {
+             width: 30px;
+         }
+         .auto-style93
+         {
+             height: 22px;
+             width: 30px;
+         }
+         .auto-style94
+         {
+             width: 28px;
+         }
+         .auto-style95
+         {
+             height: 22px;
+             width: 12px;
+         }
+         .auto-style99
+         {
+             height: 9px;
+             width: 30px;
+         }
+         .auto-style102
+         {
+             width: 83px;
+         }
+         .auto-style103
+         {
+             height: 9px;
+             width: 83px;
+         }
+         .auto-style104
+         {
+             width: 36px;
+             height: 8px;
+         }
+         .auto-style105
+         {
+             height: 8px;
+         }
+         .auto-style106
+         {
+             width: 57px;
+         }
+         .auto-style107
+         {
+             height: 9px;
+             width: 57px;
+         }
+         .auto-style108
+         {
+         }
+         .auto-style109
+         {
+             width: 75px;
+             height: 9px;
+         }
+         .auto-style110
+         {
+             width: 36px;
+             height: 9px;
+         }
+         .auto-style111
+         {
+             height: 9px;
          }
          </style>
 
@@ -282,17 +329,15 @@
                 <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
                 <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
                 <div>
-                <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid"   Height="200px" Width="600px" CssClass="popup">
-
+             <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">
              <table class="auto-style30">
-
                 <tr>
                     <td class="auto-style19">
                         <asp:Label ID="lblQuatationmodal" runat="server" Text="Quotation Number"></asp:Label>
                     </td>
                     <td class="auto-style43">
                        <asp:UpdatePanel runat="server" ID="updtxtQuotation">
-                         <ContentTemplate>
+                        <ContentTemplate>
                         <asp:TextBox ID="txtQuotationNumber" runat="server" CssClass="textbox" AutoPostBack="true"   Height="18px" Width="174px"></asp:TextBox>
                        </ContentTemplate>
                         </asp:UpdatePanel>
@@ -376,7 +421,6 @@
                     
                 <asp:ModalPopupExtender ID="btnQuotNoSearch_ModalPopupExtender" runat="server" DropShadow="true" TargetControlID="btnQuotNoSearch"  Drag="true"  
                   PopupControlID="pnModelPopup" OnOkScript="btnSearch" CancelControlID="btnCancel"  PopupDragHandleControlID="pnModelPopup"  RepositionMode="RepositionOnWindowResizeAndScroll" BackgroundCssClass="modalBackground">
-                
                 </asp:ModalPopupExtender>
                 </div>
                
@@ -498,14 +542,16 @@
             </td>
         </tr>
     </table>
-
+            
         <table class="auto-style49">
             <table>
             <tr>
-                <td class="auto-style53">
+                <td class="auto-style82">
                     <asp:Label ID="Label20" runat="server" Text="Appliance Code"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td class="auto-style82">
+                    </td>
+                <td>
                     <asp:Label ID="Label21" runat="server" Text="Description"></asp:Label>
                 </td>
                 <td class="auto-style64">
@@ -517,72 +563,183 @@
                 <td class="auto-style81">
                     <asp:Label ID="Label24" runat="server" Text="Item Capacity"></asp:Label>
                 </td>
-                <td class="auto-style74">
+                <td class="auto-style106">
                     <asp:Label ID="Label25" runat="server" Text="Type"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label27" runat="server" Text="Quantity"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label28" runat="server" Text="Price"></asp:Label>
                 </td>
-                <td class="auto-style56">
-                    <asp:Label ID="Label29" runat="server" Text="Label"></asp:Label>
+                <td class="auto-style108" colspan="2">
+                    <asp:Label ID="Label29" runat="server" Text="Discount"></asp:Label>
                 </td>
-                <td class="auto-style60">
+                <td class="auto-style92">
                     <asp:Label ID="Label30" runat="server" Text="NBT"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td class="auto-style102">
                     <asp:Label ID="Label31" runat="server" Text="VAT"></asp:Label>
                 </td>
-                <td class="auto-style56">
+                <td>
                     <asp:Label ID="Label32" runat="server" Text="Total"></asp:Label>
                 </td>
-                <td class="auto-style56"></td>
-                <td class="auto-style56"></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style54">
-                    <asp:TextBox ID="txtAppliaenceCode" runat="server" CssClass="textbox" Height="16px" Width="109px"></asp:TextBox>
+                <td class="auto-style110">
+                    <asp:TextBox ID="txtAppliaenceCode" runat="server" CssClass="textbox" Height="16px" Width="75px"></asp:TextBox>
                 </td>
-                <td class="auto-style55">
-                    <asp:TextBox ID="txtDescription" runat="server" CssClass="textbox" Width="94px"></asp:TextBox>
+               <td class="auto-style110">
+                <div>
+                 <asp:Panel ID="pnModelPopupitem" runat="server" BorderStyle="Solid" CssClass="popup" Height="200px" Width="600px">
+                     <table class="auto-style30">
+                 <tr>
+                     <td class="auto-style19">
+                        <asp:Label ID="lblItemCode" runat="server" Text="ItemCode"></asp:Label>
+                    </td>
+                    <td class="auto-style92">
+                       <asp:UpdatePanel runat="server" ID="UpdatePanel2">
+                        <ContentTemplate>
+                        <asp:TextBox ID="txtItemCode" runat="server" CssClass="textbox" AutoPostBack="true"   Height="18px" Width="174px"></asp:TextBox>
+                       </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td> 
+
+                     <td class="auto-style94">
+                          <asp:Label ID="lblMajorGroup" runat="server" Text="Major Group"></asp:Label>
+
+                     </td>
+                    <td class="auto-style86">
+                       
+                        <asp:DropDownList ID="ddlMajorGroup"  CssClass="textbox" runat="server"></asp:DropDownList>
+                     </td>
+                                    
+                </tr>
+                <tr>
+                    <td class="auto-style19"> 
+                        <asp:Label ID="lblItemName" runat="server" Text="Item Name" EnableViewState="False"></asp:Label>
+                    </td>
+                    <td class="auto-style93">
+                        <asp:TextBox ID="txttItemname" runat="server" CssClass="textbox" Height="16px" Width="174px"></asp:TextBox>
+                    </td>
+                    <td class="auto-style94"> 
+                        <asp:Label ID="lblApplianceCode" runat="server" Text="Appliance" EnableViewState="False"></asp:Label>
+                    </td>
+                    <td class="auto-style95" colspan="2">
+                        <asp:DropDownList ID="ddlApplianceCode"  CssClass="textbox" runat="server"></asp:DropDownList>
+                    </td>
+                     <tr>
+                   <td class="auto-style48">
+                         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                             <ContentTemplate>
+                                 <asp:Button ID="btnItemSearch" runat="server" CssClass="textbox" OnClick="btnItemSearch_Click" Text="Search" />
+                             </ContentTemplate>
+                         </asp:UpdatePanel>
+                    </td>
+                     <td class="auto-style93">
+                        <asp:Button ID="btnItemCancel" runat="server" CssClass="textbox" Text="Cancel" />
+                    </td>
+                          <caption>
+                              <tr>
+                                  <td class="auto-style20" colspan="6">
+                                      <div id="div1" runat="server">
+                                          <asp:Panel ID="Panel3" runat="server" Height="121px" ScrollBars="Both" Width="590px">
+                                              <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
+                                                  <ContentTemplate>
+                                                      <asp:GridView ID="gvOrgItemList" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateSelectButton="true" AutoPostBack="True" CellPadding="4" CssClass="textbox" DataKeyNames="StockCode" EmptyDataText="No data available" ForeColor="#333333" GridLines="None" Height="35px" OnPageIndexChanging="gvOrgItemList_PageIndexChanging" OnSelectedIndexChanged="gvOrgItemList_SelectedIndexChanged" PageSize="5" Width="562px" OnPageIndexChanged="gvOrgItemList_PageIndexChanged">
+                                                          <AlternatingRowStyle BackColor="White" />
+                                                          <Columns>
+                                                              <asp:BoundField DataField="ItemCode" HeaderText="Item ID"/>
+                                                              <asp:BoundField DataField="StockCode" HeaderText="Stock code"/>
+                                                              <asp:BoundField DataField="ItemDescription" HeaderText="Item Name"/>
+                                                              <asp:BoundField DataField="MajorGroup" HeaderText="Major Group"/>
+                                                              <asp:BoundField DataField="Appliance" HeaderText="Appliance"/>
+                                                              <asp:BoundField DataField="Brand" HeaderText="Brand"/>
+                                                              <asp:BoundField DataField="ModelNo" HeaderText="Model No"/>
+                                                          </Columns>
+                                                          <EditRowStyle BackColor="#2461BF" />
+                                                          <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                          <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                          <PagerSettings FirstPageText="First" LastPageText="Last" PageButtonCount="4" />
+                                                          <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                                          <RowStyle BackColor="#EFF3FB" />
+                                                          <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                          <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                                          <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                                          <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                                          <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                                      </asp:GridView>
+                                                  </ContentTemplate>
+                                              </asp:UpdatePanel>
+                                          </asp:Panel>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </caption>
+                    </table>
+                 </asp:Panel>
+                <asp:ModalPopupExtender ID="btnApplianceList_ModalPopupExtender" Enabled="True" Drag="true" runat="server" DropShadow="true"  OnOkScript="btnItemSearch" CancelControlID="btnItemCancel" PopupControlID="pnModelPopupitem"  PopupDragHandleControlID="pnModelPopupitem"  RepositionMode="RepositionOnWindowResizeAndScroll" BackgroundCssClass="modalBackground" TargetControlID="btnApplianceList">
+               </asp:ModalPopupExtender>  
+               </div>
+               <asp:Button ID="btnApplianceList" CssClass="textbox" runat="server" Height="21px" Text="..." Width="24px" OnClick="btnApplianceList_Click" />
+             </td>
+
+                <td class="auto-style111">
+                    <asp:TextBox ID="txtDescription" runat="server" CssClass="textbox" Width="107px" Height="16px"></asp:TextBox>
                 </td>
                 <td class="auto-style65">
-                    <asp:TextBox ID="txtItemModal" runat="server" CssClass="textbox" Height="16px" Width="83px"></asp:TextBox>
+                    <asp:TextBox ID="txtItemModal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
                 <td class="auto-style68">
-                    <asp:TextBox ID="txtItemSerial" runat="server" CssClass="textbox" Height="19px" Width="46px"></asp:TextBox>
+                    <asp:TextBox ID="txtItemSerial" runat="server" CssClass="textbox" Height="16px" Width="46px"></asp:TextBox>
                 </td>
                 <td class="auto-style79">
-                    <asp:TextBox ID="txtItemCapacity" runat="server" CssClass="textbox" Width="53px"></asp:TextBox>
+                    <asp:TextBox ID="txtItemCapacity" runat="server" CssClass="textbox" Width="38px" Height="16px"></asp:TextBox>
                 </td>
-                <td class="auto-style75">
+                <td class="auto-style107">
                     <asp:DropDownList ID="ddlType" runat="server" CssClass="textbox" Width="57px">
+                        <asp:ListItem>OG</asp:ListItem>
+                        <asp:ListItem>UG</asp:ListItem>
+                        <asp:ListItem>NA</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style55">
-                    <asp:TextBox ID="txtQuontaty" runat="server" CssClass="textbox" Width="38px"></asp:TextBox>
+                <td class="auto-style111">
+                    <asp:TextBox ID="txtQuontaty" runat="server" CssClass="textbox" Width="45px" Height="16px">0</asp:TextBox>
                 </td>
-                <td class="auto-style55">
-                    <asp:TextBox ID="txtPrice" runat="server" CssClass="textbox" Height="16px" Width="56px"></asp:TextBox>
-                </td>
-                <td class="auto-style55">
-                    <asp:TextBox ID="txtDiscounnt" runat="server" CssClass="textbox" Height="16px" Width="35px"></asp:TextBox>
+                <td class="auto-style111">
+                  <asp:UpdatePanel ID="updpnlPrice" runat="server">
+                  <ContentTemplate>
+                    <asp:TextBox ID="txtPrice" runat="server" CssClass="textbox" Height="16px" Width="78px"></asp:TextBox>
+                 <%--   <asp:RequiredFieldValidator ID="requPrice" runat="server" ControlToValidate="txtPrice"  ForeColor="Red" ErrorMessage="Please enter a valid Phone no"></asp:RequiredFieldValidator>--%>
+                        
+                  </ContentTemplate>
+                  </asp:UpdatePanel>
+                 </td>
+                <td class="auto-style109">
+                    <asp:TextBox ID="txtDiscounnt" runat="server" CssClass="textbox" Height="16px" Width="43px"></asp:TextBox>
                 </td>
                 <td class="auto-style61">
-                    <asp:TextBox ID="txtNBT" runat="server" CssClass="textbox" Height="16px" Width="23px"></asp:TextBox>
+                    <asp:TextBox ID="txtDiscountPer" runat="server" CssClass="textbox" Height="16px" Width="24px"></asp:TextBox>
                 </td>
-                <td class="auto-style55">
-                    <asp:TextBox ID="txtVAT" runat="server" CssClass="textbox" Height="16px" Width="42px"></asp:TextBox>
+                <td class="auto-style99">
+                    <asp:TextBox ID="txtNBT" runat="server" CssClass="textbox" Height="16px" Width="52px"></asp:TextBox>
                 </td>
-                <td class="auto-style55">
+                <td class="auto-style103">
+                    <asp:TextBox ID="txtVAT" runat="server" CssClass="textbox" Height="16px" Width="49px"></asp:TextBox>
+                </td>
+                <td class="auto-style111">
                     <asp:TextBox ID="txtTotal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
+<<<<<<< HEAD
                 <td class="auto-style55">
                     <asp:Button ID="cmdAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" OnClick="cmdAddList_Click" />
+=======
+                <td class="auto-style111">
+                    <%--<asp:Label ID="lblPricecheck" runat="server" CssClass="textbox"></asp:Label>--%>
+                    <asp:Button ID="btnAddList" runat="server" CssClass="textbox" Height="21px" OnClick="btnAddList_Click" Text="Add" Width="33px" />
+>>>>>>> 365728548f85b98eed055ffae9c5e728a8240c31
                 </td>
-                <td class="auto-style55"></td>
             </tr>
            </table>
             <table>
@@ -592,7 +749,7 @@
                          <asp:Panel ID="Panel2" ScrollBars="Both" Height="168px" Width="927px" runat="server">
                     <asp:UpdatePanel ID="UpplgvItemDescr" runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
-                      <%--  <asp:DropDownList ID="DropDownList1" runat="server">
+                      <%--<asp:DropDownList ID="DropDownList1" runat="server">
                         </asp:DropDownList>--%>
                      </ContentTemplate>
                       </asp:UpdatePanel>
@@ -620,8 +777,8 @@
                                      <asp:BoundField HeaderText="S" />
                                      <asp:BoundField HeaderText="X" />
                                      <asp:BoundField HeaderText="Stock" />
-                                     <asp:BoundField HeaderText="NBT Per" />
-                                     <asp:BoundField HeaderText="NBT Amount" />
+                                     <asp:BoundField DataField="NBTPer" HeaderText="NBT Per" />
+                                     <asp:BoundField  DataField="NBTAmt" HeaderText="NBT Amount" />
                                  </Columns>
                                  <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                  <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -635,8 +792,7 @@
                              </asp:GridView>
                       </asp:Panel>
                         </div>
-                      
-                </td>
+              </td>
             </tr>
           </table>
            </table>
