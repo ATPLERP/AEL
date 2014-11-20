@@ -496,6 +496,18 @@ namespace Advantage.ERP.BLL
          return droplist;
      }
 
+     public SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbcall = new ServiceDatabaseCalls();
+         return objsbcall.gMsGetApplianceCategoryForVisitingRequest(objitem);
+     }
+
+     public DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objque)
+     {
+         ServiceDatabaseCalls objsbcall = new ServiceDatabaseCalls();
+         return objsbcall.gMsGetQuestionListforVisitingRequest(objque);
+     }
+
 
      #endregion VisitingRequest
 

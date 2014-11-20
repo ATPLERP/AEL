@@ -344,7 +344,7 @@
                          <asp:Panel ID="Panel1" ScrollBars="Both" Height="112px" Width="575px" runat="server">
                               <asp:UpdatePanel ID="updpnlGV" runat="server" UpdateMode="Conditional">
                               <ContentTemplate>
-                         <asp:GridView ID="gvQuotationDetails" EmptyDataText="No data available" AutoPostBack="True"  runat="server"  AutoGenerateSelectButton="true" AutoGenerateColumns="False" CellPadding="4" CssClass="textbox" ForeColor="#333333" GridLines="None" Height="22px" OnPageIndexChanging="gvQuotationDetails_PageIndexChanging" PageSize="5"  AllowPaging="True" Width="559px" DataKeyNames="QuoationNo" OnSelectedIndexChanged="gvQuotationDetails_SelectedIndexChanged">
+                         <asp:GridView ID="gvQuotationDetails" EmptyDataText="No data available"  runat="server"  AutoGenerateSelectButton="true" AutoGenerateColumns="False" CellPadding="4" CssClass="textbox" ForeColor="#333333" GridLines="None" Height="22px" OnPageIndexChanging="gvQuotationDetails_PageIndexChanging" PageSize="5"  AllowPaging="True" Width="559px" DataKeyNames="QuoationNo" OnSelectedIndexChanged="gvQuotationDetails_SelectedIndexChanged">
                              <AlternatingRowStyle BackColor="White"/>
                              <Columns>
                                  <asp:BoundField DataField="QuoationNo" HeaderText="Quoation No" />
@@ -580,7 +580,7 @@
                     <asp:TextBox ID="txtTotal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
                 <td class="auto-style55">
-                    <asp:Button ID="cmdAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" />
+                    <asp:Button ID="cmdAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" OnClick="cmdAddList_Click" />
                 </td>
                 <td class="auto-style55"></td>
             </tr>

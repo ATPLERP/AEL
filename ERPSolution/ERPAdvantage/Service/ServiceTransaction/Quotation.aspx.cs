@@ -242,6 +242,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
             }
         }
 
+        protected void cmdAddList_Click(object sender, EventArgs e)
+        {
+
+        }
+
        
     }
 }

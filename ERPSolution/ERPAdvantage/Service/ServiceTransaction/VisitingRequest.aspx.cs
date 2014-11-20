@@ -108,7 +108,19 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
+        private string getApplianceType(string Stockcode)
+        {
+            ADTWebService ws = new ADTWebService();
+            ItemMst objitem = new ItemMst();
+            objitem.pStockCode = Stockcode;
+            SqlDataReader sdr= ws.gMsGetApplianceCategoryForVisitingRequest(objitem);
+            while (sdr.Read())
+            {
+                return sdr[0].ToString();
+            }
+            return "";
 
+        }
         private void GetItemDataByStockCode(string Stockcode)
         {
             ADTWebService ws = new ADTWebService();
@@ -338,22 +350,55 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void gvitem_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtitemcode.Text = gvitem.SelectedRow.Cells[1].Text;
             txtstockcode.Text = gvitem.SelectedRow.Cells[2].Text;
             GetItemDataByStockCode(txtstockcode.Text);
             GetModelListByAppliance(txtitemappliance.Text);
             PanelSearchItem.Visible = false;
         }
 
+        private void AddCustomerQuestions(string AppCategory)
+        {
+            ADTWebService ws = new ADTWebService();
+            QuestionMst objque = new QuestionMst();
+            objque.pAppCategory = AppCategory;
+            DataSet ds = null;
+            ds=ws.gMsGetQuestionListforVisitingRequest(objque);
+            gvquestions.DataSource = ds;
+            gvquestions.DataBind();
+        }
+
+
         protected void btnadditem_Click(object sender, EventArgs e)
         {
+            
+            
 
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            DataSet ds = null;
-            gvaddeditemdata.DataSource = ds;
+            DataTable VrData = new DataTable();            
+            VrData.Columns.Add(new DataColumn("Item Code",Type.GetType("System.Int64")));
+            VrData.Columns.Add(new DataColumn("Stock Code", Type.GetType("System.String")));
+            VrData.Columns.Add(new DataColumn("Model No", Type.GetType("System.String")));
+            VrData.Columns.Add(new DataColumn("Serial No", Type.GetType("System.String")));
+            VrData.Columns.Add(new DataColumn("Warranty No", Type.GetType("System.String")));
+            VrData.Columns.Add(new DataColumn("Item Type", Type.GetType("System.String")));
+            VrData.Columns.Add(new DataColumn("Capacity", Type.GetType("System.String")));
+            VrData.Columns.Add(new DataColumn("Qty", Type.GetType("System.Int16")));
+            DataRow dr = VrData.NewRow();
+            dr["Item Code"] =Convert.ToInt64(txtitemcode.Text);
+            dr["Stock Code"] = txtstockcode.Text;
+            dr["Model No"] = ddlmodelnos.SelectedItem.ToString();
+            dr["Serial No"] = txtitemserial.Text;
+            dr["Warranty No"] = txtitemwarranty.Text;
+            dr["Item Type"] = txtitemappliance.Text;
+            dr["Capacity"] = txtitemcapacity.Text;
+            dr["Qty"] = 1;
+            VrData.Rows.Add(dr);
+            gvaddeditemdata.DataSource = VrData;
             gvaddeditemdata.DataBind();
+
+            AddCustomerQuestions(getApplianceType(txtstockcode.Text));
         }
+
+      
     }
 }

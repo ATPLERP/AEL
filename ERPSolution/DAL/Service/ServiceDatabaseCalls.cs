@@ -619,6 +619,28 @@ namespace Advantage.ERP.DAL
 
         }
 
+        public SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db=DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetApplianceCategory";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+
+        }
+
+        public DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objque)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetQuestionList";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@AppCategory", DbType.String, objque.pAppCategory);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+            
+        }
+
         #endregion VisitingRequest
 
 
