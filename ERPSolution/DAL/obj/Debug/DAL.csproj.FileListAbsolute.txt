@@ -83,7 +83,6 @@ E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.In
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 >>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.dll
@@ -95,13 +94,9 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
-<<<<<<< HEAD
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-=======
 >>>>>>> d27ab53c73b6f7beacf749a0a603ac074849f9b2
-=======
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
->>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1
 D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.dll
 D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.pdb
 D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
@@ -111,9 +106,7 @@ D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 D:\ERP\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 D:\ERP\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 D:\ERP\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
-<<<<<<< HEAD
 >>>>>>> 5ea1d48163dd022a3360c0b0ef803c93a1e9141a
-=======
 E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.dll
 E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.pdb
 E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
@@ -123,4 +116,3 @@ E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
->>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1

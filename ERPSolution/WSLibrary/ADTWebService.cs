@@ -89,10 +89,6 @@ public bool gMsGetUserPermissioncheck(Advantage.ERP.DAL.DataContract.UserSpecifi
     Advantage.ERP.BLL.ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
     return bsOj.gMsGetUserPermissioncheck(objuMst);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1
 [WebMethod]
 public bool gMsCheckPassword(Advantage.ERP.DAL.DataContract.UserSpecificData objuMst)
 {
@@ -100,13 +96,8 @@ public bool gMsCheckPassword(Advantage.ERP.DAL.DataContract.UserSpecificData obj
    return bsOj.gMsCheckPassword(objuMst);
 }
 
-<<<<<<< HEAD
 #region Login.aspx definitions
-=======
 
-
-    #region Login.aspx definitions
->>>>>>> 244e5c4748dc03c937cee6738c91d61e2069e5e1
 [WebMethod]
 public List<gDropdownlist> gMsGetBranchData(Advantage.ERP.DAL.DataContract.UserSpecificData objMst)
 {
@@ -288,7 +279,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
     #endregion VisitingRequest
 
-    //=================Inventory Area=======================//
+
     #region I_ItemMaster.aspx definition
     [WebMethod]
     public DataSet wSel_ItemMaster(Advantage.ERP.DAL.DataContract.Inventory.ItemMst objMst)

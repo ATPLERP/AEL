@@ -2,7 +2,7 @@
 <%--<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" TagPrefix="cc1" %>--%>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-       
+  
     <style type="text/css">
         .auto-style1
         {
@@ -720,7 +720,7 @@
                     <asp:TextBox ID="txtDiscounnt" runat="server" CssClass="textbox" Height="16px" Width="43px"></asp:TextBox>
                 </td>
                 <td class="auto-style61">
-                    <asp:TextBox ID="txtDiscountPer" runat="server" Height="16px" Width="24px"></asp:TextBox>
+                    <asp:TextBox ID="txtDiscountPer" runat="server" CssClass="textbox" Height="16px" Width="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style99">
                     <asp:TextBox ID="txtNBT" runat="server" CssClass="textbox" Height="16px" Width="52px"></asp:TextBox>
