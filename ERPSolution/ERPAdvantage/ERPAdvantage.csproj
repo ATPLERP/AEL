@@ -76,6 +76,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="CostingMain.aspx" />
+    <Content Include="Costing\CostingMaster\ChargeMaster.aspx" />
     <Content Include="FinanceMain.aspx" />
     <Content Include="Images\add_new.jpg" />
     <Content Include="Images\delete.gif" />
@@ -161,6 +162,13 @@
     </Compile>
     <Compile Include="CostingMain.aspx.designer.cs">
       <DependentUpon>CostingMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Costing\CostingMaster\ChargeMaster.aspx.cs">
+      <DependentUpon>ChargeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Costing\CostingMaster\ChargeMaster.aspx.designer.cs">
+      <DependentUpon>ChargeMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -300,7 +308,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Costing\CostingMaster\" />
     <Folder Include="Costing\CostingTransaction\" />
     <Folder Include="Finance\FinanceMaster\" />
     <Folder Include="Finance\FinanceTransaction\" />

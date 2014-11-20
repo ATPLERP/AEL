@@ -11,6 +11,8 @@ using System.Drawing;
 using Advantage.ERP.BLL;
 using System.Data;
 using System.Data.SqlClient;
+using Advantage.ERP.DAL.DataContract.Inventory;
+using Advantage.ERP.DAL.DataContract.Service;
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -28,7 +30,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             objvr.pJobCategory = ERPSystemData.COM_DOM_TYPE.JOB_CATEGORY.ToString();
             List<gDropdownlist> drplist = ws.gMsGetCategoryforVisitingReq(objvr);
             uic.FillDropdownList(ddlcategory, drplist, "COM_DOM_CODE", "COM_DOM_CODE");                     
-                                    
+                                   
             
         }
 
@@ -107,6 +109,33 @@ namespace ERPAdvantage.Service.ServiceTransaction
         }
 
 
+        private void GetItemDataByStockCode(string Stockcode)
+        {
+            ADTWebService ws = new ADTWebService();
+            
+            ItemMst objitem = new ItemMst();
+            objitem.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objitem.pStockCode = Stockcode;
+            SqlDataReader sdr=ws.gMsGetItemDataForVisitRequestBySTCode(objitem);
+            while (sdr.Read())
+            {
+                txtitemappliance.Text = sdr["Appliance"].ToString();
+            }
+            
+        }
+
+        private void GetModelListByAppliance(string AppCode)
+        {
+            UIControl uic = new UIControl();
+            ADTWebService ws = new ADTWebService();
+            ItemMst objitem = new ItemMst();
+            objitem.pAppliance = AppCode;            
+            List<gDropdownlist> droplist = ws.gMsGetModelListByappliance(objitem);
+            uic.FillDropdownList(ddlmodelnos, droplist, "COM_DOM_CODE", "COM_DOM_DESC");
+          
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadJobCategory();
@@ -150,6 +179,15 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
+
+        private void GetMajorGroupTypes(string MgType)
+        {
+            if (MgType == ERPSystemData.MajorGroupTypes.Service.ToString())
+            {
+                ddlsearchbymajorgroup.Items.Add("Complete Unit");
+                ddlsearchbymajorgroup.Items.Add("Accessories");
+            }
+        }
 
         protected void cmdgetdeptlist_Click(object sender, EventArgs e)
         {
@@ -271,7 +309,51 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void cmdgetitemlist_Click(object sender, EventArgs e)
         {
-           
+            if (PanelSearchItem.Visible == false)
+            {
+                PanelSearchItem.Visible = true;
+                GetMajorGroupTypes(ERPSystemData.MajorGroupTypes.Service.ToString());
+            }else
+            {
+                PanelSearchItem.Visible = false;
+            }
+        }
+
+        protected void btnsearchitemcode_Click(object sender, EventArgs e)
+        {
+            ADTWebService ws = new ADTWebService();
+            ItemMst objitem = new ItemMst();
+            objitem.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objitem.pStockCode = txtsearchbystockcode.Text;
+            objitem.pItemDescription = txtsearchbyitemname.Text;
+            objitem.pMajorGroup = ddlsearchbymajorgroup.Text;
+            objitem.pAppliance = txtsearchbyappliance.Text;
+            DataSet ds = null; 
+            ds=ws.gMsSerachItemDetailsForVisitingRequest(objitem);
+            gvitem.DataSource = ds;
+            gvitem.DataBind();
+            //gvaddeditem.DataSource = ds;
+            //gvaddeditem.DataBind();
+        }
+
+        protected void gvitem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtstockcode.Text = gvitem.SelectedRow.Cells[2].Text;
+            GetItemDataByStockCode(txtstockcode.Text);
+            GetModelListByAppliance(txtitemappliance.Text);
+            PanelSearchItem.Visible = false;
+        }
+
+        protected void btnadditem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            DataSet ds = null;
+            gvaddeditemdata.DataSource = ds;
+            gvaddeditemdata.DataBind();
         }
     }
 }

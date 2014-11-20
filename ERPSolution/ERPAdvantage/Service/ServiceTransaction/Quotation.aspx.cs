@@ -12,10 +12,16 @@ using System.Web.UI.HtmlControls;
 using Advantage.ERP.DAL.DataContract;
 using ERPAdvantage;
 using System.Drawing;
+<<<<<<< HEAD
 using System.Windows.Forms; 
 //using ERPAdvantage.MST;
 using Advantage.ERP.BLL;
 using Microsoft.VisualBasic;
+=======
+using Advantage.ERP.BLL;
+using Advantage.ERP.DAL.DataContract.Service;
+using Advantage.ERP.DAL.DataContract.Inventory;
+>>>>>>> 9448027d02381d679bf555fce2be0fe0803b5bb4
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {

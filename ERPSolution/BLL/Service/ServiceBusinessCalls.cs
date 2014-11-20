@@ -12,6 +12,9 @@ using System.Data.Common;
 using System.Configuration;
 using Advantage.ERP.DAL.DataContract;
 using Advantage.ERP.DAL;
+using Advantage.ERP.DAL.DataContract.Service;
+using Advantage.ERP.DAL.DataContract.Inventory;
+
 
 namespace Advantage.ERP.BLL
 {
@@ -37,7 +40,7 @@ namespace Advantage.ERP.BLL
         #endregion
 
         #region frmCustomerMaster definitions
-        public List<gDropdownlist> pMsGetCategory(DAL.DataContract.CustomMaster objMst)
+        public List<gDropdownlist> pMsGetCategory(DAL.DataContract.Service.CustomMaster objMst)
         {
             Advantage.ERP.DAL.ServiceDatabaseCalls obj = new Advantage.ERP.DAL.ServiceDatabaseCalls();
             //DataContract.MST.CustomMaster objMst = new DataContract.MST.CustomMaster();
@@ -53,24 +56,24 @@ namespace Advantage.ERP.BLL
             return drpdwlst;
         }
 
-        public string GenerateCustomerCode(DAL.DataContract.CustomMaster objMst)
+        public string GenerateCustomerCode(DAL.DataContract.Service.CustomMaster objMst)
         {
             DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
             return obj.GenerateCustomerCode(objMst);
         }
 
-        public void gMsCreateCustDetails(DAL.DataContract.CustomMaster objMst)
+        public void gMsCreateCustDetails(DAL.DataContract.Service.CustomMaster objMst)
         {
             DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
             obj.gMsCreateCustDetails(objMst);
         }
-        public void gMsUpdateCust(DAL.DataContract.CustomMaster objMst)
+        public void gMsUpdateCust(DAL.DataContract.Service.CustomMaster objMst)
         {
             DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
             obj.gMsUpdateCust(objMst);
         }
 
-        public DataSet gMsCustDetails(DAL.DataContract.CustomMaster objMst)
+        public DataSet gMsCustDetails(DAL.DataContract.Service.CustomMaster objMst)
         {
             DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
             DataSet dt = obj.gMsCustDetails(objMst);
@@ -126,7 +129,7 @@ namespace Advantage.ERP.BLL
             //return obj.gMsCustDetails(objMst);
             return dt;
         }
-        public DataSet gMsGetCustomerList(DAL.DataContract.CustomMaster objMst)
+        public DataSet gMsGetCustomerList(DAL.DataContract.Service.CustomMaster objMst)
         {
             DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
             DataSet ds = obj.gMsGetCustomerList(objMst);
@@ -262,7 +265,7 @@ namespace Advantage.ERP.BLL
 
 
         #region ApplianceMaster
-        public List<gDropdownlist> pMsGetAppliancecategory(DAL.DataContract.Appliancemst objapp)
+        public List<gDropdownlist> pMsGetAppliancecategory(DAL.DataContract.Service.Appliancemst objapp)
         {
             Advantage.ERP.DAL.ServiceDatabaseCalls obj = new Advantage.ERP.DAL.ServiceDatabaseCalls();
             List<gDropdownlist> droplist = new List<gDropdownlist>();
@@ -275,35 +278,35 @@ namespace Advantage.ERP.BLL
             return droplist;
         }
 
-        public DataSet gMsGetcategoryList(DAL.DataContract.Appliancemst objapp)
+        public DataSet gMsGetcategoryList(DAL.DataContract.Service.Appliancemst objapp)
         {
             //Advantage.ERP.DAL.ServiceDatabaseCalls objsercall = new ServiceDatabaseCalls();
             ServiceDatabaseCalls objsercall = new ServiceDatabaseCalls();
             return null;
         }
 
-        public DataSet gMsGetApplianceList(DAL.DataContract.Appliancemst objapp)
+        public DataSet gMsGetApplianceList(DAL.DataContract.Service.Appliancemst objapp)
         {
             ServiceDatabaseCalls dbcall = new ServiceDatabaseCalls();
             DataSet ds = dbcall.gMsGetApplianceList(objapp);            
             return ds;
         }
 
-        public SqlDataReader gMsGetApplianceByAppCode(DAL.DataContract.Appliancemst objmst)
+        public SqlDataReader gMsGetApplianceByAppCode(DAL.DataContract.Service.Appliancemst objmst)
         {
             ServiceDatabaseCalls objs = new ServiceDatabaseCalls();
             SqlDataReader sdr = objs.gMsGetApplianceByAppCode(objmst);
             return sdr;
         }
 
-        public void  gMsCreateAppliance(DAL.DataContract.Appliancemst objapp)
+        public void  gMsCreateAppliance(DAL.DataContract.Service.Appliancemst objapp)
         {
             ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
             obj.gMsCreateAppliance(objapp);
                         
         }
 
-        public void gMsUpdateAppliance(DAL.DataContract.Appliancemst objapp)
+        public void gMsUpdateAppliance(DAL.DataContract.Service.Appliancemst objapp)
         {
             ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
             obj.gMsUpdateAppliance(objapp);
@@ -314,21 +317,21 @@ namespace Advantage.ERP.BLL
 
         #region DomainMaster
 
-        public DataSet gMsGetDomainTypes(DAL.DataContract.Domainmst objdomain)
+        public DataSet gMsGetDomainTypes(DAL.DataContract.Service.Domainmst objdomain)
         {
             ServiceDatabaseCalls objd = new ServiceDatabaseCalls();
             DataSet domainds=objd.gMsGetDomainTypes(objdomain);
             return domainds;
         }
 
-        public DataSet gMsGetDomainDetails(DAL.DataContract.Domainmst objdom)
+        public DataSet gMsGetDomainDetails(DAL.DataContract.Service.Domainmst objdom)
         {
             ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
             DataSet objdomain = obj.gMsGetDomainDetails(objdom);
             return objdomain;
         }
 
-        public void gMsCreateDomain(DAL.DataContract.Domainmst objdom)
+        public void gMsCreateDomain(DAL.DataContract.Service.Domainmst objdom)
         {
             ServiceDatabaseCalls objser = new ServiceDatabaseCalls();
             objser.gMsCreateDomain(objdom);
@@ -339,17 +342,17 @@ namespace Advantage.ERP.BLL
 
    #region QuotationTrans.cs
    
-     public DataTable gMsItemDet(Advantage.ERP.DAL.DataContract.QuotationTrans qutTrans)
+     public DataTable gMsItemDet(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
      {
       ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
       return obj.gMsItemDet(qutTrans);
      }
-     public DataTable gMsQuotationList(DAL.DataContract.QuotationTrans qutTrans)
+     public DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          return obj.gMsQuotationList(qutTrans);
      }
-     public DataSet gMsQuotationDetails(DAL.DataContract.QuotationTrans qutTrans,DAL.DataContract.CustomMaster oblCustM )
+     public DataSet gMsQuotationDetails(DAL.DataContract.Service.QuotationTrans qutTrans,DAL.DataContract.Service.CustomMaster oblCustM )
      {
         DAL.ServiceDatabaseCalls obj = new DAL.ServiceDatabaseCalls();
         //CustomMaster oblCustM = new CustomMaster(); 
@@ -468,7 +471,7 @@ namespace Advantage.ERP.BLL
 
      #region VisitingRequest
 
-     public List<gDropdownlist> gMsGetCategoryforVisitingReq(DAL.DataContract.VisitingReq objvr)
+     public List<gDropdownlist> gMsGetCategoryforVisitingReq(DAL.DataContract.Service.VisitingReq objvr)
      {
 
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
@@ -486,7 +489,7 @@ namespace Advantage.ERP.BLL
 
 
 
-     public List<gDropdownlist> gMsGetPriorityforVisitingReq(DAL.DataContract.VisitingReq objvr)
+     public List<gDropdownlist> gMsGetPriorityforVisitingReq(DAL.DataContract.Service.VisitingReq objvr)
      {
 
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
@@ -501,7 +504,7 @@ namespace Advantage.ERP.BLL
          return droplist;
 
      }
-     public List<gDropdownlist> gMsGetPrefixforVisitingRequest(DAL.DataContract.VisitingReq objvr)
+     public List<gDropdownlist> gMsGetPrefixforVisitingRequest(DAL.DataContract.Service.VisitingReq objvr)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          List<gDropdownlist> droplist = new List<gDropdownlist>();
@@ -514,7 +517,7 @@ namespace Advantage.ERP.BLL
          return droplist;
      }
 
-     public List<gDropdownlist> gMsGetAreaForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+     public List<gDropdownlist> gMsGetAreaForVisitingRequest(DAL.DataContract.Service.VisitingReq objvr)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          List<gDropdownlist> droplist = new List<gDropdownlist>();
@@ -527,31 +530,56 @@ namespace Advantage.ERP.BLL
          return droplist;
      }
 
-     public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr)
+     public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.Service.VisitingReq objvr)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          return obj.gMsGetCustomerListForVisitingReguest(objvr);
      }
 
-     public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr)
+     public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.Service.VisitingReq objvr)
      {
          ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
          return objdbcall.gMsGetCustomerDataByCustomerCode(objvr);
 
      }
 
-     public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+     public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.Service.VisitingReq objvr)
      {
          ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
          return objdbcall.gMsGetDepartmentForVisitingRequest(objvr);
      }
 
-     public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr)
+     public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.Service.WarrantyMst objwarr)
      {
          ServiceDatabaseCalls objsalldb = new ServiceDatabaseCalls();
          return objsalldb.gMsGetWarrantyForVisitingRequest(objwarr);
          
      }
+
+     public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsalldb = new ServiceDatabaseCalls();
+         return objsalldb.gMsGetItemDataForVisitRequestBySTCode(objitem);
+     }
+
+     public DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbc = new ServiceDatabaseCalls();
+         return objsbc.gMsSerachItemDetailsForVisitingRequest(objitem);
+     }
+     public List<gDropdownlist> gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbc = new ServiceDatabaseCalls();
+         List<gDropdownlist> droplist=new List<gDropdownlist>();
+         SqlDataReader sdr= objsbc.gMsGetModelListByappliance(objitem);
+         while (sdr.Read())
+         {
+             gDropdownlist gdropitem = new gDropdownlist(sdr.GetString(0),sdr.GetString(1));
+             droplist.Add(gdropitem);
+         }
+         return droplist;
+     }
+
 
      #endregion VisitingRequest
 

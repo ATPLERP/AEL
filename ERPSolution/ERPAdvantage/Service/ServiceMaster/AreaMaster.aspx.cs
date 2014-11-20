@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Advantage.ERP.BLL;
 using Advantage.ERP.DAL.DataContract;
+using Advantage.ERP.DAL.DataContract.Inventory;
+using Advantage.ERP.DAL.DataContract.Service;
 
 namespace ERPAdvantage.Service.ServiceMaster
 {

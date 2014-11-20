@@ -19,7 +19,7 @@ namespace Advantage.ERP.DAL
    {
 
        #region frmCustomerMaster definitions
-       public SqlDataReader pMsGetCategory(DAL.DataContract.CustomMaster objMst)
+       public SqlDataReader pMsGetCategory(DAL.DataContract.Service.CustomMaster objMst)
         {
            
             // Create the Database object, using the default database service. The
@@ -41,7 +41,7 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public string GenerateCustomerCode(DAL.DataContract.CustomMaster objMst)
+        public string GenerateCustomerCode(DAL.DataContract.Service.CustomMaster objMst)
         {
             
             // string custName = string.Empty;
@@ -67,7 +67,7 @@ namespace Advantage.ERP.DAL
             }
         }
 
-        public void gMsCreateCustDetails(DAL.DataContract.CustomMaster objMst)
+        public void gMsCreateCustDetails(DAL.DataContract.Service.CustomMaster objMst)
         {
             
             // Create the Database object, using the default database service. The
@@ -104,7 +104,7 @@ namespace Advantage.ERP.DAL
             db.ExecuteNonQuery(dbCommand);
         }
 
-        public void gMsUpdateCust(DAL.DataContract.CustomMaster objMst)
+        public void gMsUpdateCust(DAL.DataContract.Service.CustomMaster objMst)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -142,7 +142,7 @@ namespace Advantage.ERP.DAL
             db.ExecuteNonQuery(dbCommand);
         }
 
-       public DataSet gMsCustDetails(DAL.DataContract.CustomMaster objMst)
+       public DataSet gMsCustDetails(DAL.DataContract.Service.CustomMaster objMst)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -160,7 +160,7 @@ namespace Advantage.ERP.DAL
            
         }
 
-       public DataSet gMsGetCustomerList(DAL.DataContract.CustomMaster objMst)
+       public DataSet gMsGetCustomerList(DAL.DataContract.Service.CustomMaster objMst)
        {
            //SqlDataAdapter da = null;
           // DataSet ds = null;
@@ -264,7 +264,7 @@ namespace Advantage.ERP.DAL
 
        #region ApplianceMaster
 
-        public SqlDataReader gMsGetAppliancecategory(DAL.DataContract.Appliancemst objapp)
+        public SqlDataReader gMsGetAppliancecategory(DAL.DataContract.Service.Appliancemst objapp)
         {
            // Advantage.ERP.DAL.DataContract.UserSpecificData udc = new DataContract.UserSpecificData();           
             Database db = DatabaseFactory.CreateDatabase();
@@ -277,7 +277,7 @@ namespace Advantage.ERP.DAL
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
         }
 
-        public DataSet gMsGetApplianceList(DAL.DataContract.Appliancemst objapp)
+        public DataSet gMsGetApplianceList(DAL.DataContract.Service.Appliancemst objapp)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcmd = "S_GetApplianceList";
@@ -291,7 +291,7 @@ namespace Advantage.ERP.DAL
                      
         }
 
-        public SqlDataReader gMsGetApplianceByAppCode(DAL.DataContract.Appliancemst objapp)
+        public SqlDataReader gMsGetApplianceByAppCode(DAL.DataContract.Service.Appliancemst objapp)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcom = "S_GetApplianceDetails";
@@ -302,7 +302,7 @@ namespace Advantage.ERP.DAL
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
         }
 
-        public bool gMsCreateAppliance(DAL.DataContract.Appliancemst objapp)
+        public bool gMsCreateAppliance(DAL.DataContract.Service.Appliancemst objapp)
         {
             DAL.DataContract.UserSpecificData logdata = new DataContract.UserSpecificData();            
             Database db = DatabaseFactory.CreateDatabase();
@@ -327,7 +327,7 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public bool gMsUpdateAppliance(DAL.DataContract.Appliancemst objapp)
+        public bool gMsUpdateAppliance(DAL.DataContract.Service.Appliancemst objapp)
         {
             DAL.DataContract.UserSpecificData logdata = new DataContract.UserSpecificData();   
             Database db = DatabaseFactory.CreateDatabase();
@@ -355,7 +355,7 @@ namespace Advantage.ERP.DAL
 
        #region DomainMaster
 
-        public DataSet gMsGetDomainTypes(DAL.DataContract.Domainmst objdomain)
+        public DataSet gMsGetDomainTypes(DAL.DataContract.Service.Domainmst objdomain)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetDomainTypes";
@@ -367,7 +367,7 @@ namespace Advantage.ERP.DAL
             
         }
 
-       public DataSet gMsGetDomainDetails(DAL.DataContract.Domainmst objdomain)
+       public DataSet gMsGetDomainDetails(DAL.DataContract.Service.Domainmst objdomain)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetDomainDetails";
@@ -379,7 +379,7 @@ namespace Advantage.ERP.DAL
             return domdata;
         }
 
-        public bool gMsCreateDomain(DAL.DataContract.Domainmst objdom)
+        public bool gMsCreateDomain(DAL.DataContract.Service.Domainmst objdom)
         {
             DAL.DataContract.UserSpecificData usrdata = new DataContract.UserSpecificData();
             int y = 0;
@@ -408,7 +408,7 @@ namespace Advantage.ERP.DAL
 
   #region Quotation.aspx
 
-        public DataTable gMsItemDet(DAL.DataContract.QuotationTrans qutTrans)
+        public DataTable gMsItemDet(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -426,7 +426,7 @@ namespace Advantage.ERP.DAL
             return myDataSet.Tables[0];
         }
 
-        public DataTable gMsQuotationList(DAL.DataContract.QuotationTrans qutTrans)
+        public DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -449,7 +449,7 @@ namespace Advantage.ERP.DAL
             return ds.Tables[0];
         }
 
-        public DataSet gMsQuotationDetails(DAL.DataContract.QuotationTrans qutTrans)
+        public DataSet gMsQuotationDetails(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -531,9 +531,9 @@ namespace Advantage.ERP.DAL
 
         #region VisitingRequest
 
-        public SqlDataReader gMsGetCategoryforVisitingReq(DAL.DataContract.VisitingReq objvr)
+        public SqlDataReader gMsGetCategoryforVisitingReq(DAL.DataContract.Service.VisitingReq objvr)
         {
-            DAL.DataContract.Domainmst objdom = new DataContract.Domainmst();
+            DAL.DataContract.Service.Domainmst objdom = new DataContract.Service.Domainmst();
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "gMsGetDomainType";
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
@@ -545,9 +545,9 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public SqlDataReader gMsGetPriorityforVisitingReq(DAL.DataContract.VisitingReq objvr)
+        public SqlDataReader gMsGetPriorityforVisitingReq(DAL.DataContract.Service.VisitingReq objvr)
         {
-            DAL.DataContract.Domainmst objdom = new DataContract.Domainmst();
+            DAL.DataContract.Service.Domainmst objdom = new DataContract.Service.Domainmst();
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "gMsGetDomainType";
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
@@ -559,7 +559,7 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public SqlDataReader gMsGetPrefixforVisitingRequest(DAL.DataContract.VisitingReq objvr)
+        public SqlDataReader gMsGetPrefixforVisitingRequest(DAL.DataContract.Service.VisitingReq objvr)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "gMsGetDomainType";
@@ -571,7 +571,7 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public SqlDataReader gMsGetAreaForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+        public SqlDataReader gMsGetAreaForVisitingRequest(DAL.DataContract.Service.VisitingReq objvr)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommmand = "gMsGetDomainType";
@@ -583,7 +583,7 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.VisitingReq objvr)
+        public DataSet gMsGetCustomerListForVisitingReguest(DAL.DataContract.Service.VisitingReq objvr)
        {
            Database db = DatabaseFactory.CreateDatabase();
            string Sqlcommand = "GetCustomerDetails";
@@ -599,7 +599,7 @@ namespace Advantage.ERP.DAL
 
        }
 
-        public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.VisitingReq objvr)
+        public SqlDataReader gMsGetCustomerDataByCustomerCode(DAL.DataContract.Service.VisitingReq objvr)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetCustomerDataByCustno";
@@ -610,7 +610,7 @@ namespace Advantage.ERP.DAL
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
         }
 
-        public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.VisitingReq objvr)
+        public DataSet gMsGetDepartmentForVisitingRequest(DAL.DataContract.Service.VisitingReq objvr)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string sqlcommand = "GetDepartmentData";
@@ -620,7 +620,7 @@ namespace Advantage.ERP.DAL
             return ds = db.ExecuteDataSet(dbcommand);
         }
 
-        public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.WarrantyMst objwarr)
+        public DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.Service.WarrantyMst objwarr)
         {
             Database db = DatabaseFactory.CreateDatabase();
             string Sqlcommand = "GetWarrantyData";
@@ -643,6 +643,41 @@ namespace Advantage.ERP.DAL
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
             //db.AddInParameter(dbcommand,"" ,DbType.String,objitem.p
             return null;
+        }
+
+        public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetItemDataByStockCode";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+        }
+
+        public DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "SearchItemData";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objitem.pOrgCode);
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            db.AddInParameter(dbcommand, "@ItemDesc", DbType.String, objitem.pItemDescription);
+            db.AddInParameter(dbcommand, "@MajorGroup", DbType.String, objitem.pMajorGroup);
+            db.AddInParameter(dbcommand, "@Appliance", DbType.String, objitem.pAppliance);
+            DataSet ds =null;
+            return ds=db.ExecuteDataSet(dbcommand);
+        }
+
+        public SqlDataReader gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetModelDataByAppliance";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@AppCode", DbType.String, objitem.pAppliance);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+
         }
 
         #endregion VisitingRequest
