@@ -26,6 +26,9 @@ namespace Advantage.ERP.DAL.DataContract.Service
        public string pAppCode { get; set; }
        public string pGroupType { get; set; }
        public string pPriceType { get; set; }
+       public string pDocType { get; set; }
+       public string pAmtPaid { get; set; }
+       public string pQuotStatus { get; set; }
        
        public int pItemCode { get; set; }
       
@@ -43,8 +46,6 @@ namespace Advantage.ERP.DAL.DataContract.Service
        public double lNBTAmt{get; set;}
        public double lGrandTot{get; set;}
        public double lNetAmount { get; set; }
-
-
        
     }
 }

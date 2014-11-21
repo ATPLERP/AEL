@@ -215,15 +215,25 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     [WebMethod]
     public bool gMsGetStockPrice(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
     {
-        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+       ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
        return bsOj.gMsGetStockPrice(qutTrans);
     }
-     [WebMethod]
+
+    
+
+    [WebMethod]
+
     public void gMsGetTaxPercentage(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
     {
         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
         bsOj.gMsGetTaxPercentage(qutTrans);
     }
+     [WebMethod]
+     public void gMsGetQuotationNo(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+         bsOj.gMsGetQuotationNo(qutTrans);
+     }
     #endregion
 
     #region VisitingRequest
@@ -257,6 +267,12 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
    
 
 
+    
+    
+
+
+
+  
     [WebMethod]
     public DataSet gMsGetCustomerListForVisitingReguest(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
 
@@ -276,8 +292,6 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetDepartmentForVisitingRequest(objvr);
     }
-    [WebMethod]
-
     
 
 

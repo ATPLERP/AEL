@@ -526,6 +526,20 @@ namespace Advantage.ERP.DAL
            IDataReader iDR = db.ExecuteReader(dbCommand);
            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
         }
+        public SqlDataReader gMsGetQuotationNo(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "getQuotationNo";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@vOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@vBranchCode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@vDocType", DbType.String, qutTrans.pDocType);
+            db.AddInParameter(dbCommand, "@vCurrentDate", DbType.DateTime,DateTime.Now);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
 
    #endregion
 
