@@ -326,7 +326,7 @@
             </td>
             <td class="auto-style6">
                 <asp:TextBox ID="txtQuotNo" CssClass="textbox" runat="server" AutoPostBack="true"></asp:TextBox>
-                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
+                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px" />
                 <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
                 <div>
              <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">
@@ -803,6 +803,7 @@
                 <td><asp:TextBox ID="txtNetAmount" CssClass="textbox" runat="server" Height="19px" Width="90px"></asp:TextBox></td>
                 <td><asp:Label ID="Label36" CssClass="textbox" runat="server" Text="NBT Amount"></asp:Label></td>
                 <td><asp:TextBox ID="txtNBTAmt" CssClass="textbox" runat="server" Height="16px" Width="90px"></asp:TextBox></td>
+                <td><asp:Button ID="btnSave" runat="server" CssClass="textbox" Text="Save" OnClick="btnSave_Click" /></td>
                </tr>
              </table>
 

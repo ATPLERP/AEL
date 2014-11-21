@@ -384,7 +384,7 @@ namespace Advantage.ERP.BLL
             return ds;
      }
 
-     public DataTable gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+     public DataTable gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          SqlDataReader dr= obj.gMsOrgItemList(qutTrans); 
@@ -393,7 +393,7 @@ namespace Advantage.ERP.BLL
          dt.Load(dr);
          return dt;
      }
-     public void gMsGetStockCode(DAL.DataContract.QuotationTrans qutTrans)
+     public void gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          SqlDataReader dr = obj.gMsGetStockCode(qutTrans);
@@ -402,6 +402,7 @@ namespace Advantage.ERP.BLL
              if (!string.IsNullOrEmpty(dr.GetValue(0).ToString()))
              {
                  qutTrans.pItemCode = Convert.ToInt32(dr.GetValue(0).ToString());
+                 
              }
              else
              {
@@ -435,7 +436,20 @@ namespace Advantage.ERP.BLL
          }
 
      }
-     public bool  gMsGetStockPrice(DAL.DataContract.QuotationTrans qutTrans)
+     public void gMsGetQuotationNo(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetQuotationNo(qutTrans);
+         while (dr.Read())
+         {
+             if (!string.IsNullOrEmpty(dr.GetValue(0).ToString()))
+             {
+              qutTrans.pQuotationNo = dr.GetValue(0).ToString();
+             }
+         }
+
+     }
+     public bool gMsGetStockPrice(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          bool success = false; 
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
@@ -446,7 +460,7 @@ namespace Advantage.ERP.BLL
             // qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
              if (!string.IsNullOrEmpty(dr.GetValue(1).ToString()))
              {
-                qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
+               qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
                success=true;
              }
              else
@@ -458,7 +472,7 @@ namespace Advantage.ERP.BLL
 
          return success;
      }
-     public void gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+     public void gMsGetTaxPercentage(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          SqlDataReader dr = obj.gMsGetTaxPercentage(qutTrans);
@@ -466,8 +480,7 @@ namespace Advantage.ERP.BLL
          {qutTrans.lNBTPer = Convert.ToDouble(dr.GetValue(0).ToString());}
      }
 
-   
-   #endregion
+    #endregion
 
      #region VisitingRequest
 

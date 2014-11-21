@@ -45,7 +45,7 @@ public class ERPSystemData
         Update,
         Delete
     }
-<<<<<<< HEAD
+
     public enum lMajorGroup
     {
         S,// Service
@@ -66,8 +66,6 @@ public class ERPSystemData
         S,
         W
     }
-=======
-
     public enum MajorGroupTypes
     {
         Service,
@@ -76,5 +74,8 @@ public class ERPSystemData
         Stationery,
         Accessories
      }
->>>>>>> 9448027d02381d679bf555fce2be0fe0803b5bb4
+    public enum pDocType
+    {
+      QuotationNO
+    }
 }

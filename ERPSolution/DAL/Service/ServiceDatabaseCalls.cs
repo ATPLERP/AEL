@@ -466,7 +466,7 @@ namespace Advantage.ERP.DAL
 
         }
 
-        public SqlDataReader gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+        public SqlDataReader gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -484,7 +484,7 @@ namespace Advantage.ERP.DAL
             return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
         }
 
-        public SqlDataReader gMsGetStockCode(DAL.DataContract.QuotationTrans qutTrans)
+        public SqlDataReader gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -500,7 +500,7 @@ namespace Advantage.ERP.DAL
             // Note: connection was closed by ExecuteDataSet method call 
             return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
         }
-        public SqlDataReader gMsGetStockPrice(DAL.DataContract.QuotationTrans qutTrans)
+        public SqlDataReader gMsGetStockPrice(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -514,7 +514,7 @@ namespace Advantage.ERP.DAL
             // Note: connection was closed by ExecuteDataSet method call 
             return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
         }
-        public SqlDataReader gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+        public SqlDataReader gMsGetTaxPercentage(DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -525,6 +525,20 @@ namespace Advantage.ERP.DAL
            //db.AddInParameter(dbCommand, "@pDate", DbType.String, qutTrans.pDate);
            IDataReader iDR = db.ExecuteReader(dbCommand);
            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+        public SqlDataReader gMsGetQuotationNo(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "getQuotationNo";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@vOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@vBranchCode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@vDocType", DbType.String, qutTrans.pDocType);
+            db.AddInParameter(dbCommand, "@vCurrentDate", DbType.DateTime,DateTime.Now);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
         }
 
    #endregion
