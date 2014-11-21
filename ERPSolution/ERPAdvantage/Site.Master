@@ -42,7 +42,7 @@
                 </asp:Menu>
             </div>
         </div>
-        <div class="main">
+        <div class="main" style="height:1000px">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
         <div class="clear">

@@ -384,7 +384,7 @@ namespace Advantage.ERP.BLL
             return ds;
      }
 
-     public DataTable gMsOrgItemList(DAL.DataContract.QuotationTrans qutTrans)
+     public DataTable gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          SqlDataReader dr= obj.gMsOrgItemList(qutTrans); 
@@ -393,7 +393,7 @@ namespace Advantage.ERP.BLL
          dt.Load(dr);
          return dt;
      }
-     public void gMsGetStockCode(DAL.DataContract.QuotationTrans qutTrans)
+     public void gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          SqlDataReader dr = obj.gMsGetStockCode(qutTrans);
@@ -435,7 +435,7 @@ namespace Advantage.ERP.BLL
          }
 
      }
-     public bool  gMsGetStockPrice(DAL.DataContract.QuotationTrans qutTrans)
+     public bool  gMsGetStockPrice(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          bool success = false; 
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
@@ -458,7 +458,7 @@ namespace Advantage.ERP.BLL
 
          return success;
      }
-     public void gMsGetTaxPercentage(DAL.DataContract.QuotationTrans qutTrans)
+     public void gMsGetTaxPercentage(DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
          SqlDataReader dr = obj.gMsGetTaxPercentage(qutTrans);
@@ -592,6 +592,11 @@ namespace Advantage.ERP.BLL
          return objsbcall.gMsGetQuestionListforVisitingRequest(objque);
      }
 
+     public string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetVisitingRequestNo(objvr);
+     }
 
      #endregion VisitingRequest
 

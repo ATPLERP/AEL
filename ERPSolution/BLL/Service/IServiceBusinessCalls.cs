@@ -42,6 +42,13 @@ namespace Advantage.ERP.BLL
         SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
         DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objque);
 
+        #region VRTransaction
+
+        string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr);
+
+        #endregion VRTransaction
+
+
         #endregion VisitingRequest
 
 
