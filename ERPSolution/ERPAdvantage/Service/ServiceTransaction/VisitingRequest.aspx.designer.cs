@@ -1039,6 +1039,15 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         protected global::System.Web.UI.WebControls.Button btnadditem;
         
         /// <summary>
+        /// txtitemcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtitemcode;
+        
+        /// <summary>
         /// PanelSearchItem control.
         /// </summary>
         /// <remarks>
@@ -1138,13 +1147,13 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         protected global::System.Web.UI.WebControls.GridView gvitem;
         
         /// <summary>
-        /// Button1 control.
+        /// paneladdeddata control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Panel paneladdeddata;
         
         /// <summary>
         /// gvaddeditemdata control.
@@ -1154,5 +1163,23 @@ namespace ERPAdvantage.Service.ServiceTransaction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvaddeditemdata;
+        
+        /// <summary>
+        /// panelquestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelquestions;
+        
+        /// <summary>
+        /// gvquestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvquestions;
     }
 }

@@ -589,4 +589,14 @@ namespace ERPAdvantage.Service.ServiceTransaction
                    
   }
 
+<<<<<<< HEAD
+        protected void cmdAddList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+    }
+=======
+>>>>>>> 365728548f85b98eed055ffae9c5e728a8240c31
 }

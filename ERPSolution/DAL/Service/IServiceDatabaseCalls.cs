@@ -41,7 +41,8 @@ namespace Advantage.ERP.DAL
         SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem);
         DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
         SqlDataReader gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem);
-
+        SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
+        DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objques);
         #endregion VisitingRequest
 
        
