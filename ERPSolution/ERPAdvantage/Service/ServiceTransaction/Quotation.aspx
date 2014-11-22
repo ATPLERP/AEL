@@ -163,10 +163,6 @@
              width: 134%;
              height: 3px;
          }
-         .auto-style60
-         {
-             width: 42px;
-         }
          .auto-style61
          {
              height: 9px;
@@ -253,15 +249,6 @@
          {
              height: 9px;
              width: 83px;
-         }
-         .auto-style104
-         {
-             width: 36px;
-             height: 8px;
-         }
-         .auto-style105
-         {
-             height: 8px;
          }
          .auto-style106
          {
@@ -731,14 +718,12 @@
                 <td class="auto-style111">
                     <asp:TextBox ID="txtTotal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
-<<<<<<< HEAD
+
                 <td class="auto-style55">
-                    <asp:Button ID="cmdAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" OnClick="cmdAddList_Click" />
-=======
-                <td class="auto-style111">
+                    &nbsp;<td class="auto-style111">
                     <%--<asp:Label ID="lblPricecheck" runat="server" CssClass="textbox"></asp:Label>--%>
                     <asp:Button ID="btnAddList" runat="server" CssClass="textbox" Height="21px" OnClick="btnAddList_Click" Text="Add" Width="33px" />
->>>>>>> 365728548f85b98eed055ffae9c5e728a8240c31
+
                 </td>
             </tr>
            </table>
@@ -779,6 +764,8 @@
                                      <asp:BoundField HeaderText="Stock" />
                                      <asp:BoundField DataField="NBTPer" HeaderText="NBT Per" />
                                      <asp:BoundField  DataField="NBTAmt" HeaderText="NBT Amount" />
+                                     <asp:BoundField Visible="true" DataField="QuoationNo" HeaderText="Quoation No" />
+                                     
                                  </Columns>
                                  <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                  <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />

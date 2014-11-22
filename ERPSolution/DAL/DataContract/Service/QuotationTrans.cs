@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Advantage.ERP.DAL.DataContract.Service
 {
@@ -34,6 +36,8 @@ namespace Advantage.ERP.DAL.DataContract.Service
       
        public DateTime pQuoationDate { get; set; }
        public DateTime pDate { get; set; }
+
+      public DataTable dtQuotationDetails { get; set; }
       
        public double pPrice { get; set; }
        public double lQty{get; set;}

@@ -229,6 +229,14 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
          ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
          bsOj.gMsGetQuotationNo(qutTrans);
      }
+
+     [WebMethod]
+     public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+         bsOj.gMsCreateRecordQuotation(qutTrans);
+
+     }
     #endregion
 
     #region VisitingRequest

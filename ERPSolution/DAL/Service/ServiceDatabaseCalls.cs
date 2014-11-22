@@ -424,6 +424,7 @@ namespace Advantage.ERP.DAL
             myDataSet = db.ExecuteDataSet(dbCommand);
             //  Note: connection was closed by ExecuteDataSet method call 
             return myDataSet.Tables[0];
+            
         }
 
         public DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans)
@@ -445,7 +446,7 @@ namespace Advantage.ERP.DAL
             da.SelectCommand = dbCommand;
             DataSet ds = new DataSet();
            // da.Fill(ds, 0, 20, "table");
-             da.Fill(ds);
+            da.Fill(ds);
             return ds.Tables[0];
         }
 
@@ -539,8 +540,44 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@vCurrentDate", DbType.DateTime,DateTime.Now);
             IDataReader iDR = db.ExecuteReader(dbCommand);
             return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
-        }
 
+        }
+        public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+     
+            Database db = DatabaseFactory.CreateDatabase();
+            using (DbConnection connection = db.CreateConnection())
+            {
+                connection.Open();
+                //blah blah
+                //we use SqlBulkCopy that is not in the Microsoft Data Access Layer Block.
+                using (SqlBulkCopy copy = new SqlBulkCopy((SqlConnection)connection, SqlBulkCopyOptions.Default, null))
+                {
+                    DataTable dtQutation = (DataTable)qutTrans.dtQuotationDetails;
+                    //assigning Destination table name
+                    copy.DestinationTableName = "S_QUOTATIONDETAIL";
+                    //Mapping Table column   
+                    copy.ColumnMappings.Add("QuoationNo", "QuoationNo");
+                    copy.ColumnMappings.Add("ItemCode", "ItemCode");
+                    copy.ColumnMappings.Add("Quantity", "Quantity");
+                    copy.ColumnMappings.Add("Price", "Price");
+                    copy.ColumnMappings.Add("DiscountAmt", "DiscountAmt");
+                    copy.ColumnMappings.Add("VATPer", "VATPer");
+                    copy.ColumnMappings.Add("ItemModal", "ItemModal");
+                    copy.ColumnMappings.Add("ItemSerialNo", "ItemSerialNo");
+                    copy.ColumnMappings.Add("ItemCapacity", "ItemCapacity");
+                    copy.ColumnMappings.Add("NBTPer", "NBTPer");
+                    copy.ColumnMappings.Add("NBTAmt", "NBTAmt");
+                    //inserting bulk Records into DataBase    
+                    copy.WriteToServer(dtQutation);
+
+
+                 
+             
+                }
+            }
+
+        }
    #endregion
 
         #region VisitingRequest

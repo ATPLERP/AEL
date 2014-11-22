@@ -131,7 +131,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 qutTrans.pBrnCd = objumst.pBrnCode;
                 qutTrans.pFromDate = txtFromDate.Text;
                 qutTrans.pToDate = txtToDate.Text;
-
                 DataTable dt = wsoj.gMsQuotationList(qutTrans);
                 gvQuotationDetails.PageIndex = e.NewPageIndex;//
                 gvQuotationDetails.DataSource = null;
@@ -222,6 +221,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                qutTrans.pBrnCd = objumst.pBrnCode;
                DataTable dt= wsoj.gMsItemDet(qutTrans);
                ViewState["CurrentTableexisting"] = dt;
+               pMsCreateRecord();
                gvItemDescription.DataSource = null;
                gvItemDescription.DataSource = dt;
                gvItemDescription.DataBind();
@@ -240,7 +240,8 @@ namespace ERPAdvantage.Service.ServiceTransaction
            double lVATAmtOld = 0;
            double lNBTAmtold = 0;
            double lDisAmtold = 0;
-           double lGrandTotold = 0; 
+           double lGrandTotold = 0;
+           DataTable dt = new DataTable();
             
            foreach(GridViewRow row in gvItemDescription.Rows)
            {
@@ -311,11 +312,14 @@ namespace ERPAdvantage.Service.ServiceTransaction
                             txtNetAmount.Text = qutTrans.lNetAmount.ToString();
                             break;
                          // txtNetAmount.Text =txtGrandTotal.Text.Trim() + txtVATTotal.Text.Trim() - txtDiscountTotal.Text.Trim() + txtNBTAmt.Text.Trim() ;
-                          
+                            
+                         
                    }
-                   
+                 
                
                }
+              // dt.Rows.Add(row);
+              // ViewState["CurrentTableexisting"] = dt;  
            }
 
 
@@ -342,7 +346,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             app.pApplianceCode = string.Empty;
             app.pApplianceName = string.Empty;
             DataSet ds = wser.GetApplianceList(app);
-            ddlApplianceCode.DataValueField = "ApplianceCode";
+            ddlApplianceCode.DataValueField ="ApplianceCode";
             ddlApplianceCode.DataTextField = "ApplianceCode";
             ddlApplianceCode.DataSource = ds;
             ddlApplianceCode.DataBind();
@@ -360,7 +364,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
            gvOrgItemList.DataSource = dt;
            gvOrgItemList.DataBind();
            btnApplianceList_ModalPopupExtender.Show(); 
-
         }
           
         protected void gvOrgItemList_SelectedIndexChanged(object sender, EventArgs e)
@@ -435,7 +438,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 lblStates.ForeColor = Color.Red;
             }
         }
-
         protected void btnAddList_Click(object sender, EventArgs e)
         {
          Addata();
@@ -506,9 +508,12 @@ namespace ERPAdvantage.Service.ServiceTransaction
             //dt.AcceptChanges();
             ViewState["CurrentTable"] = dt;
             //(gvItemDescription.DataSource as DataTable).Rows.Add(dr);
-            DataTable dtOldDAta = (DataTable)ViewState["CurrentTableexisting"];
+            DataTable dtOldDAta =(DataTable)ViewState["CurrentTableexisting"]; ; 
+           // DataRow drQutation = (DataRow)ViewState["CurrentTableexisting"];
+            //dtOldDAta.Rows.Add(drQutation); 
             DataTable dtNewData = (DataTable)ViewState["CurrentTable"];
             dtOldDAta.Merge(dtNewData, true, MissingSchemaAction.Ignore);
+            ViewState["S_QUOTATIONDETAIL"] = dtOldDAta;
             gvItemDescription.DataSource = dtOldDAta;
             gvItemDescription.DataBind();
             CalGridTotal();
@@ -547,7 +552,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             dt.Columns.Add("Stock");
             dt.Columns.Add("NBTPer");
             dt.Columns.Add("NBTAmt");
-            
+            dt.Columns.Add("QuoationNo");  
         }
 
         private bool pMsCreateRecord()
@@ -566,11 +571,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
             if (uiv.CheckModuleAccess(objumst))
             {
                 qutTrans.pBrnCd = objumst.pBrnCode;
-                qutTrans.pAmtPaid = "N";
-                qutTrans.pQuotStatus = "O";
+                qutTrans.pAmtPaid ="N";
+                qutTrans.pQuotStatus ="O";
                 wsoj.gMsGetQuotationNo(qutTrans);
-
-               // wsoj.gMsCreateRecord(objumst);
+                // wsoj.gMsCreateRecordQuotation(objumst);
+                txtQuotationNumber.Text =qutTrans.pQuotationNo;
             }
             else
             {
@@ -582,21 +587,18 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            ADTWebService wsoj = new ADTWebService();
+            QuotationTrans qutTrans = new QuotationTrans();
            // pMsCreateRecord();
+            qutTrans.dtQuotationDetails = (DataTable)ViewState["S_QUOTATIONDETAIL"];
+            wsoj.gMsCreateRecordQuotation(qutTrans);
         }
 
        
                    
   }
 
-<<<<<<< HEAD
-        protected void cmdAddList_Click(object sender, EventArgs e)
-        {
-
-        }
 
        
-    }
-=======
->>>>>>> 365728548f85b98eed055ffae9c5e728a8240c31
 }
+

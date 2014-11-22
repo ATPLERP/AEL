@@ -480,6 +480,12 @@ namespace Advantage.ERP.BLL
          {qutTrans.lNBTPer = Convert.ToDouble(dr.GetValue(0).ToString());}
      }
 
+     public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         obj.gMsCreateRecordQuotation(qutTrans);
+
+     }
     #endregion
 
      #region VisitingRequest
