@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Advantage.ERP.DAL.DataContract;
+using Advantage.ERP.DAL.DataContract.Service;
 
 [WebService(Namespace = "http://tempuri2.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -217,7 +218,11 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
        ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
        return bsOj.gMsGetStockPrice(qutTrans);
     }
+
+    
+
     [WebMethod]
+
     public void gMsGetTaxPercentage(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
     {
         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
@@ -266,9 +271,19 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
         return objs.gMsGetAreaForVisitingRequest(objvr);
     }
+
+   
+
+
+    
+    
+
+
+
   
     [WebMethod]
     public DataSet gMsGetCustomerListForVisitingReguest(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+
     {
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
         return objs.gMsGetCustomerListForVisitingReguest(objvr);
@@ -285,9 +300,11 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetDepartmentForVisitingRequest(objvr);
     }
-    [WebMethod]
+    
+
 
     public DataSet gMsGetWarrantyForVisitingRequest(Advantage.ERP.DAL.DataContract.Service.WarrantyMst objwarr)
+
     {
         ServiceBusinessCalls objserbc = new ServiceBusinessCalls();
         return objserbc.gMsGetWarrantyForVisitingRequest(objwarr);
@@ -324,6 +341,14 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetQuestionListforVisitingRequest(objque);
     }
+
+    [WebMethod]
+    public string gMsGetVisitingRequestNo(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsGetVisitingRequestNo(objvr);
+    }
+
 
     #endregion VisitingRequest
 

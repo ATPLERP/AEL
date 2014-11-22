@@ -753,6 +753,22 @@ namespace Advantage.ERP.DAL
             
         }
 
+        public string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            string Vrnum="";
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetDocumentSerialNo";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@vOrgCode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@vBranchCode", DbType.String, objvr.pBrncode);
+            db.AddInParameter(dbcommand, "@vDocType", DbType.String, "CUSTOMER_VISIT");
+            db.AddInParameter(dbcommand, "@vCurrentDate", DbType.String,DateTime.Now);
+            db.AddOutParameter(dbcommand, "@vDocnumber", DbType.String, 20);            
+            db.ExecuteNonQuery(dbcommand);
+            return Vrnum;
+            
+        }
+
         #endregion VisitingRequest
 
 

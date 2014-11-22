@@ -147,13 +147,21 @@ namespace ERPAdvantage.Service.ServiceTransaction
           
         }
 
+        private bool CreateVisitingRequest()
+        {
+            return false;
+        }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadJobCategory();
-            LoadJobPriority();
-            LoadPrefix();
-            LoadArea();
+            if (!IsPostBack)
+            {
+                LoadJobCategory();
+                LoadJobPriority();
+                LoadPrefix();
+                LoadArea();
+            }
         }
 
         protected void cmdgetlist_Click(object sender, EventArgs e)
@@ -397,6 +405,16 @@ namespace ERPAdvantage.Service.ServiceTransaction
             gvaddeditemdata.DataBind();
 
             AddCustomerQuestions(getApplianceType(txtstockcode.Text));
+        }
+
+        protected void btnsave_Click(object sender, EventArgs e)
+        {
+            UIControl uic = new UIControl();
+            ADTWebService ws = new ADTWebService();
+            VisitingReq objvr = new VisitingReq();
+            objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objvr.pBrncode = Session["LoggedBranch"].ToString();            
+            txtvisitingno.Text=ws.gMsGetVisitingRequestNo(objvr);
         }
 
       

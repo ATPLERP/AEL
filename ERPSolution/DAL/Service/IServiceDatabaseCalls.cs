@@ -43,6 +43,16 @@ namespace Advantage.ERP.DAL
         SqlDataReader gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem);
         SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
         DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objques);
+
+        #region Vr Transaction
+
+            string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr);
+          //  bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
+         //   bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
+          //  bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
+
+        #endregion Vr Transaction
+
         #endregion VisitingRequest
 
        

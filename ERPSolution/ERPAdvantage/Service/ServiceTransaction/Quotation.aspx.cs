@@ -14,10 +14,12 @@ using ERPAdvantage;
 using System.Drawing;
 using Advantage.ERP.DAL.DataContract.Service;
 using System.Windows.Forms; 
-//using ERPAdvantage.MST;
 using Advantage.ERP.BLL;
 using Microsoft.VisualBasic;
 using Advantage.ERP.DAL.DataContract.Inventory;
+
+
+
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -598,7 +600,15 @@ namespace ERPAdvantage.Service.ServiceTransaction
                    
   }
 
+<<<<<<< HEAD
 
        
 }
+=======
+
+       
+
+       
+    }
+>>>>>>> c6aa2d406baa23649292e374fc961fe89507fbb8
 

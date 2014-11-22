@@ -55,6 +55,9 @@ namespace ERPAdvantage.Login
             objuMst.pPwd = Password.Text;
             objuMst.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
             objuMst.pBrnCode = ddlBranch.SelectedItem.Text;
+            Session["LoggedOrg"] = objuMst.pOrgCode;
+            Session["LoggedUser"] = objuMst.pUserId;
+            Session["LoggedBranch"] = objuMst.pBrnCode;
             
             success = wsoj.gMsCheckPassword(objuMst);
             List<TSEC_USR_OBJ> list = wsoj.gMsCheckSpecifiedModulepermission(objuMst);

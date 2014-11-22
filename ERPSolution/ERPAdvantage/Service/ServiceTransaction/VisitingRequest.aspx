@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisitingRequest.aspx.cs" Inherits="ERPAdvantage.Service.ServiceTransaction.VisitingRequest" EnableViewState="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .auto-style3
@@ -213,12 +214,14 @@
         </style>
     </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent"  runat="server" >
+    
      <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.9em" PathSeparator=" : ">
         <CurrentNodeStyle ForeColor="#333333" />
         <NodeStyle Font-Bold="True" ForeColor="#990000" />
         <PathSeparatorStyle Font-Bold="True" ForeColor="#990000" />
         <RootNodeStyle Font-Bold="True" ForeColor="#FF8000" />
+         
     </asp:SiteMapPath>
     
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
@@ -232,12 +235,13 @@
     <ContentTemplate>
 
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="700" Width="900px">
+
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="800" Width="900px">
 
     
 
         
-        <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data">
+        <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data" Height="650">
             <ContentTemplate>
                 <table class="auto-style3"><tr><td class="auto-style5"><asp:Label ID="Label1" runat="server" Text="Visiting No"></asp:Label></td><td class="auto-style7">
                 <asp:TextBox ID="txtvisitingno" runat="server" Width="150px"></asp:TextBox>
@@ -379,7 +383,7 @@
                                 <asp:Label ID="lbldeptname" runat="server" Text="Department Name"></asp:Label>
                             </td>
                             <td class="auto-style24">
-                                <asp:TextBox ID="txtsearchbydeptname" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                                <asp:TextBox ID="txtsearchbydeptname" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                             </td>
                             <td class="auto-style27">
                                 <asp:Label ID="lblserialno" runat="server" Text="Serial No"></asp:Label>
@@ -707,12 +711,20 @@
 
                 <br/>
 
-                <asp:Panel runat="server" ID="panelquestions" Height="150px" Width="700px" style="overflow:auto">
-                    <asp:GridView runat="server" ID="gvquestions" AutoGenerateColumns="False" Width="682px" >
+                <asp:Panel runat="server" ID="panelquestions" Height="220px" Width="700px" style="overflow:auto">
+                    <asp:GridView runat="server" ID="gvquestions" AutoGenerateColumns="False" Width="682px" Height="200px" Font-Size="X-Small" >
                                         
 
 
                         <Columns>
+                            <asp:TemplateField HeaderText="Select">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="chkselect" runat="server" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="chkselect" runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="Question Id" HeaderText="Question Id" />
                             <asp:BoundField DataField="Question" HeaderText="Question" />
                         </Columns>
@@ -735,4 +747,22 @@
 
     </asp:UpdatePanel>
 
+    <br />
+    <br />
+
+    <table >
+        <tr>
+            <td>
+                <asp:Button runat="server" ID="btnsave" Text="SAVE" Width="100" OnClick="btnsave_Click" />
+            </td>
+            <td>
+                <asp:Button runat="server" ID="btnclose" Text="CLOSE" Width="100" />
+            </td>
+        </tr>
+
+    </table>
+    
+
+
     </asp:Content>
+

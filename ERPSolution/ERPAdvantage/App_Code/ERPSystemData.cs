@@ -14,7 +14,7 @@ public class ERPSystemData
     //    // TODO: Add constructor logic here
     //    //
     //}
-    
+
     public enum COM_DOM_TYPE
     {
         CUSTOMER_CATEGORY,
@@ -36,7 +36,7 @@ public class ERPSystemData
         COSTING,
         STORE,
         ACCOUNTS
-   }
+    }
     public enum Status
     {
         New,
@@ -66,6 +66,9 @@ public class ERPSystemData
         S,
         W
     }
+
+
+
     public enum MajorGroupTypes
     {
         Service,
@@ -73,9 +76,14 @@ public class ERPSystemData
         Tools,
         Stationery,
         Accessories
-     }
+
+    }
+
+
     public enum pDocType
     {
       QuotationNO
+
     }
+
 }
