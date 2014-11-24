@@ -763,8 +763,8 @@
                                      <asp:BoundField HeaderText="X" />
                                      <asp:BoundField HeaderText="Stock" />
                                      <asp:BoundField DataField="NBTPer" HeaderText="NBT Per" />
-                                     <asp:BoundField  DataField="NBTAmt" HeaderText="NBT Amount" />
-                                     <asp:BoundField Visible="true" DataField="QuoationNo" HeaderText="Quoation No" />
+                                     <asp:BoundField DataField="NBTAmt" HeaderText="NBT Amount" />
+                                     <asp:BoundField DataField="QuoationNo" HeaderText="Quoation No" />
                                      
                                  </Columns>
                                  <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />

@@ -570,13 +570,42 @@ namespace Advantage.ERP.DAL
                     copy.ColumnMappings.Add("NBTAmt", "NBTAmt");
                     //inserting bulk Records into DataBase    
                     copy.WriteToServer(dtQutation);
-
-
-                 
-             
+                     
                 }
             }
 
+        }
+        public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, objMst.pOrgCode);
+            db.AddInParameter(dbCommand, "@pBrcode", DbType.String, objMst);
+            db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, objMst.pCustName);
+            db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, objMst.pCustAdd);
+            db.AddInParameter(dbCommand, "@pCustomerOrderNo", DbType.String, objMst.);
+            db.AddInParameter(dbCommand, "@pCustomerCode", DbType.String, objMst.pCustCode);
+            db.AddInParameter(dbCommand, "@pname_prefix", DbType.String, objMst.pCustPrefix);
+            db.AddInParameter(dbCommand, "@pFname", DbType.String, objMst.pCustName);
+            db.AddInParameter(dbCommand, "@pInvoiceAddress", DbType.String, objMst.pCustAdd);
+            db.AddInParameter(dbCommand, "@pServiceAddress", DbType.String, objMst.pCustServiceAddress);
+            db.AddInParameter(dbCommand, "@pAreaName", DbType.String, objMst.pCustArea);
+            db.AddInParameter(dbCommand, "@pTel1", DbType.Double, objMst.pCustPhone1);
+            db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.);
+            db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pVATApplicable);
+            db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustCreditGiven);
+            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustCategory);
+            db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Technical);
+            db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_PhoneNo3);
+            db.AddInParameter(dbCommand, "@pQuotationRemark", DbType.String, objMst.pCustContactPerson_Invoice);
+            db.AddInParameter(dbCommand, "@pQuotStatus", DbType.String, objMst.pCustContactPerson_PhoneNo4);
+            db.AddInParameter(dbCommand, "@pAmtPaid", DbType.String, objMst.pCustContactPerson_Invoice);
+            db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pCustContactPerson_PhoneNo4);
+
+            db.ExecuteNonQuery(dbCommand);
         }
    #endregion
 

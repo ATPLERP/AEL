@@ -493,6 +493,12 @@ namespace Advantage.ERP.BLL
          obj.gMsCreateRecordQuotation(qutTrans);
 
      }
+
+     public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         obj.gMsCgMsCreateRecordQuotationMst(qutTrans);
+     }
     #endregion
 
      #region VisitingRequest

@@ -237,11 +237,18 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
      [WebMethod]
      public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
-     {
+       {
          ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
          bsOj.gMsCreateRecordQuotation(qutTrans);
 
      }
+     [WebMethod]
+     public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceBusinessCalls bsOj = new Advantage.ERP.BLL.ServiceBusinessCalls();
+         bsOj.gMsCgMsCreateRecordQuotationMst(qutTrans);
+     }
+     
     #endregion
 
     #region VisitingRequest
@@ -405,5 +412,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     }
     #endregion
 
+
+    
 }
 
