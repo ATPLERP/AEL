@@ -27,6 +27,7 @@ using System.Text;
         public string pCustEmail { get; set; }
         public string pCustVatno { get; set; }
         public string pContactInvoice { get; set; }
+        public string pContactService { get; set; }
         public string pContactTech { get; set; }
         public string pInstructTech { get; set; }
         public DateTime pCustReqdate { get; set; }

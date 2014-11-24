@@ -13,16 +13,19 @@ using System.Data;
 using System.Data.SqlClient;
 using Advantage.ERP.DAL.DataContract.Inventory;
 using Advantage.ERP.DAL.DataContract.Service;
+using System.Data.Common;
+
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
     public partial class VisitingRequest : System.Web.UI.Page
     {
-
+     
         string gvoption = null;
 
         private void LoadJobCategory()
         {
+            
             UIControl uic = new UIControl();
             ADTWebService ws = new ADTWebService();
             VisitingReq objvr = new VisitingReq();
@@ -147,10 +150,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
           
         }
 
-        private bool CreateVisitingRequest()
-        {
-            return false;
-        }
+        
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -208,6 +208,60 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 ddlsearchbymajorgroup.Items.Add("Accessories");
             }
         }
+
+        private bool CreateVisitingRequestMaster()
+        {
+            ADTWebService ws = new ADTWebService();
+            
+            VisitingReq objvr=new VisitingReq();
+            objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objvr.pBrncode = Session["UserLogged"].ToString();
+            objvr.pVisitReqno = txtvisitingno.Text;
+            objvr.pVisitReqdate =Convert.ToDateTime(txtvisitingdate.Text);
+            objvr.pJobCategory = ddlcategory.SelectedItem.ToString();
+            objvr.pComplainDesc = txtcomplain.Text;
+            objvr.pCustCode =Convert.ToInt32(txtcustomercode.Text);
+            objvr.pCustprefif = ddlprefix.SelectedItem.ToString();
+            objvr.pCustomerName = txtcustomername.Text;
+            objvr.pCustomerAddressInv = txtinvoiceaddress.Text;
+            objvr.pCustomerAddressSer = txtserachwarrbyaddress.Text;
+            objvr.pCustArea = ddlarea.SelectedItem.ToString();
+            objvr.pCustPhone = txtphoneno.Text;
+            objvr.pCustFax = txtfaxno.Text;
+            objvr.pCustMobile = txtmobileno.Text;
+            objvr.pCustEmail = txtemail.Text.Trim();
+            objvr.pCustVatno = txtvatno.Text.Trim();
+            objvr.pContactInvoice = txtcontactperinvoice.Text.Trim();
+            objvr.pContactService = txtcontactperservice.Text.Trim();
+            objvr.pInstructTech = txtinstruction.Text.Trim();
+            objvr.pCustReqdate =Convert.ToDateTime(txtreqdate.Text);
+            objvr.pVisitReqStatus = "A";
+            objvr.pVisitItemCode = txtitemcode.Text;
+            objvr.pPaidStatus = "P";
+            objvr.pCreatedBy = Session["UserLogged"].ToString();
+            objvr.pCreatedDate = DateTime.Now;
+            objvr.pCompTakenby = txtcomplaintakenby.Text;
+            objvr.pDepatment = Convert.ToInt16(txtdeptcode.Text);
+            objvr.pDepatName = txtdepratment.Text;
+            objvr.pSiteContactPerson = txtsitecontactperson.Text;
+            objvr.pSiteconatctTp= txtsitetp.Text;
+            objvr.pSiteContactMobno = txtsitecontactmobile.Text;
+            objvr.Priority = ddlpriority.SelectedItem.ToString();
+
+             
+
+            if (ws.gMsCreateVisitingRequestMaster(objvr) == true)
+            {
+                
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         protected void cmdgetdeptlist_Click(object sender, EventArgs e)
         {
@@ -415,6 +469,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
             objvr.pBrncode = Session["LoggedBranch"].ToString();            
             txtvisitingno.Text=ws.gMsGetVisitingRequestNo(objvr);
+        
         }
 
       

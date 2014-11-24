@@ -47,7 +47,7 @@ namespace Advantage.ERP.DAL
         #region Vr Transaction
 
             string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr);
-          //  bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
+            bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
          //   bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
           //  bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
 
