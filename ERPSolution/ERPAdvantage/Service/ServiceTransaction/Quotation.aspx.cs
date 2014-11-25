@@ -223,7 +223,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 qutTrans.pBrnCd = objumst.pBrnCode;
                 DataTable dt = wsoj.gMsItemDet(qutTrans);
                 ViewState["CurrentTableexisting"] = dt;
-                pMsCreateRecord();
+               // pMsCreateRecord();
                 gvItemDescription.DataSource = null;
                 gvItemDescription.DataSource = dt;
                 gvItemDescription.DataBind();
@@ -465,7 +465,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             DataTable dt = new DataTable();
             DataRow dr = dt.NewRow();
             MakeDataTable(dt);
-            int rowcount = gvItemDescription.Rows.Count - 1;
+            int rowcount = gvItemDescription.Rows.Count;
             //GridViewRow daataRow = new GridViewRow(1, 0, DataControlRowType.DataRow, DataControlRowState.Insert);
             // GridViewRow rowcount = gvItemDescription.Rows[rowcount];
             //foreach (GridViewRow row in gvItemDescription.Rows)
@@ -563,35 +563,52 @@ namespace ERPAdvantage.Service.ServiceTransaction
             dt.Columns.Add("QuoationNo");
         }
 
-        private bool pMsCreateRecord()
+        private void pMsCreateRecord(UserSpecificData objumst)
         {
             ADTWebService wsoj = new ADTWebService();
             QuotationTrans qutTrans = new QuotationTrans();
-            bool success = false;
+            CustomMaster objMst = new CustomMaster();
+
+           // bool success = false;
             qutTrans.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-            // qutTrans.pBrnCd= ViewState["pBrnCd"].ToString();
+           // qutTrans.pBrnCd= ViewState["pBrnCd"].ToString();
             qutTrans.pDocType = ERPSystemData.pDocType.QuotationNO.ToString();
             UIvalidations uiv = new UIvalidations();
-            UserSpecificData objumst = new UserSpecificData();
+           // UserSpecificData objumst = new UserSpecificData();
+          //  UserSpecificData objuMod = new UserSpecificData();
             objumst.pObjId = 28;
             objumst.pModType = ServiceMain.ModuleId;
-
-            if (uiv.CheckModuleAccess(objumst))
-            {
-                qutTrans.pBrnCd = objumst.pBrnCode;
-                qutTrans.pAmtPaid = "N";
-                qutTrans.pQuotStatus = "O";
-                wsoj.gMsGetQuotationNo(qutTrans);
-                wsoj.gMsCgMsCreateRecordQuotationMst(qutTrans);
-                txtQuotationNumber.Text = qutTrans.pQuotationNo;
+            qutTrans.pAmtPaid = "N";
+            qutTrans.pQuotStatus = "O";
+            qutTrans.pBrnCd = objumst.pBrnCode;
+            wsoj.gMsGetQuotationNo(qutTrans);
+               
+                txtQuotNo.Text = qutTrans.pQuotationNo;
+                qutTrans.pQuotationNo = txtQuotNo.Text;
+                qutTrans.pJobCategory = ddlJobcategory.SelectedValue;
+                qutTrans.pCustomerOrderNo=txtCustOrNo.Text;
+                objMst.pCustCode = txtCustNo.Text;
+                objMst.pCustPrefix = ddlPrefix.SelectedValue;
+                objMst.pCustName = txtCustName.Text;
+                objMst.pCustAdd = txtInvAddres.Text;
+                objMst.pCustServiceAddress = txtSerAddress.Text;
+                objMst.pCustArea = ddlAreaName.SelectedValue;
+                objMst.pCustPhone1 = txtTelPhone.Text;
+                objMst.pCustFax = txtFax.Text;
+                objMst.pCustCellNo = txtCell.Text;
+                objMst.pCustEmail = txtEmail.Text;
+                objMst.pCustVATNo = txtVatNo.Text;
+                objMst.pCustContactPerson_Invoice = txtContPerInv.Text;
+                objMst.pCustContactPerson_Technical = txtContPerSer.Text;
+                qutTrans.pQuotationRemarks = txtQuotRemarks.Text;
+                objMst.pUserId = objumst.pUserId;
+                
+              wsoj.gMsCgMsCreateRecordQuotationMst(objMst, qutTrans);
+              lblStates.Text = Resources.UIMessege.msgSaveOk;
+              lblStates.ForeColor = Color.Blue;
+             //return success;
+                      
             }
-            else
-            {
-                lblStates.Text = Resources.UIMessege.msgAdeni;
-                lblStates.ForeColor = Color.Red;
-            }
-            return success;
-        }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -599,20 +616,55 @@ namespace ERPAdvantage.Service.ServiceTransaction
             ADTWebService wsoj = new ADTWebService();
             QuotationTrans qutTrans = new QuotationTrans();
             // pMsCreateRecord();
+            UIvalidations uiv = new UIvalidations();
             UserSpecificData objumst = new UserSpecificData();
-            success = wsoj.gMsGetUserPermissioncheck(objumst);
-            if (success == true && objumst.pNew == "Y")
-            {
-                try
-                {
-                    pMsCreateRecord();
-                    qutTrans.dtQuotationDetails = (DataTable)ViewState["S_QUOTATIONDETAIL"];
-                    wsoj.gMsCreateRecordQuotation(qutTrans);
+            UserSpecificData objuMod = new UserSpecificData();
+            objuMod.pObjId = 4;
+            objuMod.pModType = ServiceMain.ModuleId;
 
-                }
-                catch (Exception)
+            if (uiv.CheckModuleAccess(objuMod))
+            {
+                objumst.pUserId = objuMod.pUserId;
+                objumst.pBrnCode = objuMod.pBrnCode;
+                objumst.pModType = objuMod.pModType;
+                objumst.pObjId = objuMod.pObjId;
+                success = wsoj.gMsGetUserPermissioncheck(objumst);
+                if (success == true && objumst.pNew == "Y")
                 {
-                    lblStates.Text = Resources.UIMessege.msgSaveError;
+                    try
+                    {
+                           if (txtQuotNo.Text !=string.Empty)
+                            {
+                              if (btnSave.Text == ERPSystemData.Status.Update.ToString())
+                              {
+                               //  pMsCreateRecord(objumst);
+                              //  qutTrans.dtQuotationDetails = (DataTable)ViewState["S_QUOTATIONDETAIL"];
+                              //  wsoj.gMsCreateRecordQuotation(qutTrans);
+                                lblStates.Text = Resources.UIMessege.msgUpdateOk;
+                                lblStates.ForeColor = Color.Blue;
+                               }    
+                            }
+                         else
+                          if (btnSave.Text == ERPSystemData.Status.Save.ToString())
+                           {
+                            ///code here
+                            pMsCreateRecord(objumst);
+                            qutTrans.dtQuotationDetails = (DataTable)ViewState["S_QUOTATIONDETAIL"];
+                            wsoj.gMsCreateRecordQuotation(qutTrans);
+                            lblStates.Text = Resources.UIMessege.msgSaveOk;
+                            lblStates.ForeColor = Color.Blue;
+                            btnSave.Text = ERPSystemData.Status.Update.ToString();
+                            }
+                    }
+                    catch (Exception)
+                    {
+                        lblStates.Text = Resources.UIMessege.msgSaveError;
+                        lblStates.ForeColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    lblStates.Text = Resources.UIMessege.msgAdeni;
                     lblStates.ForeColor = Color.Red;
                 }
             }
@@ -622,6 +674,8 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 lblStates.ForeColor = Color.Red;
             }
         }
+
+     
 
 
     }

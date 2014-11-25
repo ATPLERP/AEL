@@ -82,7 +82,6 @@ E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dl
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
-E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Advantage.ERP.DAL.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
@@ -110,3 +109,4 @@ E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.dll
 E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
+E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

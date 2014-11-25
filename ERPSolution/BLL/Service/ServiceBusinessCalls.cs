@@ -494,10 +494,10 @@ namespace Advantage.ERP.BLL
 
      }
 
-     public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
      {
          ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
-         obj.gMsCgMsCreateRecordQuotationMst(qutTrans);
+         obj.gMsCgMsCreateRecordQuotationMst(objMst, qutTrans);
      }
     #endregion
 

@@ -575,7 +575,7 @@ namespace Advantage.ERP.DAL
             }
 
         }
-        public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst)
+        public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
         {
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
@@ -583,10 +583,12 @@ namespace Advantage.ERP.DAL
             string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
             DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
             db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, objMst.pOrgCode);
-            db.AddInParameter(dbCommand, "@pBrcode", DbType.String, objMst);
-            db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, objMst.pCustName);
-            db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, objMst.pCustAdd);
-            db.AddInParameter(dbCommand, "@pCustomerOrderNo", DbType.String, objMst.);
+
+            db.AddInParameter(dbCommand, "@pBrcode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, qutTrans.pQuotationNo);
+            db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, qutTrans.pJobCategory);
+            db.AddInParameter(dbCommand, "@pCustomerOrderNo", DbType.String, qutTrans.pCustomerOrderNo);
+
             db.AddInParameter(dbCommand, "@pCustomerCode", DbType.String, objMst.pCustCode);
             db.AddInParameter(dbCommand, "@pname_prefix", DbType.String, objMst.pCustPrefix);
             db.AddInParameter(dbCommand, "@pFname", DbType.String, objMst.pCustName);
@@ -594,16 +596,17 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@pServiceAddress", DbType.String, objMst.pCustServiceAddress);
             db.AddInParameter(dbCommand, "@pAreaName", DbType.String, objMst.pCustArea);
             db.AddInParameter(dbCommand, "@pTel1", DbType.Double, objMst.pCustPhone1);
-            db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.);
-            db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pVATApplicable);
-            db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustCreditGiven);
-            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustCategory);
-            db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Technical);
-            db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_PhoneNo3);
-            db.AddInParameter(dbCommand, "@pQuotationRemark", DbType.String, objMst.pCustContactPerson_Invoice);
-            db.AddInParameter(dbCommand, "@pQuotStatus", DbType.String, objMst.pCustContactPerson_PhoneNo4);
-            db.AddInParameter(dbCommand, "@pAmtPaid", DbType.String, objMst.pCustContactPerson_Invoice);
-            db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pCustContactPerson_PhoneNo4);
+            db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.pCustFax);
+            db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pCustCellNo);
+            db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustEmail);
+
+            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustVATNo );
+            db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Invoice);
+            db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_Technical);
+            db.AddInParameter(dbCommand, "@pQuotationRemark", DbType.String, qutTrans.pQuotationRemarks);
+            db.AddInParameter(dbCommand, "@pQuotStatus", DbType.String, qutTrans.pQuotStatus);
+            db.AddInParameter(dbCommand, "@pAmtPaid", DbType.String, qutTrans.pAmtPaid);
+            db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pUserId);
 
             db.ExecuteNonQuery(dbCommand);
         }
