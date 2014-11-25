@@ -374,6 +374,12 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objbscall.gMsGetVisitngRequestList(objvr);
 
     }
+    [WebMethod]
+    public SqlDataReader gMsGetVisitingHeaderDataByNo(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsGetVisitingHeaderDataByNo(objvr);
+    }
 
     #endregion VisitingRequest
 

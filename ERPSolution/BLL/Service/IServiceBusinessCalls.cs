@@ -49,6 +49,7 @@ namespace Advantage.ERP.BLL
         bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
         bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
         bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
+        SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr);
 
         #endregion VRTransaction
 

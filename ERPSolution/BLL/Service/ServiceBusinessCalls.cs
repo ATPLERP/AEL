@@ -641,6 +641,7 @@ namespace Advantage.ERP.BLL
          ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
          return objdbcall.gMsCreateVisitingRequestDetail(objvr);
      }
+
      public bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr)
      {
          ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
@@ -653,10 +654,14 @@ namespace Advantage.ERP.BLL
          return objdbcall.gMsGetVisitngRequestList(objvr);
      }
 
-     #endregion VisitingRequest
+     
+     public SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceDatabaseCalls objdbcall=new ServiceDatabaseCalls();
+        return objdbcall.gMsGetVisitingHeaderDataByNo(objvr);
+    }
 
-
-
+    #endregion VisitingRequest
 
 
     }

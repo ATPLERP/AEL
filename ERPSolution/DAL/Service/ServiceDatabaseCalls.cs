@@ -857,12 +857,12 @@ namespace Advantage.ERP.DAL
                
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 return false;
                 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -897,12 +897,12 @@ namespace Advantage.ERP.DAL
                     return false;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 return false;
 
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return false;
             }
@@ -926,11 +926,11 @@ namespace Advantage.ERP.DAL
                     return false;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -953,6 +953,18 @@ namespace Advantage.ERP.DAL
             DataSet ds = null;
             return ds = db.ExecuteDataSet(dbcommand);
 
+        }
+
+        public SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetVisitingReqDataByNo";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@Orgcode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@Brncode", DbType.String, objvr.pBrncode);
+            db.AddInParameter(dbcommand, "@VisitNo", DbType.String, objvr.pVisitReqno);
+            IDataReader idr=  db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
         }
 
         #endregion VisitingRequest

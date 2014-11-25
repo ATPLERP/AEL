@@ -51,6 +51,8 @@ namespace Advantage.ERP.DAL
            bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
          bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
          DataSet gMsGetVisitngRequestList(DAL.DataContract.Service.VisitingReq objvr);
+         SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr);
+
 
         #endregion Vr Transaction
 

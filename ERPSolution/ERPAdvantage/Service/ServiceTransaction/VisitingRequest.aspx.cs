@@ -246,6 +246,39 @@ namespace ERPAdvantage.Service.ServiceTransaction
             gvquestions.DataSource = ds;
             gvquestions.DataBind();
         }
+
+        private void GetVisitingHeaderData(string VisitingNumber)
+        {
+            VisitingReq objvr = new VisitingReq();
+            ADTWebService ws = new ADTWebService();
+            objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objvr.pBrncode = Session["LoggedBranch"].ToString();
+            objvr.pVisitReqno = VisitingNumber;
+            SqlDataReader sdr=ws.gMsGetVisitingHeaderDataByNo(objvr);
+            while (sdr.Read())
+            {
+                txtvisitingdate.Text = sdr["VisitRequestDate"].ToString();
+                ddlcategory.SelectedValue = sdr["JobCategory"].ToString();
+                txtcomplain.Text = sdr["CustomerComplaint"].ToString();
+                txtcustomercode.Text = sdr["CustomerCode"].ToString();
+                ddlprefix.SelectedItem.Text = sdr["CustomerPrefix"].ToString();
+                txtcustomername.Text = sdr["CustomerName"].ToString();
+                txtinvoiceaddress.Text = sdr["CustomerAddressInvoce"].ToString();
+                txtserviceaddress.Text = sdr["CustomerAddressService"].ToString();
+                ddlarea.SelectedItem.Text= sdr["CustomerArea"].ToString();
+                txtphoneno.Text = sdr["CustomerPhoneNo"].ToString();
+                txtfaxno.Text = sdr["CustomerFaxNo"].ToString();
+                txtmobileno.Text = sdr["CustomerCell"].ToString();
+                txtemail.Text = sdr["CustomerEmail"].ToString();
+                txtvatno.Text = sdr["CustomerVATNo"].ToString();
+                txtcontactperinvoice.Text = sdr["ContactPersonInvoice"].ToString();
+                txtcontactperservice.Text = sdr["ContactPersonTechnician"].ToString();
+                txtinstruction.Text = sdr["InstructionToTechnician"].ToString();
+                txtreqdate.Text = sdr["CustomerRequestDate"].ToString();
+                
+
+            }
+        }
         
 #endregion form Methods
 
@@ -521,22 +554,21 @@ namespace ERPAdvantage.Service.ServiceTransaction
             
         }
 
-#endregion Form events
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-                      
+
             ADTWebService ws = new ADTWebService();
-            VisitingReq objvr=new VisitingReq();
+            VisitingReq objvr = new VisitingReq();
             objvr.pOrgcode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-            objvr.pBrncode=Session["LoggedBranch"].ToString();
-            objvr.pVisitReqno=txtsearbyno.Text.Trim();
-            objvr.pCustomerName=txtsearchbyname.Text.Trim();
-            objvr.pVisitReqdate =Convert.ToDateTime(txtfromdate.Text);
+            objvr.pBrncode = Session["LoggedBranch"].ToString();
+            objvr.pVisitReqno = txtsearbyno.Text.Trim();
+            objvr.pCustomerName = txtsearchbyname.Text.Trim();
+            objvr.pVisitReqdate = Convert.ToDateTime(txtfromdate.Text);
             objvr.pVisitReqdateTo = Convert.ToDateTime(txttodate.Text);
             objvr.pVisitReqStatus = "C";
             DataSet ds = null;
-            ds=ws.gMsGetVisitngRequestList(objvr);
+            ds = ws.gMsGetVisitngRequestList(objvr);
             dgridvrlist.DataSource = ds;
             dgridvrlist.DataBind();
         }
@@ -544,6 +576,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
         protected void dgridvrlist_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtvisitingno.Text = dgridvrlist.SelectedRow.Cells[1].Text;
+            GetVisitingHeaderData(txtvisitingno.Text.Trim());
+            panelvistitinglist.Visible = false;
         }
+
+#endregion Form events
+
     }
 }
