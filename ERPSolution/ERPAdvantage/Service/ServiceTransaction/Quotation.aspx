@@ -163,10 +163,6 @@
              width: 134%;
              height: 3px;
          }
-         .auto-style60
-         {
-             width: 42px;
-         }
          .auto-style61
          {
              height: 9px;
@@ -254,15 +250,6 @@
              height: 9px;
              width: 83px;
          }
-         .auto-style104
-         {
-             width: 36px;
-             height: 8px;
-         }
-         .auto-style105
-         {
-             height: 8px;
-         }
          .auto-style106
          {
              width: 57px;
@@ -326,7 +313,7 @@
             </td>
             <td class="auto-style6">
                 <asp:TextBox ID="txtQuotNo" CssClass="textbox" runat="server" AutoPostBack="true"></asp:TextBox>
-                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px" />
+                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
                 <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
                 <div>
              <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">
@@ -515,7 +502,7 @@
                         <td class="auto-style11">
                             <asp:TextBox ID="txtTelPhone" runat="server"  CssClass="textbox"  MaxLength="10" Width="106px"></asp:TextBox>
                             <asp:Label ID="Label17" runat="server" Text="Fax"></asp:Label>
-                            <asp:TextBox ID="txtFax" runat="server"  CssClass="textbox" MaxLength="10" Width="104px"></asp:TextBox>
+                            <asp:TextBox ID="txtFax" runat="server"  CssClass="textbox" MaxLength="10" Width="104px" Height="22px"></asp:TextBox>
                             <asp:Label ID="Label18" runat="server" Text="Cellular"></asp:Label>
                             <asp:TextBox ID="txtCell" runat="server"  CssClass="textbox" MaxLength="10" Width="86px"></asp:TextBox>
                         </td>
@@ -731,14 +718,12 @@
                 <td class="auto-style111">
                     <asp:TextBox ID="txtTotal" runat="server" CssClass="textbox" Height="16px" Width="58px"></asp:TextBox>
                 </td>
-<<<<<<< HEAD
+
                 <td class="auto-style55">
-                    <asp:Button ID="cmdAddList" runat="server" CssClass="textbox" Text="Add" Height="22px" Width="49px" OnClick="cmdAddList_Click" />
-=======
-                <td class="auto-style111">
+                    &nbsp;<td class="auto-style111">
                     <%--<asp:Label ID="lblPricecheck" runat="server" CssClass="textbox"></asp:Label>--%>
                     <asp:Button ID="btnAddList" runat="server" CssClass="textbox" Height="21px" OnClick="btnAddList_Click" Text="Add" Width="33px" />
->>>>>>> 365728548f85b98eed055ffae9c5e728a8240c31
+
                 </td>
             </tr>
            </table>
@@ -778,7 +763,9 @@
                                      <asp:BoundField HeaderText="X" />
                                      <asp:BoundField HeaderText="Stock" />
                                      <asp:BoundField DataField="NBTPer" HeaderText="NBT Per" />
-                                     <asp:BoundField  DataField="NBTAmt" HeaderText="NBT Amount" />
+                                     <asp:BoundField DataField="NBTAmt" HeaderText="NBT Amount" />
+                                     <asp:BoundField DataField="QuoationNo" HeaderText="Quoation No" />
+                                     
                                  </Columns>
                                  <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                  <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />

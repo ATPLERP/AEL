@@ -425,6 +425,7 @@ namespace Advantage.ERP.DAL
             myDataSet = db.ExecuteDataSet(dbCommand);
             //  Note: connection was closed by ExecuteDataSet method call 
             return myDataSet.Tables[0];
+            
         }
 
         public DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans)
@@ -446,7 +447,7 @@ namespace Advantage.ERP.DAL
             da.SelectCommand = dbCommand;
             DataSet ds = new DataSet();
            // da.Fill(ds, 0, 20, "table");
-             da.Fill(ds);
+            da.Fill(ds);
             return ds.Tables[0];
         }
 
@@ -540,8 +541,76 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@vCurrentDate", DbType.DateTime,DateTime.Now);
             IDataReader iDR = db.ExecuteReader(dbCommand);
             return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
-        }
 
+        }
+        public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+     
+            Database db = DatabaseFactory.CreateDatabase();
+            using (DbConnection connection = db.CreateConnection())
+            {
+                connection.Open();
+                //blah blah
+                //we use SqlBulkCopy that is not in the Microsoft Data Access Layer Block.
+                using (SqlBulkCopy copy = new SqlBulkCopy((SqlConnection)connection, SqlBulkCopyOptions.Default, null))
+                {
+                    DataTable dtQutation = (DataTable)qutTrans.dtQuotationDetails;
+                    //assigning Destination table name
+                    copy.DestinationTableName = "S_QUOTATIONDETAIL";
+                    //Mapping Table column   
+                    copy.ColumnMappings.Add("QuoationNo", "QuoationNo");
+                    copy.ColumnMappings.Add("ItemCode", "ItemCode");
+                    copy.ColumnMappings.Add("Quantity", "Quantity");
+                    copy.ColumnMappings.Add("Price", "Price");
+                    copy.ColumnMappings.Add("DiscountAmt", "DiscountAmt");
+                    copy.ColumnMappings.Add("VATPer", "VATPer");
+                    copy.ColumnMappings.Add("ItemModal", "ItemModal");
+                    copy.ColumnMappings.Add("ItemSerialNo", "ItemSerialNo");
+                    copy.ColumnMappings.Add("ItemCapacity", "ItemCapacity");
+                    copy.ColumnMappings.Add("NBTPer", "NBTPer");
+                    copy.ColumnMappings.Add("NBTAmt", "NBTAmt");
+                    //inserting bulk Records into DataBase    
+                    copy.WriteToServer(dtQutation);
+                     
+                }
+            }
+
+        }
+        public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, objMst.pOrgCode);
+
+            db.AddInParameter(dbCommand, "@pBrcode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, qutTrans.pQuotationNo);
+            db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, qutTrans.pJobCategory);
+            db.AddInParameter(dbCommand, "@pCustomerOrderNo", DbType.String, qutTrans.pCustomerOrderNo);
+
+            db.AddInParameter(dbCommand, "@pCustomerCode", DbType.String, objMst.pCustCode);
+            db.AddInParameter(dbCommand, "@pname_prefix", DbType.String, objMst.pCustPrefix);
+            db.AddInParameter(dbCommand, "@pFname", DbType.String, objMst.pCustName);
+            db.AddInParameter(dbCommand, "@pInvoiceAddress", DbType.String, objMst.pCustAdd);
+            db.AddInParameter(dbCommand, "@pServiceAddress", DbType.String, objMst.pCustServiceAddress);
+            db.AddInParameter(dbCommand, "@pAreaName", DbType.String, objMst.pCustArea);
+            db.AddInParameter(dbCommand, "@pTel1", DbType.Double, objMst.pCustPhone1);
+            db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.pCustFax);
+            db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pCustCellNo);
+            db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustEmail);
+
+            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustVATNo );
+            db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Invoice);
+            db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_Technical);
+            db.AddInParameter(dbCommand, "@pQuotationRemark", DbType.String, qutTrans.pQuotationRemarks);
+            db.AddInParameter(dbCommand, "@pQuotStatus", DbType.String, qutTrans.pQuotStatus);
+            db.AddInParameter(dbCommand, "@pAmtPaid", DbType.String, qutTrans.pAmtPaid);
+            db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pUserId);
+
+            db.ExecuteNonQuery(dbCommand);
+        }
    #endregion
 
         #region VisitingRequest
