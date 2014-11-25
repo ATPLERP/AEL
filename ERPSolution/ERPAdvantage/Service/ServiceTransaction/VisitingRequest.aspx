@@ -249,9 +249,9 @@
 
             <asp:Panel runat="server" ID="panelvistitinglist" Height="200px" Width ="673px" style="overflow:auto"  Visible="False">
                     <asp:Label runat="server" Text="Visiting No" />
-                    <asp:TextBox runat="server" ID="txtsearbyno" >%</asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtsearbyno" ></asp:TextBox>
                     <asp:Label runat="server" Text="Customer Name" />
-                    <asp:TextBox runat="server" ID="txtsearchbyname" >%</asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtsearchbyname" ></asp:TextBox>
                     <br />
                     <br/>
                     <asp:Label runat="server" Text="From" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -264,10 +264,10 @@
                     <asp:Button runat="server" ID="cmdgettocal" Text="..." />
                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txttodate" PopupButtonID="cmdgettocal" PopupPosition="BottomRight" Enabled="True"></asp:CalendarExtender>
                     &nbsp;
-                    <asp:Button ID="btnsearch" runat="server" Text="Search" />
+                    <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" />
                     <br />
                     <br />
-                    <asp:GridView runat="server" ID="dgridvrlist" Width="419px" Font-Size="X-Small" />
+                    <asp:GridView runat="server" ID="dgridvrlist" Width="649px" Font-Size="Small" AutoGenerateSelectButton="True" OnSelectedIndexChanged="dgridvrlist_SelectedIndexChanged" />
                                                           
                                  
                     
@@ -813,9 +813,6 @@
     </ContentTemplate>
 
     </asp:UpdatePanel>
-
-    <br />
-    <br />
 
     <table >
         <tr>

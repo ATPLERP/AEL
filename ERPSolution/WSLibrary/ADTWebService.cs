@@ -337,6 +337,28 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         return objbscall.gMsCreateVisitingRequestMaster(objvr);
     }
 
+    [WebMethod]
+    public bool gMsCreateVisitingRequestDetail(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsCreateVisitingRequestDetail(objvr);
+    }
+
+    [WebMethod]
+    public bool gMsCreateVisitingRequestQuestions(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsCreateVisitingRequestQuestions(objvr);
+    }
+
+    [WebMethod]
+    public DataSet gMsGetVisitngRequestList(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsGetVisitngRequestList(objvr);
+
+    }
+
     #endregion VisitingRequest
 
 

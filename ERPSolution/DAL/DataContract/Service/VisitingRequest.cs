@@ -12,6 +12,7 @@ using System.Text;
         public string pBrncode {get; set;}
         public string pVisitReqno {get; set;}
         public DateTime pVisitReqdate{get; set; }
+        public DateTime pVisitReqdateTo { get; set; }
         public string pJobcat { get; set; }
         public string pCompTakenby { get; set; }
         public string pComplainDesc { get; set; }
@@ -45,7 +46,7 @@ using System.Text;
         public string pSiteContactMobno { get; set; }
         public string Priority { get; set; }
         public int pItemCode { get; set; }
-        public int pItemModel { get; set; }
+        public string pItemModel { get; set; }
         public string pItemSerial { get; set; }
         public string pWarrantyNo { get; set; }
         public DateTime pWarrantyStartDate { get; set; }
@@ -56,5 +57,8 @@ using System.Text;
         public int pQty { get; set; }
         public string pJobCategory { get; set; }
         public string pJobPriority { get; set; }
+        public DateTime pPurchdate { get; set; }
+        public int pQid { get; set; }
+
     }
 }
