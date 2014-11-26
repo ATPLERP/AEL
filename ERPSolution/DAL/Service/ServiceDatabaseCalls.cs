@@ -958,13 +958,37 @@ namespace Advantage.ERP.DAL
         public SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr)
         {
             Database db = DatabaseFactory.CreateDatabase();
-            string sqlcommand = "GetVisitingReqDataByNo";
+            string sqlcommand = "GetVisitingReqHeaderDataByNo";
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
             db.AddInParameter(dbcommand, "@Orgcode", DbType.String, objvr.pOrgcode);
             db.AddInParameter(dbcommand, "@Brncode", DbType.String, objvr.pBrncode);
             db.AddInParameter(dbcommand, "@VisitNo", DbType.String, objvr.pVisitReqno);
             IDataReader idr=  db.ExecuteReader(dbcommand);
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+        }
+
+        public DataSet gMsGetVisitingItemDataByNo(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetVisitingReqItemDataByNo";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@Orgcode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@Brncode", DbType.String, objvr.pBrncode);
+            db.AddInParameter(dbcommand, "@VisitNo", DbType.String, objvr.pVisitReqno);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+            
+        }
+
+        public DataSet gMsgGetVisitinRegQuestions(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetVisitingRegQuestions";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@DocumentNo", DbType.String, objvr.pVisitReqno);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+
         }
 
         #endregion VisitingRequest

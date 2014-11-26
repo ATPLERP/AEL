@@ -661,6 +661,18 @@ namespace Advantage.ERP.BLL
         return objdbcall.gMsGetVisitingHeaderDataByNo(objvr);
     }
 
+     public DataSet gMsGetVisitingItemDataByNo(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetVisitingItemDataByNo(objvr);
+     }
+
+     public DataSet gMsgGetVisitinRegQuestions(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsgGetVisitinRegQuestions(objvr);
+     }
+
     #endregion VisitingRequest
 
 

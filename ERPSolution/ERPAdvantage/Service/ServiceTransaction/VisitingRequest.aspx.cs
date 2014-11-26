@@ -247,7 +247,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             gvquestions.DataBind();
         }
 
-        private void GetVisitingHeaderData(string VisitingNumber)
+        private void GetVisitingRequestData(string VisitingNumber)
         {
             VisitingReq objvr = new VisitingReq();
             ADTWebService ws = new ADTWebService();
@@ -275,7 +275,22 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 txtcontactperservice.Text = sdr["ContactPersonTechnician"].ToString();
                 txtinstruction.Text = sdr["InstructionToTechnician"].ToString();
                 txtreqdate.Text = sdr["CustomerRequestDate"].ToString();
-                
+                txtdepratment.Text = sdr["Department"].ToString();
+
+                DataSet ds = null;
+                ds=ws.gMsGetVisitingItemDataByNo(objvr);
+                gvaddeditemdata.DataSource = ds;
+                gvaddeditemdata.DataBind();                              
+                ds=ws.gMsgGetVisitinRegQuestions(objvr);              
+                gvquestions.DataSource = ds;
+                gvquestions.DataBind();
+                foreach (GridViewRow gr in gvquestions.Rows)
+                {
+                    CheckBox chk = (CheckBox)(gr.FindControl("chkselect"));
+                    chk.Checked = true;
+                }
+
+
 
             }
         }
@@ -576,8 +591,9 @@ namespace ERPAdvantage.Service.ServiceTransaction
         protected void dgridvrlist_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtvisitingno.Text = dgridvrlist.SelectedRow.Cells[1].Text;
-            GetVisitingHeaderData(txtvisitingno.Text.Trim());
+            GetVisitingRequestData(txtvisitingno.Text.Trim());
             panelvistitinglist.Visible = false;
+
         }
 
 #endregion Form events

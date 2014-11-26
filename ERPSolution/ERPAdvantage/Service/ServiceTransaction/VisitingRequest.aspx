@@ -231,7 +231,7 @@
 
 
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="900" Width="900px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="2" Height="900" Width="900px">
 
     
 
@@ -779,7 +779,7 @@
                 <br/>
 
                 <asp:Panel runat="server" ID="panelquestions" Height="220px" Width="700px" style="overflow:auto">
-                    <asp:GridView runat="server" ID="gvquestions" AutoGenerateColumns="False" Width="682px" Height="200px" Font-Size="X-Small" >
+                    <asp:GridView runat="server" ID="gvquestions" AutoGenerateColumns="False" Width="682px" Height="117px" Font-Size="X-Small" >
                                         
 
 
