@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.Common;
+using System.Web;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
@@ -424,6 +425,7 @@ namespace Advantage.ERP.DAL
             myDataSet = db.ExecuteDataSet(dbCommand);
             //  Note: connection was closed by ExecuteDataSet method call 
             return myDataSet.Tables[0];
+            
         }
 
         public DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans)
@@ -445,7 +447,7 @@ namespace Advantage.ERP.DAL
             da.SelectCommand = dbCommand;
             DataSet ds = new DataSet();
            // da.Fill(ds, 0, 20, "table");
-             da.Fill(ds);
+            da.Fill(ds);
             return ds.Tables[0];
         }
 
@@ -466,6 +468,149 @@ namespace Advantage.ERP.DAL
 
         }
 
+        public SqlDataReader gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsOrgItemList";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pItemName", DbType.String, qutTrans.pItemName);
+            db.AddInParameter(dbCommand, "@pMajorCode", DbType.String, qutTrans.pMajorCode);
+            db.AddInParameter(dbCommand, "@pAppCode", DbType.String, qutTrans.pAppCode);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+
+        public SqlDataReader gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsGetStockCode";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@pBranchCode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pGroupType", DbType.String, qutTrans.pGroupType);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+        public SqlDataReader gMsGetStockPrice(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsGetStockPrice";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            //Retrieve daata
+            db.AddInParameter(dbCommand, "@pStockCode", DbType.String, qutTrans.pStockCode);
+            db.AddInParameter(dbCommand, "@pPriceType", DbType.String, qutTrans.pPriceType);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            // Note: connection was closed by ExecuteDataSet method call 
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+        public SqlDataReader gMsGetTaxPercentage(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+           Database db = DatabaseFactory.CreateDatabase();
+           string sqlCommand = "gMsGetTaxPercentage";
+           DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+           db.AddInParameter(dbCommand, "@pTax", DbType.String, qutTrans.pTax);
+           //db.AddInParameter(dbCommand, "@pDate", DbType.String, qutTrans.pDate);
+           IDataReader iDR = db.ExecuteReader(dbCommand);
+           return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+        }
+        public SqlDataReader gMsGetQuotationNo(DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "getQuotationNo";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@vOrgCode", DbType.String, qutTrans.pOrgCode);
+            db.AddInParameter(dbCommand, "@vBranchCode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@vDocType", DbType.String, qutTrans.pDocType);
+            db.AddInParameter(dbCommand, "@vCurrentDate", DbType.DateTime,DateTime.Now);
+            IDataReader iDR = db.ExecuteReader(dbCommand);
+            return (SqlDataReader)((RefCountingDataReader)iDR).InnerReader;
+
+        }
+        public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+     
+            Database db = DatabaseFactory.CreateDatabase();
+            using (DbConnection connection = db.CreateConnection())
+            {
+                connection.Open();
+                //blah blah
+                //we use SqlBulkCopy that is not in the Microsoft Data Access Layer Block.
+                using (SqlBulkCopy copy = new SqlBulkCopy((SqlConnection)connection, SqlBulkCopyOptions.Default, null))
+                {
+                    DataTable dtQutation = (DataTable)qutTrans.dtQuotationDetails;
+                    //assigning Destination table name
+                    copy.DestinationTableName = "S_QUOTATIONDETAIL";
+                    //Mapping Table column   
+                    copy.ColumnMappings.Add("QuoationNo", "QuoationNo");
+                    copy.ColumnMappings.Add("ItemCode", "ItemCode");
+                    copy.ColumnMappings.Add("Quantity", "Quantity");
+                    copy.ColumnMappings.Add("Price", "Price");
+                    copy.ColumnMappings.Add("DiscountAmt", "DiscountAmt");
+                    copy.ColumnMappings.Add("VATPer", "VATPer");
+                    copy.ColumnMappings.Add("ItemModal", "ItemModal");
+                    copy.ColumnMappings.Add("ItemSerialNo", "ItemSerialNo");
+                    copy.ColumnMappings.Add("ItemCapacity", "ItemCapacity");
+                    copy.ColumnMappings.Add("NBTPer", "NBTPer");
+                    copy.ColumnMappings.Add("NBTAmt", "NBTAmt");
+                    //inserting bulk Records into DataBase    
+                    copy.WriteToServer(dtQutation);
+                     
+                }
+            }
+
+        }
+        public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+        {
+            // Create the Database object, using the default database service. The
+            // default database service is determined through configuration.
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
+            DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, objMst.pOrgCode);
+
+            db.AddInParameter(dbCommand, "@pBrcode", DbType.String, qutTrans.pBrnCd);
+            db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, qutTrans.pQuotationNo);
+            db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, qutTrans.pJobCategory);
+            db.AddInParameter(dbCommand, "@pCustomerOrderNo", DbType.String, qutTrans.pCustomerOrderNo);
+
+            db.AddInParameter(dbCommand, "@pCustomerCode", DbType.String, objMst.pCustCode);
+            db.AddInParameter(dbCommand, "@pname_prefix", DbType.String, objMst.pCustPrefix);
+            db.AddInParameter(dbCommand, "@pFname", DbType.String, objMst.pCustName);
+            db.AddInParameter(dbCommand, "@pInvoiceAddress", DbType.String, objMst.pCustAdd);
+            db.AddInParameter(dbCommand, "@pServiceAddress", DbType.String, objMst.pCustServiceAddress);
+            db.AddInParameter(dbCommand, "@pAreaName", DbType.String, objMst.pCustArea);
+            db.AddInParameter(dbCommand, "@pTel1", DbType.Double, objMst.pCustPhone1);
+            db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.pCustFax);
+            db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pCustCellNo);
+            db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustEmail);
+
+            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustVATNo );
+            db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Invoice);
+            db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_Technical);
+            db.AddInParameter(dbCommand, "@pQuotationRemark", DbType.String, qutTrans.pQuotationRemarks);
+            db.AddInParameter(dbCommand, "@pQuotStatus", DbType.String, qutTrans.pQuotStatus);
+            db.AddInParameter(dbCommand, "@pAmtPaid", DbType.String, qutTrans.pAmtPaid);
+            db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pUserId);
+
+            db.ExecuteNonQuery(dbCommand);
+        }
    #endregion
 
         #region VisitingRequest
@@ -480,7 +625,7 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbcommand, "@pDomType", DbType.String, objvr.pJobCategory);
             IDataReader idr = db.ExecuteReader(dbcommand);
             return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
-
+            
 
         }
 
@@ -587,10 +732,227 @@ namespace Advantage.ERP.DAL
         public SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem)
         {
             Database db = DatabaseFactory.CreateDatabase();
-            string sqlcommand = "GetItemData";
+            string sqlcommand = "GetItemDataByStockCode";
             DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
-            //db.AddInParameter(dbcommand,"" ,DbType.String,objitem.p
-            return null;
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+        }
+
+        public DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "SearchItemData";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@OrgCode", DbType.String, objitem.pOrgCode);
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            db.AddInParameter(dbcommand, "@ItemDesc", DbType.String, objitem.pItemDescription);
+            db.AddInParameter(dbcommand, "@MajorGroup", DbType.String, objitem.pMajorGroup);
+            db.AddInParameter(dbcommand, "@Appliance", DbType.String, objitem.pAppliance);
+            DataSet ds =null;
+            return ds=db.ExecuteDataSet(dbcommand);
+        }
+
+        public SqlDataReader gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetModelDataByAppliance";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@AppCode", DbType.String, objitem.pAppliance);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+
+        }
+
+        public SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+        {
+            Database db=DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetApplianceCategory";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@StockCode", DbType.String, objitem.pStockCode);
+            IDataReader idr = db.ExecuteReader(dbcommand);
+            return (SqlDataReader)((RefCountingDataReader)idr).InnerReader;
+
+        }
+
+        public DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objque)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetQuestionList";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@AppCategory", DbType.String, objque.pAppCategory);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+            
+        }
+
+        public string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            string Vrnum="";
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "GetDocumentSerialNo";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@vOrgCode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@vBranchCode", DbType.String, objvr.pBrncode);
+            db.AddInParameter(dbcommand, "@vDocType", DbType.String, "CUSTOMER_VISIT");
+            db.AddInParameter(dbcommand, "@vCurrentDate", DbType.String,DateTime.Now);
+            db.AddOutParameter(dbcommand, "@vDocnumber", DbType.String, 20);
+            db.ExecuteScalar(dbcommand);
+            Vrnum = db.GetParameterValue(dbcommand, "@vDocnumber").ToString();            
+            return Vrnum;
+            
+        }
+
+
+        public bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "CreateVisitingRequest";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@pOrgCode", DbType.String, objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@pBranchCode", DbType.String,objvr.pBrncode);
+            db.AddInParameter(dbcommand, "@pVisitRequestNo", DbType.String, objvr.pVisitReqno);
+            db.AddInParameter(dbcommand, "@pVisitRequestDate", DbType.String, objvr.pVisitReqdate);
+            db.AddInParameter(dbcommand, "@pJobCategory", DbType.String, objvr.pJobCategory);
+            db.AddInParameter(dbcommand, "@pCustomerComplaint", DbType.String, objvr.pComplainDesc);
+            db.AddInParameter(dbcommand, "@pCustomerCode", DbType.String, objvr.pCustCode);
+            db.AddInParameter(dbcommand, "@pCustomerPrefix", DbType.String, objvr.pCustprefif);
+            db.AddInParameter(dbcommand, "@pCustomerName", DbType.String, objvr.pCustomerName);
+            db.AddInParameter(dbcommand, "@pCustomerAddressInvoce", DbType.String, objvr.pCustomerAddressInv);
+            db.AddInParameter(dbcommand, "@pCustomerAddressService", DbType.String, objvr.pCustomerAddressSer);
+            db.AddInParameter(dbcommand, "@pCustomerArea", DbType.String, objvr.pCustArea);
+            db.AddInParameter(dbcommand, "@pCustomerPhoneNo", DbType.String, objvr.pCustPhone);
+            db.AddInParameter(dbcommand, "@pCustomerFaxNo", DbType.String, objvr.pCustFax);
+            db.AddInParameter(dbcommand, "@pCustomerCell", DbType.String, objvr.pCustMobile);
+            db.AddInParameter(dbcommand, "@pCustomerEmail", DbType.String, objvr.pCustEmail);
+            db.AddInParameter(dbcommand, "@pCustomerVATNo", DbType.String, objvr.pCustVatno);
+            db.AddInParameter(dbcommand, "@pContactPersonInvoice", DbType.String, objvr.pContactInvoice);
+            db.AddInParameter(dbcommand, "@pContactPersonTechnician", DbType.String, objvr.pContactTech);
+            db.AddInParameter(dbcommand, "@pInstructionToTechnician", DbType.String, objvr.pInstructTech);
+            db.AddInParameter(dbcommand, "@pCustomerRequestDate", DbType.String, objvr.pCustReqdate);
+            db.AddInParameter(dbcommand, "@pVisitRequestStatus", DbType.String, objvr.pVisitReqStatus);
+            db.AddInParameter(dbcommand, "@pVistingItemCode", DbType.String, objvr.pVisitItemCode);
+            db.AddInParameter(dbcommand, "@pAmountPaidStatus", DbType.String, objvr.pPaidStatus);
+            db.AddInParameter(dbcommand, "@pCreatedBy", DbType.String, objvr.pCreatedBy);
+            db.AddInParameter(dbcommand, "@pCreateDate", DbType.String, objvr.pCreatedDate);
+            db.AddInParameter(dbcommand, "@pComplaintTakenBy", DbType.String, objvr.pCompTakenby);
+            db.AddInParameter(dbcommand, "@pDepartmentCode", DbType.String, objvr.pDepatment);
+            db.AddInParameter(dbcommand, "@pDepartmentName", DbType.String, objvr.pDepatName);
+            db.AddInParameter(dbcommand, "@pSiteContactPerson", DbType.String, objvr.pSiteContactPerson);
+            db.AddInParameter(dbcommand, "@pSiteContactPerTel", DbType.String, objvr.pSiteconatctTp);
+            db.AddInParameter(dbcommand, "@pSiteContactPerMobile", DbType.String, objvr.pSiteContactMobno);
+            db.AddInParameter(dbcommand, "@pPriority", DbType.String, objvr.Priority);
+
+            try
+            {
+                if (db.ExecuteNonQuery(dbcommand) >= 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+               
+
+            }
+            catch (SqlException ex)
+            {
+                return false;
+                
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+            
+
+        }
+
+
+        public bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "CreateVisitingReqDetail";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@pRequestVisitNo", DbType.String, objvr.pVisitReqno);
+            db.AddInParameter(dbcommand, "@pItemcode", DbType.Int32, objvr.pItemCode);
+            db.AddInParameter(dbcommand, "@pItemModel", DbType.String, objvr.pItemModel);
+            db.AddInParameter(dbcommand, "@pItemSerialNo", DbType.String, objvr.pItemSerial);
+            db.AddInParameter(dbcommand, "@pItemWarranty", DbType.String, objvr.pWarrantyNo);
+            db.AddInParameter(dbcommand, "@pItemType", DbType.String, objvr.pItemType);
+            db.AddInParameter(dbcommand, "@pItemCapacity", DbType.String, objvr.pItemCapacity);
+            db.AddInParameter(dbcommand, "@pQuantity", DbType.Int16, objvr.pQty);
+            db.AddInParameter(dbcommand, "@pPurchaseDate", DbType.DateTime, objvr.pCreatedDate);
+            try
+            {
+                if (db.ExecuteNonQuery(dbcommand) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                return false;
+
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sqlcommand = "CreateVisitReqQuestions";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@Docnumber", DbType.String, objvr.pVisitReqno);
+            db.AddInParameter(dbcommand, "@Qid", DbType.Int32, objvr.pQid);
+            try
+            {
+                if (db.ExecuteNonQuery(dbcommand) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            
+        }
+
+        public DataSet gMsGetVisitngRequestList(DAL.DataContract.Service.VisitingReq objvr)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            
+            string sqlcommand = "GetVisitingRequestList";
+            DbCommand dbcommand = db.GetStoredProcCommand(sqlcommand);
+            db.AddInParameter(dbcommand, "@Orgcode", DbType.String,objvr.pOrgcode);
+            db.AddInParameter(dbcommand, "@BranchCode", DbType.String, objvr.pBrncode);
+            db.AddInParameter(dbcommand, "@VisitReqNo", DbType.String, objvr.pVisitReqno);
+            db.AddInParameter(dbcommand, "@VrStatus", DbType.String, objvr.pVisitReqStatus);
+            db.AddInParameter(dbcommand, "@CustName", DbType.String, objvr.pCustomerName);
+            db.AddInParameter(dbcommand, "@VrFromDate", DbType.Date,objvr.pVisitReqdate);
+            db.AddInParameter(dbcommand, "@VrToDate", DbType.Date, objvr.pVisitReqdateTo);
+            DataSet ds = null;
+            return ds = db.ExecuteDataSet(dbcommand);
+
         }
 
         #endregion VisitingRequest

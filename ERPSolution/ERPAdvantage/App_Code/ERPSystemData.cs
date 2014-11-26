@@ -14,7 +14,7 @@ public class ERPSystemData
     //    // TODO: Add constructor logic here
     //    //
     //}
-    
+
     public enum COM_DOM_TYPE
     {
         CUSTOMER_CATEGORY,
@@ -36,7 +36,6 @@ public class ERPSystemData
         COSTING,
         STORE,
         ACCOUNTS
-
     }
     public enum Status
     {
@@ -46,4 +45,45 @@ public class ERPSystemData
         Update,
         Delete
     }
+
+    public enum lMajorGroup
+    {
+        S,// Service
+        I,//Inventory
+        A,//ALL TYPE
+        C,//ONLY COMPLETE UNIT
+        R,//Accessories
+        V,//SERVICE
+        T,//Tools
+        Y//Stationery
+    }
+    public enum GroupType
+    {
+        General
+    }
+    public enum PriceType
+    {
+        S,
+        W
+    }
+
+
+
+    public enum MajorGroupTypes
+    {
+        Service,
+        Inventory,
+        Tools,
+        Stationery,
+        Accessories
+
+    }
+
+
+    public enum pDocType
+    {
+      QuotationNO
+
+    }
+
 }

@@ -70,11 +70,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stock code not Found..
+        /// </summary>
+        internal static string msgCheckItemode {
+            get {
+                return ResourceManager.GetString("msgCheckItemode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item already selected..
+        /// </summary>
+        internal static string msgCheckItemSelected {
+            get {
+                return ResourceManager.GetString("msgCheckItemSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity should not be ZERO&quot;.
+        /// </summary>
+        internal static string msgCheckQuontity {
+            get {
+                return ResourceManager.GetString("msgCheckQuontity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock Code should not be Blank.
+        /// </summary>
+        internal static string msgCheckStockCode {
+            get {
+                return ResourceManager.GetString("msgCheckStockCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Amount should be greater than ZERO.
+        /// </summary>
+        internal static string msgCheckTotalQuontity {
+            get {
+                return ResourceManager.GetString("msgCheckTotalQuontity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please insert a valid Email address..
         /// </summary>
         internal static string msgIsValiedEmail {
             get {
                 return ResourceManager.GetString("msgIsValiedEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price should not be zero!.
+        /// </summary>
+        internal static string msgPriceCheck {
+            get {
+                return ResourceManager.GetString("msgPriceCheck", resourceCulture);
             }
         }
         

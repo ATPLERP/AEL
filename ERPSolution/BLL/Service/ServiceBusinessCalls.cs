@@ -383,7 +383,123 @@ namespace Advantage.ERP.BLL
             }
             return ds;
      }
-   #endregion
+
+     public DataTable gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr= obj.gMsOrgItemList(qutTrans); 
+        // DataTable dtSchema = dr.GetSchemaTable();
+         DataTable dt = new DataTable(); 
+         dt.Load(dr);
+         return dt;
+     }
+     public void gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetStockCode(qutTrans);
+         while (dr.Read())
+         {
+             if (!string.IsNullOrEmpty(dr.GetValue(0).ToString()))
+             {
+                 qutTrans.pItemCode = Convert.ToInt32(dr.GetValue(0).ToString());
+                 
+             }
+             else
+             {
+                 qutTrans.pItemCode = 0;
+             }
+             if (!string.IsNullOrEmpty(dr.GetValue(1).ToString()))
+             {
+                 qutTrans.pStockCode = dr.GetValue(1).ToString();
+             }
+             else
+             {
+                 qutTrans.pStockCode ="0";
+
+             }
+             if (!string.IsNullOrEmpty(dr.GetValue(2).ToString()))
+             {
+                 qutTrans.pItemName = dr.GetValue(2).ToString();
+             }
+             else
+             {
+                 qutTrans.pItemName = string.Empty;
+             }
+             if (!string.IsNullOrEmpty(dr.GetValue(5).ToString()))
+             {
+                 qutTrans.lVATPer = Convert.ToDouble(dr.GetValue(5).ToString());
+             }
+             else
+             {
+                 qutTrans.lVATPer = 0;
+             }
+         }
+
+     }
+
+  
+
+     public void gMsGetQuotationNo(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetQuotationNo(qutTrans);
+         while (dr.Read())
+         {
+             if (!string.IsNullOrEmpty(dr.GetValue(0).ToString()))
+             {
+              qutTrans.pQuotationNo = dr.GetValue(0).ToString();
+             }
+         }
+
+     }
+     public bool gMsGetStockPrice(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+
+     {
+         bool success = false; 
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetStockPrice(qutTrans);
+         while (dr.Read())
+         {
+             qutTrans.pItemCode = Convert.ToInt32(dr.GetValue(0).ToString());
+            // qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
+             if (!string.IsNullOrEmpty(dr.GetValue(1).ToString()))
+             {
+               qutTrans.pPrice = Convert.ToDouble(dr.GetValue(1).ToString());
+               success=true;
+             }
+             else
+             {
+                  qutTrans.pPrice= 0;
+                  success = false;  
+             }
+         }
+
+         return success;
+     }
+
+
+     public void gMsGetTaxPercentage(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         SqlDataReader dr = obj.gMsGetTaxPercentage(qutTrans);
+         while (dr.Read())
+         {qutTrans.lNBTPer = Convert.ToDouble(dr.GetValue(0).ToString());}
+     }
+
+     public void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         obj.gMsCreateRecordQuotation(qutTrans);
+
+     }
+
+     public void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans)
+     {
+         ServiceDatabaseCalls obj = new ServiceDatabaseCalls();
+         obj.gMsCgMsCreateRecordQuotationMst(objMst, qutTrans);
+     }
+    #endregion
 
      #region VisitingRequest
 
@@ -476,6 +592,65 @@ namespace Advantage.ERP.BLL
      {
          ServiceDatabaseCalls objsalldb = new ServiceDatabaseCalls();
          return objsalldb.gMsGetItemDataForVisitRequestBySTCode(objitem);
+     }
+
+     public DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbc = new ServiceDatabaseCalls();
+         return objsbc.gMsSerachItemDetailsForVisitingRequest(objitem);
+     }
+     public List<gDropdownlist> gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbc = new ServiceDatabaseCalls();
+         List<gDropdownlist> droplist=new List<gDropdownlist>();
+         SqlDataReader sdr= objsbc.gMsGetModelListByappliance(objitem);
+         while (sdr.Read())
+         {
+             gDropdownlist gdropitem = new gDropdownlist(sdr.GetString(0),sdr.GetString(1));
+             droplist.Add(gdropitem);
+         }
+         return droplist;
+     }
+
+     public SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem)
+     {
+         ServiceDatabaseCalls objsbcall = new ServiceDatabaseCalls();
+         return objsbcall.gMsGetApplianceCategoryForVisitingRequest(objitem);
+     }
+
+     public DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objque)
+     {
+         ServiceDatabaseCalls objsbcall = new ServiceDatabaseCalls();
+         return objsbcall.gMsGetQuestionListforVisitingRequest(objque);
+     }
+
+     public string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetVisitingRequestNo(objvr);
+     }
+
+     public bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsCreateVisitingRequestMaster(objvr);
+     }
+
+     public bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsCreateVisitingRequestDetail(objvr);
+     }
+     public bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsCreateVisitingRequestQuestions(objvr);
+     }
+
+     public DataSet gMsGetVisitngRequestList(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsGetVisitngRequestList(objvr);
      }
 
      #endregion VisitingRequest

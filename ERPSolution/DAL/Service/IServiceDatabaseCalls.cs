@@ -39,6 +39,21 @@ namespace Advantage.ERP.DAL
         DataSet gMsGetWarrantyForVisitingRequest(DAL.DataContract.Service.WarrantyMst objwarr);
         DataSet gMsGetItemDataForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
         SqlDataReader gMsGetItemDataForVisitRequestBySTCode(DAL.DataContract.Inventory.ItemMst objitem);
+        DataSet gMsSerachItemDetailsForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
+        SqlDataReader gMsGetModelListByappliance(DAL.DataContract.Inventory.ItemMst objitem);
+        SqlDataReader gMsGetApplianceCategoryForVisitingRequest(DAL.DataContract.Inventory.ItemMst objitem);
+        DataSet gMsGetQuestionListforVisitingRequest(DAL.DataContract.Service.QuestionMst objques);
+
+        #region Vr Transaction
+
+            string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr);
+            bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
+           bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
+         bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
+         DataSet gMsGetVisitngRequestList(DAL.DataContract.Service.VisitingReq objvr);
+
+        #endregion Vr Transaction
+
         #endregion VisitingRequest
 
        

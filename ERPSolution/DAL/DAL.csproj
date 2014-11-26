@@ -79,6 +79,7 @@
     <Compile Include="DataContract\Inventory\SupplierMaster.cs" />
     <Compile Include="DataContract\Inventory\TC_ORG_MST.cs" />
     <Compile Include="DataContract\Inventory\TI_STORE_MST.cs" />
+    <Compile Include="DataContract\Service\QuestionMaster.cs" />
     <Compile Include="Inventory\IInventoryDatabaseCalls.cs" />
     <Compile Include="Inventory\InventoryDatabaseCalls.cs" />
     <Compile Include="DataContract\Service\Appliancemst.cs" />

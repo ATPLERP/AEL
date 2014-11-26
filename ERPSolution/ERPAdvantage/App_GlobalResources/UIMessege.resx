@@ -123,6 +123,9 @@
   <data name="msgIsValiedEmail" xml:space="preserve">
     <value>Please insert a valid Email address.</value>
   </data>
+  <data name="msgPriceCheck" xml:space="preserve">
+    <value>Price should not be zero!</value>
+  </data>
   <data name="msgSaveError" xml:space="preserve">
     <value>Unable to save the data.</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="msgSelect" xml:space="preserve">
     <value>Please select the values.</value>
+  </data>
+  <data name="msgupdateerror" xml:space="preserve">
+    <value>Unable to Update Data</value>
   </data>
   <data name="msgUpdateOk" xml:space="preserve">
     <value>Successfully updated Data.</value>
@@ -141,7 +147,19 @@
   <data name="msgVPhoneno" xml:space="preserve">
     <value>Please enter a valid Phone no</value>
   </data>
-  <data name="msgupdateerror" xml:space="preserve">
-    <value>Unable to Update Data</value>
+  <data name="msgCheckItemode" xml:space="preserve">
+    <value>Stock code not Found.</value>
+  </data>
+  <data name="msgCheckItemSelected" xml:space="preserve">
+    <value>Item already selected.</value>
+  </data>
+  <data name="msgCheckQuontity" xml:space="preserve">
+    <value>Quantity should not be ZERO"</value>
+  </data>
+  <data name="msgCheckStockCode" xml:space="preserve">
+    <value>Stock Code should not be Blank</value>
+  </data>
+  <data name="msgCheckTotalQuontity" xml:space="preserve">
+    <value>Total Amount should be greater than ZERO</value>
   </data>
 </root>
