@@ -12,11 +12,13 @@ using System.Web.UI.HtmlControls;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.Text;
-//using System.String;
 using Microsoft.VisualBasic;
 using Advantage.ERP.DAL.DataContract;
 using Advantage.ERP.BLL;
 using ERPAdvantage;
+using Advantage.ERP.DAL.DataContract.Service;
+using Advantage.ERP.DAL.DataContract.Inventory;
+
 
 /// <summary>
 /// Summary description for UIvalidations

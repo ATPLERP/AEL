@@ -11,6 +11,8 @@ using System.Drawing;
 using Advantage.ERP.BLL;
 using System.Data;
 using System.Data.SqlClient;
+using Advantage.ERP.DAL.DataContract.Inventory;
+using Advantage.ERP.DAL.DataContract.Service;
 
 namespace ERPAdvantage.Service.ServiceTransaction
 {
@@ -28,7 +30,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             objvr.pJobCategory = ERPSystemData.COM_DOM_TYPE.JOB_CATEGORY.ToString();
             List<gDropdownlist> drplist = ws.gMsGetCategoryforVisitingReq(objvr);
             uic.FillDropdownList(ddlcategory, drplist, "COM_DOM_CODE", "COM_DOM_CODE");                     
-                                    
+                                   
             
         }
 
@@ -104,6 +106,22 @@ namespace ERPAdvantage.Service.ServiceTransaction
                                
             }
 
+        }
+
+
+        private void GetItemDataByStockCode(string Stockcode)
+        {
+            ADTWebService ws = new ADTWebService();
+            
+            ItemMst objitem = new ItemMst();
+            objitem.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
+            objitem.pStockCode = Stockcode;
+            SqlDataReader sdr=ws.gMsGetItemDataForVisitRequestBySTCode(objitem);
+            while (sdr.Read())
+            {
+                txtitemappliance.Text = sdr["Appliance"].ToString();
+            }
+            
         }
 
 

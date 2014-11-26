@@ -72,6 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Costing\CostingDatabaseCalls.cs" />
+    <Compile Include="Costing\ICostingDatabaseCalls.cs" />
+    <Compile Include="DataContract\Costing\ChargeMaster.cs" />
     <Compile Include="DataContract\Inventory\ItemMaster.cs" />
     <Compile Include="DataContract\Inventory\SupplierMaster.cs" />
     <Compile Include="DataContract\Inventory\TC_ORG_MST.cs" />
@@ -91,8 +94,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Costing\" />
-    <Folder Include="DataContract\Costing\" />
     <Folder Include="DataContract\Finance\" />
     <Folder Include="Finance\" />
   </ItemGroup>

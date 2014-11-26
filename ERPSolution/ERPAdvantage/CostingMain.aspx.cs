@@ -9,7 +9,7 @@ namespace ERPAdvantage
 {
     public partial class CostingMain : System.Web.UI.Page
     {
-        public const string ModuleId = "4";// Service module ID
+        public const string ModuleId = "4";// Costing module ID
         protected void Page_Load(object sender, EventArgs e)
         {
 
