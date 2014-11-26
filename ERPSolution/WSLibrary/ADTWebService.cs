@@ -432,7 +432,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
 
     
-<<<<<<< HEAD
+
     //=================Costing Area=======================//
     #region ChargeMaster
     [WebMethod]
@@ -443,7 +443,6 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     }
     #endregion ChargeMaster
 
-=======
->>>>>>> 098bf2376eefbf005b525ca5251eba5128d786dd
+
 }
 

@@ -111,8 +111,6 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.pdb
-<<<<<<< HEAD
-=======
 D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.BLL.dll
 D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.BLL.pdb
 D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.dll
@@ -125,7 +123,6 @@ D:\ERP\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.pdb
 D:\ERP\AEL\ERPSolution\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\ERP\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.dll
 D:\ERP\AEL\ERPSolution\BLL\obj\Debug\Advantage.ERP.BLL.pdb
->>>>>>> 098bf2376eefbf005b525ca5251eba5128d786dd
 E:\ERPNET\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.BLL.dll
 E:\ERPNET\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.BLL.pdb
 E:\ERPNET\AEL\ERPSolution\BLL\bin\Debug\Advantage.ERP.DAL.dll
