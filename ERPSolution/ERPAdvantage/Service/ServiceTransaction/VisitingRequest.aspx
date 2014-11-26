@@ -201,11 +201,6 @@
             width: 144px;
             height: 21px;
         }
-        .auto-style63
-        {
-            width: 108px;
-            height: 21px;
-        }
         .auto-style64
         {
             width: 132px;
@@ -236,12 +231,12 @@
 
 
 
-    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="800" Width="900px">
+    <asp:TabContainer ID="tcontvisitingrequest" runat="server" ActiveTabIndex="0" Height="900" Width="900px">
 
     
 
         
-        <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data" Height="650">
+        <asp:TabPanel ID="tpheader" runat="server" HeaderText="Header Data" Height="650px">
             <ContentTemplate>
                 <table class="auto-style3"><tr><td class="auto-style5"><asp:Label ID="Label1" runat="server" Text="Visiting No"></asp:Label></td><td class="auto-style7">
                 <asp:TextBox ID="txtvisitingno" runat="server" Width="150px"></asp:TextBox>
@@ -251,13 +246,12 @@
                     <asp:Button runat="server" ID="cmdgetcalendar" Text="..." /><asp:CalendarExtender ID="calvrdate" runat="server" PopupButtonID="cmdgetcalendar" PopupPosition="BottomRight" TargetControlID="txtvisitingdate" Enabled="True"></asp:CalendarExtender></td></tr></table>
                 
                 <br />
-                <br />
 
             <asp:Panel runat="server" ID="panelvistitinglist" Height="200px" Width ="673px" style="overflow:auto"  Visible="False">
                     <asp:Label runat="server" Text="Visiting No" />
-                    <asp:TextBox runat="server" ID="txtsearbyno" >%</asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtsearbyno" ></asp:TextBox>
                     <asp:Label runat="server" Text="Customer Name" />
-                    <asp:TextBox runat="server" ID="txtsearchbyname" >%</asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtsearchbyname" ></asp:TextBox>
                     <br />
                     <br/>
                     <asp:Label runat="server" Text="From" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -270,11 +264,10 @@
                     <asp:Button runat="server" ID="cmdgettocal" Text="..." />
                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txttodate" PopupButtonID="cmdgettocal" PopupPosition="BottomRight" Enabled="True"></asp:CalendarExtender>
                     &nbsp;
-                    <asp:Button ID="btnsearch" runat="server" Text="Search" />
+                    <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" />
                     <br />
                     <br />
-                    <asp:GridView runat="server" ID="dgridvrlist" Width="419px" Font-Size="X-Small" />
-                    <br />                                                                                       
+                    <asp:GridView runat="server" ID="dgridvrlist" Width="649px" Font-Size="Small" AutoGenerateSelectButton="True" OnSelectedIndexChanged="dgridvrlist_SelectedIndexChanged" />
                                                           
                                  
                     
@@ -330,6 +323,34 @@
                     </tr>
                     <tr>
                         <td class="auto-style9">
+                            <asp:Label ID="Label38" runat="server" Text="Visiting Amount"></asp:Label>
+                        </td>
+                        <td class="auto-style12">
+                            <asp:TextBox ID="txtvisitingamount" runat="server"></asp:TextBox>
+                        </td>
+                        <td class="auto-style11">
+                            <asp:Label ID="Label39" runat="server" Text="VAT %"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtvatpercentage" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style9">
+                            <asp:Label ID="Label41" runat="server" Text="Visiting Total"></asp:Label>
+                        </td>
+                        <td class="auto-style12">
+                            <asp:TextBox ID="txtvisitingtotal" runat="server"></asp:TextBox>
+                        </td>
+                        <td class="auto-style11">
+                            <asp:Label ID="Label40" runat="server" Text="VAT Amount"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtvatamount" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style9">
                             <asp:Label ID="Label11" runat="server" Text="Serial No"></asp:Label>
                         </td>
                         <td class="auto-style12">
@@ -372,6 +393,30 @@
                             <asp:Button runat="server" ID="cmdgetwarrantylist" Text="..." OnClick="cmdgetwarrantylist_Click" />
                         </td>
                     </tr>
+                    <tr>
+                        <td class="auto-style14">
+                            <asp:Label ID="Label46" runat="server" Text="Site contact Person"></asp:Label>
+                        </td>
+                        <td class="auto-style15">
+                            <asp:TextBox ID="txtsitecontactperson" runat="server"></asp:TextBox>
+                        </td>
+                        <td class="auto-style16">
+                            <asp:Label ID="Label47" runat="server" Text="Site contact Tp"></asp:Label>
+                        </td>
+                        <td class="auto-style17">
+                            <asp:TextBox ID="txtsitetp" runat="server"></asp:TextBox>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style14">
+                            <asp:Label ID="Label48" runat="server" Text="Site contact Mobile"></asp:Label>
+                        </td>
+                        <td class="auto-style15">
+                            <asp:TextBox ID="txtsitecontactmobile" runat="server"></asp:TextBox>
+                        </td>
+                        <td class="auto-style16">&nbsp;</td>
+                        <td class="auto-style17">&nbsp;</td>
+                    </tr>
                 </table>
                 <br />
                 <asp:Panel runat="server"  ID="panelsearchappliance" Height="250px" Width="700px" style="overflow:auto" Visible="False" >
@@ -389,7 +434,7 @@
                                 <asp:Label ID="lblserialno" runat="server" Text="Serial No"></asp:Label>
                             </td>
                             <td class="auto-style13">
-                                <asp:TextBox ID="txtsearchwarrbyserialno" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                                <asp:TextBox ID="txtsearchwarrbyserialno" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -397,13 +442,13 @@
                                 <asp:Label ID="lblwarrno" runat="server" Text="Warranty No"></asp:Label>
                             </td>
                             <td class="auto-style22">
-                                <asp:TextBox ID="txtsearchbywarrbyno" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                                <asp:TextBox ID="txtsearchbywarrbyno" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                             </td>
                             <td class="auto-style26">
                                 <asp:Label ID="lblname" runat="server" Text="Name"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtsearchbwarrbyname" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                                <asp:TextBox ID="txtsearchbwarrbyname" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -411,13 +456,13 @@
                                 <asp:Label ID="lbladdress" runat="server" Text="Address"></asp:Label>
                             </td>
                             <td class="auto-style47">
-                                <asp:TextBox ID="txtserachwarrbyaddress" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                                <asp:TextBox ID="txtserachwarrbyaddress" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                             </td>
                             <td class="auto-style48">
                                 <asp:Label ID="lblphoneno" runat="server" Text="Phone No"></asp:Label>
                             </td>
                             <td class="auto-style49">
-                                <asp:TextBox ID="txtsearchbwarrbytp" runat="server" Width="200px" Enabled="False">%</asp:TextBox>
+                                <asp:TextBox ID="txtsearchbwarrbytp" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -431,7 +476,7 @@
                                 <asp:Label ID="lblsalesorderno" runat="server" Text="Sales Order No"></asp:Label>
                             </td>
                             <td class="auto-style49">
-                                <asp:TextBox ID="txtsearchbwarrbusalesorder" runat="server" Width="200px">%</asp:TextBox>
+                                <asp:TextBox ID="txtsearchbwarrbusalesorder" runat="server" Width="200px"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -579,10 +624,32 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style34">&nbsp;</td>
-                        <td class="auto-style36">&nbsp;</td>
-                        <td class="auto-style35">&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="auto-style34">
+                            <asp:Label ID="Label42" runat="server" Text="Fax"></asp:Label>
+                        </td>
+                        <td class="auto-style36">
+                            <asp:TextBox ID="txtfaxno" runat="server"></asp:TextBox>
+                        </td>
+                        <td class="auto-style35">
+                            <asp:Label ID="Label43" runat="server" Text="E Mail"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtemail" runat="server" Width="300px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style34">
+                            <asp:Label ID="Label44" runat="server" Text="Contact  Invoice"></asp:Label>
+                        </td>
+                        <td class="auto-style36">
+                            <asp:TextBox ID="txtcontactperinvoice" runat="server"></asp:TextBox>
+                        </td>
+                        <td class="auto-style35">
+                            <asp:Label ID="Label45" runat="server" Text="Contact  Service"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtcontactperservice" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                 </table>
                 <br />
@@ -746,9 +813,6 @@
     </ContentTemplate>
 
     </asp:UpdatePanel>
-
-    <br />
-    <br />
 
     <table >
         <tr>

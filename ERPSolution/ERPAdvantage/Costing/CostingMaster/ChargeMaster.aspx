@@ -91,7 +91,14 @@
                  <td class="auto-style2">&nbsp;</td>
                  <td class="auto-style1">
 
-                     <asp:DropDownList ID="ddlPrefix" runat="server" CssClass="textbox" AutoPostBack="true" Width="100px">
+                     <asp:DropDownList ID="ddlPrefix" runat="server" CssClass="textbox" Width="162px" Height="20px">
+                         <asp:ListItem>----select Iteme----</asp:ListItem>                         
+                         <asp:ListItem>CIF/CNF</asp:ListItem>
+                         <asp:ListItem>BANK CHARGES</asp:ListItem>
+                         <asp:ListItem>FRIGHT/SHIPPING CHARGES</asp:ListItem>
+                         <asp:ListItem>INSURANCE </asp:ListItem>
+                         <asp:ListItem>CUSTOMES CHARGES</asp:ListItem>
+                         <asp:ListItem>CLEARING EXPENSES</asp:ListItem>
                      </asp:DropDownList>
                  </td>
              </tr>

@@ -278,17 +278,9 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
     {
         ServiceBusinessCalls objs = new ServiceBusinessCalls();
         return objs.gMsGetAreaForVisitingRequest(objvr);
-    }
-
-   
-
-
-    
-    
-
-
-
-  
+    }    
+         
+      
     [WebMethod]
     public DataSet gMsGetCustomerListForVisitingReguest(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
 
@@ -308,9 +300,7 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetDepartmentForVisitingRequest(objvr);
     }
-    
-
-
+    [WebMethod]
     public DataSet gMsGetWarrantyForVisitingRequest(Advantage.ERP.DAL.DataContract.Service.WarrantyMst objwarr)
 
     {
@@ -356,7 +346,34 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
         ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
         return objbscall.gMsGetVisitingRequestNo(objvr);
     }
+    [WebMethod]
+    public bool gMsCreateVisitingRequestMaster(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsCreateVisitingRequestMaster(objvr);
+    }
 
+    [WebMethod]
+    public bool gMsCreateVisitingRequestDetail(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsCreateVisitingRequestDetail(objvr);
+    }
+
+    [WebMethod]
+    public bool gMsCreateVisitingRequestQuestions(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsCreateVisitingRequestQuestions(objvr);
+    }
+
+    [WebMethod]
+    public DataSet gMsGetVisitngRequestList(Advantage.ERP.DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceBusinessCalls objbscall = new ServiceBusinessCalls();
+        return objbscall.gMsGetVisitngRequestList(objvr);
+
+    }
 
     #endregion VisitingRequest
 
@@ -415,5 +432,17 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
 
     
+
+    //=================Costing Area=======================//
+    #region ChargeMaster
+    [WebMethod]
+    public void CreateChargeMaster(Advantage.ERP.DAL.DataContract.Costing.ChargeMaster objMst)
+    {
+        Advantage.ERP.BLL.Costing.CostingBusinessCalls objBiz = new Advantage.ERP.BLL.Costing.CostingBusinessCalls();
+        objBiz.gMsCreateChargeMaster(objMst);
+    }
+    #endregion ChargeMaster
+
+
 }
 
