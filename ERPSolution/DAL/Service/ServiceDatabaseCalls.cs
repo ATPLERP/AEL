@@ -582,13 +582,12 @@ namespace Advantage.ERP.DAL
             Database db = DatabaseFactory.CreateDatabase();
             string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
             DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
+            
             db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, objMst.pOrgCode);
-
             db.AddInParameter(dbCommand, "@pBrcode", DbType.String, qutTrans.pBrnCd);
             db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, qutTrans.pQuotationNo);
             db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, qutTrans.pJobCategory);
             db.AddInParameter(dbCommand, "@pCustomerOrderNo", DbType.String, qutTrans.pCustomerOrderNo);
-
             db.AddInParameter(dbCommand, "@pCustomerCode", DbType.String, objMst.pCustCode);
             db.AddInParameter(dbCommand, "@pname_prefix", DbType.String, objMst.pCustPrefix);
             db.AddInParameter(dbCommand, "@pFname", DbType.String, objMst.pCustName);
@@ -599,8 +598,7 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.pCustFax);
             db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pCustCellNo);
             db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustEmail);
-
-            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustVATNo );
+            db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustVATNo);
             db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Invoice);
             db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_Technical);
             db.AddInParameter(dbCommand, "@pQuotationRemark", DbType.String, qutTrans.pQuotationRemarks);

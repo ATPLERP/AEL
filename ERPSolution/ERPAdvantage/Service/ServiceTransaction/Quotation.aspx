@@ -465,7 +465,7 @@
                             </asp:DropDownList>
                             <asp:TextBox ID="txtCustNmae" CssClass="textbox"  runat="server" Width="165px"></asp:TextBox>
                             <asp:Button ID="btnGetCustomer" CssClass="textbox"  runat="server" Text="...." Height="19px" />
-                            <asp:Button ID="btnCreate"  CssClass="textbox" runat="server" Text="Create" Height="19px" />
+                            <asp:Button ID="btnCreate"  CssClass="textbox" runat="server" Text="Create" Height="19px" OnClick="btnCreate_Click" />
                         </td>
                     </tr>
                     <tr>
