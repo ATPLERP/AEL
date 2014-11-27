@@ -460,7 +460,7 @@
                             <asp:Label ID="Label9" runat="server" Text="Name"></asp:Label>
                         </td>
                         <td class="auto-style12">
-                            <asp:TextBox ID="txtCustNo" runat="server" CssClass="textbox" Width="30px"></asp:TextBox>
+                            <asp:TextBox ID="txtCustCode" runat="server" CssClass="textbox" Width="30px"></asp:TextBox>
                             <asp:DropDownList ID="ddlPrefix" CssClass="textbox"  runat="server" Height="16px" Width="54px">
                             </asp:DropDownList>
                             <asp:TextBox ID="txtCustNmae" CssClass="textbox"  runat="server" Width="165px"></asp:TextBox>

@@ -70,7 +70,6 @@ namespace Advantage.ERP.DAL
 
         public void gMsCreateCustDetails(DAL.DataContract.Service.CustomMaster objMst)
         {
-            
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
             Database db = DatabaseFactory.CreateDatabase();
@@ -101,9 +100,11 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pUserId);
             db.AddInParameter(dbCommand, "@pCat_No", DbType.String, objMst.pCat_No);
             db.AddInParameter(dbCommand, "@pCat_Desc", DbType.String, objMst.pCat_Desc);
-            
+            //Add the output parameter to the command object
+            db.AddOutParameter(dbCommand, "@pCustCode", DbType.Int32, Int32.MaxValue);
             db.ExecuteNonQuery(dbCommand);
-        }
+            objMst.pCustCode = Convert.ToString((Int32)db.GetParameterValue(dbCommand, "@pCustCode"));
+       }
 
         public void gMsUpdateCust(DAL.DataContract.Service.CustomMaster objMst)
         {
@@ -583,8 +584,8 @@ namespace Advantage.ERP.DAL
             Database db = DatabaseFactory.CreateDatabase();
             string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
             DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
-            
-            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, objMst.pOrgCode);
+
+            db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
             db.AddInParameter(dbCommand, "@pBrcode", DbType.String, qutTrans.pBrnCd);
             db.AddInParameter(dbCommand, "@pQuotationNumber", DbType.String, qutTrans.pQuotationNo);
             db.AddInParameter(dbCommand, "@pJobCategory", DbType.String, qutTrans.pJobCategory);
@@ -595,10 +596,10 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@pInvoiceAddress", DbType.String, objMst.pCustAdd);
             db.AddInParameter(dbCommand, "@pServiceAddress", DbType.String, objMst.pCustServiceAddress);
             db.AddInParameter(dbCommand, "@pAreaName", DbType.String, objMst.pCustArea);
-            db.AddInParameter(dbCommand, "@pTel1", DbType.Double, objMst.pCustPhone1);
+            db.AddInParameter(dbCommand, "@pTel1", DbType.String, objMst.pCustPhone1);
             db.AddInParameter(dbCommand, "@pFaxNum", DbType.String, objMst.pCustFax);
             db.AddInParameter(dbCommand, "@pMobileNum", DbType.String, objMst.pCustCellNo);
-            db.AddInParameter(dbCommand, "@pEmail", DbType.Double, objMst.pCustEmail);
+            db.AddInParameter(dbCommand, "@pEmail", DbType.String, objMst.pCustEmail);
             db.AddInParameter(dbCommand, "@pVatNum", DbType.String, objMst.pCustVATNo);
             db.AddInParameter(dbCommand, "@pPer4Inv", DbType.String, objMst.pCustContactPerson_Invoice);
             db.AddInParameter(dbCommand, "@pper_4Tech", DbType.String, objMst.pCustContactPerson_Technical);

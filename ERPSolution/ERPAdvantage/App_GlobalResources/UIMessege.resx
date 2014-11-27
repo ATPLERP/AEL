@@ -162,4 +162,10 @@
   <data name="msgCheckTotalQuontity" xml:space="preserve">
     <value>Total Amount should be greater than ZERO</value>
   </data>
+  <data name="msgCustCreationinQuot" xml:space="preserve">
+    <value>Customer Cannot Be Created Customer Details Missing</value>
+  </data>
+  <data name="msgSelectQuotNo" xml:space="preserve">
+    <value>Please Add values to the Grid</value>
+  </data>
 </root>
