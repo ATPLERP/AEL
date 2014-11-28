@@ -33,7 +33,7 @@ using System.Text;
         public string pInstructTech { get; set; }
         public DateTime pCustReqdate { get; set; }
         public string pVisitReqStatus { get; set; }
-        public string pVisitItemCode { get; set; }
+        public double pVisitItemCode { get; set; }
         public string pPaidStatus { get; set; }
         public int pDepatment { get; set; }
         public string pDepatName { get; set; }

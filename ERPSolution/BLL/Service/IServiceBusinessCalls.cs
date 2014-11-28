@@ -52,6 +52,9 @@ namespace Advantage.ERP.BLL
         SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr);
         DataSet gMsGetVisitingItemDataByNo(DAL.DataContract.Service.VisitingReq objvr);
         DataSet gMsgGetVisitinRegQuestions(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsUpdateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsUpdateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsUpdateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
 
         #endregion VRTransaction
 

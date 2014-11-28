@@ -46,14 +46,17 @@ namespace Advantage.ERP.DAL
 
         #region Vr Transaction
 
-            string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr);
-            bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
-           bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
-         bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
-         DataSet gMsGetVisitngRequestList(DAL.DataContract.Service.VisitingReq objvr);
-         SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr);
+        string gMsGetVisitingRequestNo(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsCreateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsCreateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsCreateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
+        DataSet gMsGetVisitngRequestList(DAL.DataContract.Service.VisitingReq objvr);
+        SqlDataReader gMsGetVisitingHeaderDataByNo(DAL.DataContract.Service.VisitingReq objvr);
         DataSet gMsGetVisitingItemDataByNo(DAL.DataContract.Service.VisitingReq objvr);
         DataSet gMsgGetVisitinRegQuestions(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsUpdateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsUpdateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr);
+        bool gMsUpdateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr);
 
         #endregion Vr Transaction
 

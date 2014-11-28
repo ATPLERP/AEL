@@ -243,7 +243,7 @@
                 <asp:Button runat="server" ID="cmdgetlist" Text="..." OnClick="cmdgetlist_Click" /></td><td class="auto-style8">
                     <asp:Label ID="Label2" runat="server" Text="Visiting Date"></asp:Label></td>
                 <td class="auto-style4"><asp:TextBox ID="txtvisitingdate" runat="server" Width="150px"></asp:TextBox>
-                    <asp:Button runat="server" ID="cmdgetcalendar" Text="..." /><asp:CalendarExtender ID="calvrdate" runat="server" PopupButtonID="cmdgetcalendar" PopupPosition="BottomRight" TargetControlID="txtvisitingdate" Enabled="True"></asp:CalendarExtender></td></tr></table>
+                    <asp:Button runat="server" ID="cmdgetcalendar" Text="..." /><asp:CalendarExtender ID="calvrdate" runat="server" PopupButtonID="cmdgetcalendar" PopupPosition="BottomRight" TargetControlID="txtvisitingdate" Enabled="True"></asp:CalendarExtender>&nbsp;</td></tr></table>
                 
                 <br />
 
@@ -415,7 +415,9 @@
                             <asp:TextBox ID="txtsitecontactmobile" runat="server"></asp:TextBox>
                         </td>
                         <td class="auto-style16">&nbsp;</td>
-                        <td class="auto-style17">&nbsp;</td>
+                        <td class="auto-style17">
+                            <asp:CheckBox ID="chkupdate" runat="server" />
+                        </td>
                     </tr>
                 </table>
                 <br />
@@ -715,7 +717,7 @@
                         </td>
                         <td class="auto-style13">
                             <asp:Button ID="btnadditem" runat="server" Text="..." OnClick="btnadditem_Click" />
-                            &nbsp;<asp:TextBox ID="txtitemcode" runat="server" style="visibility:hidden" Height="24px" Width="85px"></asp:TextBox>
+                            &nbsp;<asp:TextBox ID="txtitemcode" runat="server"  Height="24px" Width="85px"></asp:TextBox>
                         </td>
                     </tr>
                 </table>

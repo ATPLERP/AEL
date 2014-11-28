@@ -672,6 +672,22 @@ namespace Advantage.ERP.BLL
          ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
          return objdbcall.gMsgGetVisitinRegQuestions(objvr);
      }
+     public bool gMsUpdateVisitingRequestMaster(DAL.DataContract.Service.VisitingReq objvr)
+    {
+        ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+        return objdbcall.gMsUpdateVisitingRequestMaster(objvr);
+    }
+     public bool gMsUpdateVisitingRequestDetail(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsUpdateVisitingRequestDetail(objvr);
+     }
+
+     public bool gMsUpdateVisitingRequestQuestions(DAL.DataContract.Service.VisitingReq objvr)
+     {
+         ServiceDatabaseCalls objdbcall = new ServiceDatabaseCalls();
+         return objdbcall.gMsUpdateVisitingRequestQuestions(objvr);
+     }
 
     #endregion VisitingRequest
 
