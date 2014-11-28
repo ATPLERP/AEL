@@ -18,9 +18,6 @@ using Advantage.ERP.BLL;
 using Microsoft.VisualBasic;
 using Advantage.ERP.DAL.DataContract.Inventory;
 
-
-
-
 namespace ERPAdvantage.Service.ServiceTransaction
 {
     public partial class Quotation : System.Web.UI.Page
@@ -445,7 +442,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             
              QuotationTrans qutTrans = new QuotationTrans();
              ADTWebService wsoj = new ADTWebService();
-             // pMsCreateRecord();
+            // pMsCreateRecord();
             bool success = false;
             UIvalidations uiv = new UIvalidations();
             UserSpecificData objumst = new UserSpecificData();
@@ -464,8 +461,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 qutTrans.pAmtPaid = "N";
                 qutTrans.pQuotStatus = "O";
                 qutTrans.pBrnCd = objumst.pBrnCode;
-                wsoj.gMsGetQuotationNo(qutTrans);
-                txtQuotNo.Text = qutTrans.pQuotationNo;
+                if (txtQuotNo.Text == string.Empty)
+                {
+                    wsoj.gMsGetQuotationNo(qutTrans);
+                    txtQuotNo.Text = qutTrans.pQuotationNo;
+                }
                 success = wsoj.gMsGetUserPermissioncheck(objumst);
                 if (success == true && objumst.pNew == "Y")
                 {
@@ -569,43 +569,49 @@ namespace ERPAdvantage.Service.ServiceTransaction
             // DataRow drQutation = (DataRow)ViewState["CurrentTableexisting"];
             //dtOldDAta.Rows.Add(drQutation); 
             DataTable dtNewData = (DataTable)ViewState["CurrentTable"];
-
-            DataTable dtExistingData = (DataTable)ViewState["dtExistingData"];
-            if (dtExistingData != null)
-                dtNewData.Merge(dtExistingData, true, MissingSchemaAction.Ignore);
-            if (dtNewData.Rows[0][1].ToString() == "")
-            {
-                dtNewData.Rows[0].Delete();
-                dtNewData.AcceptChanges();
-            }
-            gvItemDescription.DataSource = dtNewData;
-            gvItemDescription.DataBind();
-            ViewState["dtExistingData"] = dtNewData;
-            CalGridTotal();
+           
+            //DataTable dtExistingData = (DataTable)ViewState["dtExistingData"];
+            //if (dtExistingData != null)
+            //    dtNewData.Merge(dtExistingData, true, MissingSchemaAction.Ignore);
+            //if (dtNewData.Rows[0][1].ToString() == "")
+            //{
+            //    dtNewData.Rows[0].Delete();
+            //    dtNewData.AcceptChanges();
+            //}
+            //ViewState["dtExistingData"] = dtNewData;
+            //gvItemDescription.DataSource = dtNewData;
+            //gvItemDescription.DataBind();
+          
+            //CalGridTotal();
             if (dtOldDAta != null)
             {
+                DataTable dtexisting = (DataTable)ViewState["dtExistingDataForUpdate"];
+                
                 dtOldDAta.Merge(dtNewData, true, MissingSchemaAction.Ignore);
                 ViewState["S_QUOTATIONDETAIL"] = dtOldDAta;
                 gvItemDescription.DataSource = dtOldDAta;
                 gvItemDescription.DataBind();
                 CalGridTotal();
+                if (dtexisting != null)
+                dtNewData.Merge(dtexisting, true, MissingSchemaAction.Ignore);
+                ViewState["dtExistingDataForUpdate"] = dtNewData;
             }
-            //else
-            //{
-            //    DataTable dtExistingData = (DataTable)ViewState["dtExistingData"];
-            //    if (dtExistingData != null)
-            //    dtNewData.Merge(dtExistingData, true, MissingSchemaAction.Ignore);
-            //    if (dtNewData.Rows[0][1].ToString() == "")
-            //    {
-            //        dtNewData.Rows[0].Delete();
-            //        dtNewData.AcceptChanges();
-            //    }   
-            //    gvItemDescription.DataSource = dtNewData;
-            //    gvItemDescription.DataBind();
-            //    ViewState["dtExistingData"] = dtNewData;
-            //    CalGridTotal();
-            //    //Removing initial blank row   
-            // }
+            else
+            {
+                DataTable dtExistingData = (DataTable)ViewState["dtExistingData"];
+                if (dtExistingData != null)
+                    dtNewData.Merge(dtExistingData, true, MissingSchemaAction.Ignore);
+                if (dtNewData.Rows[0][1].ToString() == "")
+                {
+                    dtNewData.Rows[0].Delete();
+                    dtNewData.AcceptChanges();
+                }
+                gvItemDescription.DataSource = dtNewData;
+                gvItemDescription.DataBind();
+                ViewState["dtExistingData"] = dtNewData;
+                CalGridTotal();
+                //Removing initial blank row   
+            }
                       
             // DataTable dt = new DataTable();
             //for (int j = 1; j < gvItemDescription.Rows.Count; j++)
