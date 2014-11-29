@@ -25,7 +25,6 @@ namespace ERPAdvantage.Login
                 gMsGetBranchList();
             }
             // RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-
         }
 
         private void gMsGetBranchList()

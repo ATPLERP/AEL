@@ -34,7 +34,8 @@ namespace Advantage.ERP.DAL.DataContract.Service
         public string pCat_Desc { get; set; }
         public string pSearch { get; set; }
         public string pSelect { get; set; }
-       
+        public string pStatusM { get; set; }
+                   
         public string pCustCode { get; set; }
         // public string pOrgCode { get; set; }
         public string pUserId { get; set; }

@@ -582,7 +582,15 @@ namespace Advantage.ERP.DAL
             // Create the Database object, using the default database service. The
             // default database service is determined through configuration.
             Database db = DatabaseFactory.CreateDatabase();
-            string sqlCommand = "gMsCgMsCreateRecordQuotationMst";
+            string sqlCommand;
+            if (objMst.pStatusM  == "Save")
+            {
+                 sqlCommand = "gMsCgMsCreateRecordQuotationMst";
+            }
+            else 
+            {
+                sqlCommand = "gMsCgMsUpdateRecordQuotationMst";
+            }
             DbCommand dbCommand = db.GetStoredProcCommand(sqlCommand);
 
             db.AddInParameter(dbCommand, "@pOrgCode", DbType.String, qutTrans.pOrgCode);
@@ -607,7 +615,6 @@ namespace Advantage.ERP.DAL
             db.AddInParameter(dbCommand, "@pQuotStatus", DbType.String, qutTrans.pQuotStatus);
             db.AddInParameter(dbCommand, "@pAmtPaid", DbType.String, qutTrans.pAmtPaid);
             db.AddInParameter(dbCommand, "@pUserId", DbType.String, objMst.pUserId);
-
             db.ExecuteNonQuery(dbCommand);
         }
    #endregion

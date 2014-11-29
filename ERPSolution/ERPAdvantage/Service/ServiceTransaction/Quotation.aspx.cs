@@ -99,6 +99,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 gvQuotationDetails.DataSource = dt;
                 gvQuotationDetails.DataBind();
                 btnQuotNoSearch_ModalPopupExtender.Show();
+                btnSave.Text = ERPSystemData.Status.Update.ToString();
             }
 
             else
@@ -439,9 +440,8 @@ namespace ERPAdvantage.Service.ServiceTransaction
         }
         protected void btnAddList_Click(object sender, EventArgs e)
         {
-            
-             QuotationTrans qutTrans = new QuotationTrans();
-             ADTWebService wsoj = new ADTWebService();
+           QuotationTrans qutTrans = new QuotationTrans();
+           ADTWebService wsoj = new ADTWebService();
             // pMsCreateRecord();
             bool success = false;
             UIvalidations uiv = new UIvalidations();
@@ -496,25 +496,28 @@ namespace ERPAdvantage.Service.ServiceTransaction
             bool success = false;
             ADTWebService wsoj = new ADTWebService();
             QuotationTrans qutTrans = new QuotationTrans();
-            if (txtPrice.Text == "0")
+            if (txtPrice.Text == string.Empty)
             { MessageBox.Show(Resources.UIMessege.msgPriceCheck); }
             // if (qutTrans.pItemCode == 0)
             // {MessageBox.Show(Resources.UIMessege.msgCheckItemode);}
-            if (txtAppliaenceCode.Text.Trim() == "0")
+            if (txtAppliaenceCode.Text.Trim() == string.Empty)
             { MessageBox.Show(Resources.UIMessege.msgCheckStockCode); }
-            if (txtQuontaty.Text == "0")
+            if (txtQuontaty.Text == string.Empty)
             { MessageBox.Show(Resources.UIMessege.msgCheckQuontity); }
-            if (txtTotal.Text == "0")
-            { MessageBox.Show(Resources.UIMessege.msgCheckTotalQuontity); }
+            
             qutTrans.pTax = "NBT-S2011";
             wsoj.gMsGetTaxPercentage(qutTrans);
+             qutTrans.lNBTAmt=Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtQuontaty.Text) - Convert.ToDouble(txtDiscounnt.Text) * qutTrans.lNBTPer / (100 - qutTrans.lNBTPer);
+            qutTrans.lVATAmt= Convert.ToDouble((Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtQuontaty.Text) - Convert.ToDouble(txtDiscounnt.Text) + qutTrans.lNBTAmt) * Convert.ToDouble(txtVAT.Text) / 100);
+            txtTotal.Text = Convert.ToString(Convert.ToDouble(Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtQuontaty.Text) +  qutTrans.lVATAmt) - Convert.ToDouble(txtDiscounnt.Text) + qutTrans.lNBTAmt);
+            if (txtTotal.Text == string.Empty)
+            { MessageBox.Show(Resources.UIMessege.msgCheckTotalQuontity); }
+
+
             DataTable dt = new DataTable();
             DataRow dr = dt.NewRow();
             MakeDataTable(dt);
             int rowcount = gvItemDescription.Rows.Count;
-            //GridViewRow daataRow = new GridViewRow(1, 0, DataControlRowType.DataRow, DataControlRowState.Insert);
-            // GridViewRow rowcount = gvItemDescription.Rows[rowcount];
-            //foreach (GridViewRow row in gvItemDescription.Rows)
             for (int j = rowcount; j <= gvItemDescription.Rows.Count; j++)
             {
                 GridViewRow row = gvItemDescription.Rows[j - 1];
@@ -524,7 +527,10 @@ namespace ERPAdvantage.Service.ServiceTransaction
                     {
                         case 2://Check Item is already is Exist in GRID
                             if (txtAppliaenceCode.Text.Trim() == row.Cells[i].Text)//message
+                            {
                                 success = true;
+                                break;
+                            }
                             if (txtAppliaenceCode.Text != string.Empty && txtDescription.Text != string.Empty)
                                 row.Cells[i].Text = txtAppliaenceCode.Text;
                             { } break;
@@ -553,40 +559,19 @@ namespace ERPAdvantage.Service.ServiceTransaction
                         case 20:row.Cells[i].Text = txtQuotNo.Text; break;
                     }
                     dr[i] = row.Cells[i].Text;
-                    // daataRow.Cells.Add(row.Cells[i]);
                 }
                 if (success) // check if inner loop set break
                 { MessageBox.Show(Resources.UIMessege.msgCheckItemSelected); txtAppliaenceCode.Focus(); break; } // break outer loop 
 
             }
-            //}
-            dt.Rows.Add(dr);
-            //gvItemDescription.Controls[0].Controls.AddAt(6, daataRow);
-            //dt.AcceptChanges();
-            ViewState["CurrentTable"] = dt;
-            //(gvItemDescription.DataSource as DataTable).Rows.Add(dr);
+           dt.Rows.Add(dr);
+           ViewState["CurrentTable"] = dt;
+           //(gvItemDescription.DataSource as DataTable).Rows.Add(dr);
             DataTable dtOldDAta = (DataTable)ViewState["CurrentTableexisting"];
-            // DataRow drQutation = (DataRow)ViewState["CurrentTableexisting"];
-            //dtOldDAta.Rows.Add(drQutation); 
             DataTable dtNewData = (DataTable)ViewState["CurrentTable"];
-           
-            //DataTable dtExistingData = (DataTable)ViewState["dtExistingData"];
-            //if (dtExistingData != null)
-            //    dtNewData.Merge(dtExistingData, true, MissingSchemaAction.Ignore);
-            //if (dtNewData.Rows[0][1].ToString() == "")
-            //{
-            //    dtNewData.Rows[0].Delete();
-            //    dtNewData.AcceptChanges();
-            //}
-            //ViewState["dtExistingData"] = dtNewData;
-            //gvItemDescription.DataSource = dtNewData;
-            //gvItemDescription.DataBind();
-          
-            //CalGridTotal();
             if (dtOldDAta != null)
             {
                 DataTable dtexisting = (DataTable)ViewState["dtExistingDataForUpdate"];
-                
                 dtOldDAta.Merge(dtNewData, true, MissingSchemaAction.Ignore);
                 ViewState["S_QUOTATIONDETAIL"] = dtOldDAta;
                 gvItemDescription.DataSource = dtOldDAta;
@@ -602,7 +587,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 if (dtExistingData != null)
                     dtNewData.Merge(dtExistingData, true, MissingSchemaAction.Ignore);
                 if (dtNewData.Rows[0][1].ToString() == "")
-                {
+                {  //Removing initial blank row  
                     dtNewData.Rows[0].Delete();
                     dtNewData.AcceptChanges();
                 }
@@ -610,7 +595,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 gvItemDescription.DataBind();
                 ViewState["dtExistingData"] = dtNewData;
                 CalGridTotal();
-                //Removing initial blank row   
+               
             }
                       
             // DataTable dt = new DataTable();
@@ -665,13 +650,9 @@ namespace ERPAdvantage.Service.ServiceTransaction
             ADTWebService wsoj = new ADTWebService();
             QuotationTrans qutTrans = new QuotationTrans();
             CustomMaster objMst = new CustomMaster();
-            // bool success = false;
             qutTrans.pOrgCode = ERPSystemData.COM_DOM_ORG_CODE.AEL.ToString();
-           // qutTrans.pBrnCd= ViewState["pBrnCd"].ToString();
             qutTrans.pDocType = ERPSystemData.pDocType.QuotationNO.ToString();
             UIvalidations uiv = new UIvalidations();
-           // UserSpecificData objumst = new UserSpecificData();
-          //  UserSpecificData objuMod = new UserSpecificData();
             objumst.pObjId = 28;
             objumst.pModType = ServiceMain.ModuleId;
             qutTrans.pAmtPaid = "N";
@@ -700,6 +681,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 objMst.pCustContactPerson_Technical = txtContPerSer.Text;
                 qutTrans.pQuotationRemarks = txtQuotRemarks.Text;
                 objMst.pUserId = objumst.pUserId;
+                objMst.pStatusM = objumst.pStatus;
 
                 wsoj.gMsCgMsCreateRecordQuotationMst(objMst, qutTrans);
                 lblStates.Text = Resources.UIMessege.msgSaveOk;
@@ -717,7 +699,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
             bool success = false;
             ADTWebService wsoj = new ADTWebService();
             QuotationTrans qutTrans = new QuotationTrans();
-            // pMsCreateRecord();
             UIvalidations uiv = new UIvalidations();
             UserSpecificData objumst = new UserSpecificData();
             UserSpecificData objuMod = new UserSpecificData();
@@ -740,12 +721,13 @@ namespace ERPAdvantage.Service.ServiceTransaction
                             {
                               if (btnSave.Text == ERPSystemData.Status.Update.ToString())
                               {
-                               createCustomerDetails();
-                               pMsCreateRecord(objumst);
-                                qutTrans.dtQuotationDetails = (DataTable)ViewState["S_QUOTATIONDETAIL"];
-                                wsoj.gMsCreateRecordQuotation(qutTrans);
-                                lblStates.Text = Resources.UIMessege.msgUpdateOk;
-                                lblStates.ForeColor = Color.Blue;
+                               //createCustomerDetails();
+                                 objumst.pStatus = ERPSystemData.Status.Update.ToString();
+                                 pMsCreateRecord(objumst);
+                                 qutTrans.dtQuotationDetails = (DataTable)ViewState["dtExistingDataForUpdate"];
+                                 wsoj.gMsCreateRecordQuotation(qutTrans);
+                                 lblStates.Text = Resources.UIMessege.msgUpdateOk;
+                                 lblStates.ForeColor = Color.Blue;
                                }
                               else
                                   if (btnSave.Text == ERPSystemData.Status.Save.ToString())
@@ -760,6 +742,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
                                           lblStates.Text = Resources.UIMessege.msgCustCreationinQuot;
                                           lblStates.ForeColor = Color.Red;
                                       }
+                                      objumst.pStatus = ERPSystemData.Status.Save.ToString();
                                       pMsCreateRecord(objumst);
                                       qutTrans.dtQuotationDetails = (DataTable)ViewState["dtExistingData"];
                                       wsoj.gMsCreateRecordQuotation(qutTrans);
@@ -828,7 +811,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
             objMst.pCustCreditLimit = 0;
             objMst.pCustCreditGiven = 0;
             objMst.pVATApplicable = "N";
-          
             objMst.pCustVATNo = txtVatNo.Text.Trim();
             objMst.pSVAT = "0";
             objMst.pCustCategory = "-1";
@@ -849,7 +831,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 else
                 {
                     objMst.pCustEmail = txtEmail.Text.Trim();
-                    // lblEmailAddress.Text = "";
                 }
             }
             else
@@ -871,7 +852,6 @@ namespace ERPAdvantage.Service.ServiceTransaction
 
         }
 
-  
     }
        
 }

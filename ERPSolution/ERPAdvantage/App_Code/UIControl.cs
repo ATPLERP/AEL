@@ -21,9 +21,6 @@ public class UIControl
 		//
 	}
 
-
-
-
     public void FillDropdownList(DropDownList dropdownList, List<gDropdownlist> list, string datavalueField, string dataTextField)
  {
     // int iCount = 0;
@@ -37,8 +34,7 @@ public class UIControl
      objDropDownList.DataSource = list;
      objDropDownList.DataBind();   
      objDropDownList.Items.Insert(0, new ListItem("---Select---", "-1"));
-  
-  
+    
  }
 
     public void filllMajorGroup(DropDownList dropdownList, string lMajorGroup)

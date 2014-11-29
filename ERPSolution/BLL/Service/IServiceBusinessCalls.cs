@@ -13,9 +13,6 @@ namespace Advantage.ERP.BLL
         void gMsUpdateCust(DAL.DataContract.Service.CustomMaster objMst);
         DataSet gMsCustDetails(DAL.DataContract.Service.CustomMaster objMst);
         DataSet gMsGetCustomerList(DAL.DataContract.Service.CustomMaster objMst);
-        bool gMsGetUserPermissioncheck(DAL.DataContract.UserSpecificData objuMst);
-        bool gMsCheckPassword(DAL.DataContract.UserSpecificData objuMst);
-        List<TSEC_USR_OBJ> gMsCheckSpecifiedModulepermission(DAL.DataContract.UserSpecificData objuMst);
         List<gDropdownlist> gMsGetBranchData(DAL.DataContract.UserSpecificData objuMst);
         //List<gDropdownlist> PMsGetCustomerServiceCenter(string orgCode);
         List<gDropdownlist> pMsGetAppliancecategory(DAL.DataContract.Service.Appliancemst objapp);
@@ -26,8 +23,7 @@ namespace Advantage.ERP.BLL
         DataSet gMsGetDomainTypes(DAL.DataContract.Service.Domainmst objdomain);
         DataSet gMsGetDomainDetails(DAL.DataContract.Service.Domainmst objdomain);
         void  gMsCreateDomain(DAL.DataContract.Service.Domainmst objdomain);
-
-        #region VisitingRequest
+                #region VisitingRequest
         List<gDropdownlist> gMsGetCategoryforVisitingReq(DAL.DataContract.Service.VisitingReq objvr);
         List<gDropdownlist> gMsGetPriorityforVisitingReq(DAL.DataContract.Service.VisitingReq objvr);
         List<gDropdownlist> gMsGetPrefixforVisitingRequest(DAL.DataContract.Service.VisitingReq objvr);
@@ -55,6 +51,28 @@ namespace Advantage.ERP.BLL
 
         #endregion VisitingRequest
 
+        #region UserSpecification
 
+        bool gMsGetUserPermissioncheck(DAL.DataContract.UserSpecificData objuMst);
+        bool gMsCheckPassword(DAL.DataContract.UserSpecificData objuMst);
+        List<TSEC_USR_OBJ> gMsCheckSpecifiedModulepermission(DAL.DataContract.UserSpecificData objuMst);
+      
+
+        #endregion
+
+        #region Quotation-Transaction
+
+        DataTable gMsItemDet(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+        DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans);
+        DataSet gMsQuotationDetails(DAL.DataContract.Service.QuotationTrans qutTrans, DAL.DataContract.Service.CustomMaster oblCustM);
+        DataTable gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsGetQuotationNo(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+        bool gMsGetStockPrice(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsGetTaxPercentage(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+      
+        #endregion
     }
 }

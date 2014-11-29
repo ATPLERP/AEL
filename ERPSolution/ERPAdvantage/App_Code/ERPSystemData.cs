@@ -66,9 +66,6 @@ public class ERPSystemData
         S,
         W
     }
-
-
-
     public enum MajorGroupTypes
     {
         Service,
@@ -76,14 +73,10 @@ public class ERPSystemData
         Tools,
         Stationery,
         Accessories
-
     }
-
-
     public enum pDocType
     {
       QuotationNO
-
     }
 
 }

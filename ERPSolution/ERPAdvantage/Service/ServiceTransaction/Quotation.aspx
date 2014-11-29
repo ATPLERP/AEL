@@ -292,7 +292,7 @@
               <PathSeparatorStyle Font-Bold="True" ForeColor="#990000" />
               <RootNodeStyle Font-Bold="True" ForeColor="#FF8000" />
           </asp:SiteMapPath>
-
+        <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
     <br />
     <br />
     <table class="auto-style7">
@@ -314,7 +314,7 @@
             <td class="auto-style6">
                 <asp:TextBox ID="txtQuotNo" CssClass="textbox" runat="server" AutoPostBack="true"></asp:TextBox>
                 <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
-                <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
+                <%--<asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>--%>
                 <div>
              <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">
              <table class="auto-style30">
