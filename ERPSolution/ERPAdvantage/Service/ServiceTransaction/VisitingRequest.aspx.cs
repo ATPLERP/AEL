@@ -261,6 +261,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
             objvr.pCustVatno = txtvatno.Text.Trim();
             objvr.pContactInvoice = txtcontactperinvoice.Text.Trim();
             objvr.pContactService = txtcontactperservice.Text.Trim();
+            objvr.pContactTech = "";
             objvr.pInstructTech = txtinstruction.Text.Trim();
             objvr.pCustReqdate = Convert.ToDateTime(txtreqdate.Text);
             objvr.pVisitReqStatus = "C";
@@ -349,7 +350,8 @@ namespace ERPAdvantage.Service.ServiceTransaction
                 txtcustomername.Text = sdr["CustomerName"].ToString();
                 txtinvoiceaddress.Text = sdr["CustomerAddressInvoce"].ToString();
                 txtserviceaddress.Text = sdr["CustomerAddressService"].ToString();
-                ddlarea.SelectedItem.Text= sdr["CustomerArea"].ToString();
+                ddlarea.SelectedValue= sdr["CustomerArea"].ToString();
+                ddlpriority.SelectedValue = sdr["Priority"].ToString();
                 txtphoneno.Text = sdr["CustomerPhoneNo"].ToString();
                 txtfaxno.Text = sdr["CustomerFaxNo"].ToString();
                 txtmobileno.Text = sdr["CustomerCell"].ToString();

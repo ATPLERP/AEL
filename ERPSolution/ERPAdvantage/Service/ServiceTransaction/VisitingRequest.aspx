@@ -717,7 +717,7 @@
                         </td>
                         <td class="auto-style13">
                             <asp:Button ID="btnadditem" runat="server" Text="..." OnClick="btnadditem_Click" />
-                            &nbsp;<asp:TextBox ID="txtitemcode" runat="server"  Height="24px" Width="85px"></asp:TextBox>
+                            &nbsp;<asp:TextBox ID="txtitemcode" runat="server"  style="visibility:hidden" Height="20px" Width="85px"></asp:TextBox>
                         </td>
                     </tr>
                 </table>

@@ -313,7 +313,7 @@
             </td>
             <td class="auto-style6">
                 <asp:TextBox ID="txtQuotNo" CssClass="textbox" runat="server" AutoPostBack="true"></asp:TextBox>
-                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
+                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px" OnClick="btnQuotNoSearch_Click"/>
                 <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
                 <div>
              <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">

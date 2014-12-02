@@ -675,6 +675,11 @@ namespace ERPAdvantage.Service.ServiceTransaction
             }
         }
 
+        protected void btnQuotNoSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
      
 
 
