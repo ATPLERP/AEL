@@ -110,4 +110,3 @@ E:\ERPNET\AEL\ERPSolution\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.d
 E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.dll
 E:\ERPNET\AEL\ERPSolution\DAL\obj\Debug\Advantage.ERP.DAL.pdb
 E:\LatestERPAdvantage\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-G:\AEL\Asp.netApp\AEL\ERPSolution\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

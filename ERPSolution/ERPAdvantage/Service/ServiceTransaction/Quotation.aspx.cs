@@ -772,14 +772,14 @@ namespace ERPAdvantage.Service.ServiceTransaction
             }
         }
 
-<<<<<<< HEAD
+
         protected void btnQuotNoSearch_Click(object sender, EventArgs e)
         {
 
         }
 
      
-=======
+
         protected void btnCreate_Click(object sender, EventArgs e)
         {
             if ((txtCustCode.Text == string.Empty) && (txtCustNmae.Text != string.Empty) && (txtInvAddres.Text != string.Empty))
@@ -857,7 +857,7 @@ namespace ERPAdvantage.Service.ServiceTransaction
               lblStates.Text = Resources.UIMessege.msgSaveOk;
               lblStates.ForeColor = Color.Blue;
              }
->>>>>>> f4d26e9aa5b1326548e7612421016d59e416394d
+
 
         }
 
