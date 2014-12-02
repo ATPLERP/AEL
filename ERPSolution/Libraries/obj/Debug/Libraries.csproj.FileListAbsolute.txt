@@ -31,12 +31,12 @@ G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
+E:\ERPNET\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
+E:\ERPNET\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
 D:\ERP\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 D:\ERP\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
-E:\ERPNET\AEL\ERPSolution\Libraries\bin\Debug\Libraries.dll
-E:\ERPNET\AEL\ERPSolution\Libraries\bin\Debug\Libraries.pdb
 E:\ERPNET\AEL\ERPSolution\Libraries\obj\Debug\Libraries.dll
 E:\ERPNET\AEL\ERPSolution\Libraries\obj\Debug\Libraries.pdb
 G:\AEL\Asp.netApp\AEL\ERPSolution\Libraries\obj\Debug\Libraries.csprojResolveAssemblyReference.cache

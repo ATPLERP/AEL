@@ -31,6 +31,7 @@ namespace Advantage.ERP.DAL.DataContract.Service
        public string pDocType { get; set; }
        public string pAmtPaid { get; set; }
        public string pQuotStatus { get; set; }
+     //  public string pStatus { get; set; }
        
        public int pItemCode { get; set; }
       

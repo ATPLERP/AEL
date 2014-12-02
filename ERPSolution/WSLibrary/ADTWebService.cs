@@ -469,5 +469,17 @@ public List<gDropdownlist> pMsGetAppliancecategory(Advantage.ERP.DAL.DataContrac
 
 
     
+
+    //=================Costing Area=======================//
+    #region ChargeMaster
+    [WebMethod]
+    public void CreateChargeMaster(Advantage.ERP.DAL.DataContract.Costing.ChargeMaster objMst)
+    {
+        Advantage.ERP.BLL.Costing.CostingBusinessCalls objBiz = new Advantage.ERP.BLL.Costing.CostingBusinessCalls();
+        objBiz.gMsCreateChargeMaster(objMst);
+    }
+    #endregion ChargeMaster
+
+
 }
 

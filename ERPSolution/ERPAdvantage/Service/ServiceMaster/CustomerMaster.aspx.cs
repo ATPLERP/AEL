@@ -214,7 +214,7 @@ public partial class MST_CustomerMaster : System.Web.UI.Page
                  else if (btnSave.Text == ERPSystemData.Status.Save.ToString()) 
                   {
                     //Call Saving Function
-                     // uiv.CatNo(objMst);
+                    // uiv.CatNo(objMst);
                      string custcode = uiv.GenerateCustomerCode(objMst);
                      objMst.pCustCode = custcode;
                      bool success1 = false;

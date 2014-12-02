@@ -115,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer Cannot Be Created Customer Details Missing.
+        /// </summary>
+        internal static string msgCustCreationinQuot {
+            get {
+                return ResourceManager.GetString("msgCustCreationinQuot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please insert a valid Email address..
         /// </summary>
         internal static string msgIsValiedEmail {
@@ -156,6 +165,15 @@ namespace Resources {
         internal static string msgSelect {
             get {
                 return ResourceManager.GetString("msgSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Add values to the Grid.
+        /// </summary>
+        internal static string msgSelectQuotNo {
+            get {
+                return ResourceManager.GetString("msgSelectQuotNo", resourceCulture);
             }
         }
         

@@ -14,10 +14,7 @@ namespace Advantage.ERP.DAL
         DataSet gMsGetCustomerList(DAL.DataContract.Service.CustomMaster objMst);
         SqlDataReader gMsGetUserPermission(DAL.DataContract.UserSpecificData objuMst);
         SqlDataReader gMsGetBranchData(UserSpecificData objuMst);
-        SqlDataReader gMsValidateUser(DAL.DataContract.UserSpecificData objuMst);
-        SqlDataReader gMsCheckPassword(DAL.DataContract.UserSpecificData objuMst);
-        SqlDataReader gMsCheckSpecifiedModulepermission(DAL.DataContract.UserSpecificData objuMst);
-        //  SqlDataReader PMsGetCustomerServiceCenter(string orgCode);
+       //  SqlDataReader PMsGetCustomerServiceCenter(string orgCode);
         SqlDataReader gMsGetAppliancecategory(DAL.DataContract.Service.Appliancemst objapp);
         DataSet gMsGetApplianceList(DAL.DataContract.Service.Appliancemst objapp);
         SqlDataReader gMsGetApplianceByAppCode(DAL.DataContract.Service.Appliancemst objapp);
@@ -61,6 +58,29 @@ namespace Advantage.ERP.DAL
         #endregion Vr Transaction
 
         #endregion VisitingRequest
+
+         #region UserSpecification
+         
+        SqlDataReader gMsValidateUser(DAL.DataContract.UserSpecificData objuMst);
+         SqlDataReader gMsCheckPassword(DAL.DataContract.UserSpecificData objuMst);
+         SqlDataReader gMsCheckSpecifiedModulepermission(DAL.DataContract.UserSpecificData objuMst);
+
+         #endregion
+
+         #region Quotation-Transaction
+
+        DataTable gMsItemDet(DAL.DataContract.Service.QuotationTrans qutTrans);
+        DataTable gMsQuotationList(DAL.DataContract.Service.QuotationTrans qutTrans);
+        DataSet gMsQuotationDetails(DAL.DataContract.Service.QuotationTrans qutTrans);
+        SqlDataReader gMsOrgItemList(DAL.DataContract.Service.QuotationTrans qutTrans);
+        SqlDataReader gMsGetStockCode(DAL.DataContract.Service.QuotationTrans qutTrans);
+        SqlDataReader gMsGetStockPrice(DAL.DataContract.Service.QuotationTrans qutTrans);
+        SqlDataReader gMsGetTaxPercentage(DAL.DataContract.Service.QuotationTrans qutTrans);
+        SqlDataReader gMsGetQuotationNo(DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsCreateRecordQuotation(Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+        void gMsCgMsCreateRecordQuotationMst(Advantage.ERP.DAL.DataContract.Service.CustomMaster objMst, Advantage.ERP.DAL.DataContract.Service.QuotationTrans qutTrans);
+       
+        #endregion
 
        
 

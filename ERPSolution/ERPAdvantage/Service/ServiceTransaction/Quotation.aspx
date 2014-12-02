@@ -292,7 +292,7 @@
               <PathSeparatorStyle Font-Bold="True" ForeColor="#990000" />
               <RootNodeStyle Font-Bold="True" ForeColor="#FF8000" />
           </asp:SiteMapPath>
-
+        <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
     <br />
     <br />
     <table class="auto-style7">
@@ -313,8 +313,13 @@
             </td>
             <td class="auto-style6">
                 <asp:TextBox ID="txtQuotNo" CssClass="textbox" runat="server" AutoPostBack="true"></asp:TextBox>
+<<<<<<< HEAD
                 <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px" OnClick="btnQuotNoSearch_Click"/>
                 <asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>
+=======
+                <asp:Button ID="btnQuotNoSearch" CssClass="textbox" runat="server" Text="....." Height="20px"/>
+                <%--<asp:Label ID="lblStates" runat="server" CssClass="textbox"></asp:Label>--%>
+>>>>>>> f4d26e9aa5b1326548e7612421016d59e416394d
                 <div>
              <asp:Panel ID="pnModelPopup" runat="server" BorderStyle="Solid" Height="200px" Width="600px" CssClass="popup">
              <table class="auto-style30">
@@ -460,12 +465,12 @@
                             <asp:Label ID="Label9" runat="server" Text="Name"></asp:Label>
                         </td>
                         <td class="auto-style12">
-                            <asp:TextBox ID="txtCustNo" runat="server" CssClass="textbox" Width="30px"></asp:TextBox>
+                            <asp:TextBox ID="txtCustCode" runat="server" CssClass="textbox" Width="30px"></asp:TextBox>
                             <asp:DropDownList ID="ddlPrefix" CssClass="textbox"  runat="server" Height="16px" Width="54px">
                             </asp:DropDownList>
                             <asp:TextBox ID="txtCustNmae" CssClass="textbox"  runat="server" Width="165px"></asp:TextBox>
                             <asp:Button ID="btnGetCustomer" CssClass="textbox"  runat="server" Text="...." Height="19px" />
-                            <asp:Button ID="btnCreate"  CssClass="textbox" runat="server" Text="Create" Height="19px" />
+                            <asp:Button ID="btnCreate"  CssClass="textbox" runat="server" Text="Create" Height="19px" OnClick="btnCreate_Click" />
                         </td>
                     </tr>
                     <tr>

@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Costing\CostingBusinessCalls.cs" />
+    <Compile Include="Costing\ICostingBusinessCalls.cs" />
     <Compile Include="gDropdownlist.cs" />
     <Compile Include="Inventory\IInventoryBusinessCall.cs" />
     <Compile Include="Inventory\InventoryBusinessCalls.cs" />
@@ -67,7 +69,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Costing\" />
     <Folder Include="Finance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
